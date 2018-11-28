@@ -3,7 +3,6 @@
 import React from 'react';
 import { Row, Column } from '@ncigdc/uikit/Flex';
 import styled from '@ncigdc/theme/styled';
-import GDCAppsRow from '@ncigdc/components/GDCApps/GDCAppsRow';
 import ExploringLinks from '@ncigdc/components/ExploringLinks';
 import HomeSearch from '@ncigdc/components/HomeSearch';
 import PortalSummary from '@ncigdc/modern_components/PortalSummary';
@@ -63,14 +62,9 @@ const Home = () => (
       </Row>
     </GradientContainer>
     <Column style={{ paddingTop: '7rem', alignItems: 'center' }}>
-      <Row style={{ fontSize: '1.3em' }}>GDC Applications</Row>
+      <Row style={{ fontSize: '1.3em' }}></Row>
       <Row style={{ textAlign: 'center' }}>
-        The GDC Data Portal is a robust data-driven platform that allows cancer
-        <br />
-        researchers and bioinformaticians to search and download cancer data for
-        analysis. The GDC applications include:
       </Row>
-      <GDCAppsRow />
     </Column>
   </Column>
 );
