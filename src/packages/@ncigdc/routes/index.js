@@ -10,7 +10,6 @@ import AnnotationRoute from '@ncigdc/routes/AnnotationRoute';
 import ComponentsRoute from '@ncigdc/routes/ComponentsRoute';
 import GeneRoute from '@ncigdc/routes/GeneRoute';
 import SSMRoute from '@ncigdc/routes/SSMRoute';
-import ManageSetsRoute from '@ncigdc/routes/ManageSetsRoute';
 import SmartSearchRoute from '@ncigdc/routes/SmartSearchRoute';
 import ImageViewerRoute from '@ncigdc/routes/ImageViewerRoute';
 
@@ -54,7 +53,6 @@ export default () => (
       {CaseRoute}
       {AnnotationRoute}
       {GeneRoute}
-      {ManageSetsRoute}
       {SSMRoute}
       {ImageViewerRoute}
       <Route path="/components/:component" component={ComponentsRoute} />
