@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { dismissNotification } from '@ncigdc/dux/bannerNotification';
 import nciGdcLogo from '@ncigdc/theme/images/NHI_GDC_DataPortal-logo.svg';
 import HomeLink from '@ncigdc/components/Links/HomeLink';
-import AnalysisLink from '@ncigdc/components/Links/AnalysisLink';
 import RepositoryLink from '@ncigdc/components/Links/RepositoryLink';
 import CartLink from '@ncigdc/components/Links/CartLink';
 import ExploreLink from '@ncigdc/components/Links/ExploreLink';
@@ -23,7 +22,6 @@ import SessionExpiredModal from '@ncigdc/components/Modals/SessionExpiredModal';
 import withRouter from '@ncigdc/utils/withRouter';
 import Banner from '@ncigdc/uikit/Banner';
 import { withTheme } from '@ncigdc/theme';
-import { AnalysisIcon } from '@ncigdc/theme/icons';
 import DatabaseIcon from '@ncigdc/theme/icons/Database';
 import ManageSetsLink from '@ncigdc/components/Links/ManageSetsLink';
 import { Row } from '@ncigdc/uikit/Flex';
@@ -151,18 +149,6 @@ const Header = compose(
                 <span className="header-hidden-sm">Exploration</span>
                 <Hidden>Exploration</Hidden>
               </ExploreLink>
-            </li>
-            <li>
-              <AnalysisLink exact activeStyle={styles.activeNavLink(theme)}>
-                <Row
-                  // needed for handling IE default svg style
-                  style={{ alignItems: 'center' }}
-                >
-                  <AnalysisIcon style={styles.iconPadding} />
-                  <span className="header-hidden-sm">Analysis</span>
-                  <Hidden>Analysis</Hidden>
-                </Row>
-              </AnalysisLink>
             </li>
             <li>
               <RepositoryLink exact activeStyle={styles.activeNavLink(theme)}>
