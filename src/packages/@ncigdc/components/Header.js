@@ -13,7 +13,6 @@ import ExploreLink from '@ncigdc/components/Links/ExploreLink';
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
 import GDCAppsDropdown from '@ncigdc/components/GDCApps/GDCAppsDropdown';
 import QuickSearch from '@ncigdc/components/QuickSearch/QuickSearch';
-import LoginButton from '@ncigdc/components/LoginButton';
 import UserDropdown from '@ncigdc/components/UserDropdown';
 import Hidden from '@ncigdc/components/Hidden';
 import { setModal } from '@ncigdc/dux/modal';
@@ -23,7 +22,6 @@ import withRouter from '@ncigdc/utils/withRouter';
 import Banner from '@ncigdc/uikit/Banner';
 import { withTheme } from '@ncigdc/theme';
 import DatabaseIcon from '@ncigdc/theme/icons/Database';
-import ManageSetsLink from '@ncigdc/components/Links/ManageSetsLink';
 import { Row } from '@ncigdc/uikit/Flex';
 
 import './Header.css';
@@ -166,51 +164,12 @@ const Header = compose(
                 tabIndex="0"
               />
             </li>
-            {!isInSearchMode && (
-              <li>
-                <ManageSetsLink activeStyle={styles.activeNavLink(theme)} />
-              </li>
-            )}
-            {!user &&
-              !isInSearchMode && (
-                <li>
-                  <LoginButton />
-                </li>
-              )}
             {user &&
               !isInSearchMode && (
                 <li className="header-hidden-xs">
                   <UserDropdown />
                 </li>
               )}
-            {!isInSearchMode && (
-              <li>
-                <CartLink>
-                  {count => (
-                    <span>
-                      <i
-                        className="fa fa-shopping-cart"
-                        style={styles.iconPadding}
-                      />
-                      <span
-                        className="header-hidden-sm header-hidden-md"
-                        style={styles.iconPadding}
-                      >
-                        Cart
-                      </span>
-                      <span className="label label-primary">
-                        {count.toLocaleString()}
-                      </span>
-                    </span>
-                  )}
-                </CartLink>
-              </li>
-            )}
-            {!isInSearchMode && (
-              <li>
-                <GDCAppsDropdown />
-              </li>
-            )}
           </ul>
         </nav>
       </div>
