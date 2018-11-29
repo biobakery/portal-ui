@@ -74,50 +74,16 @@ export default compose(
     >
       <div style={styles.outerContainer}>
         <div style={styles.innerContainer}>
-          <HomeLink style={styles.link}>Site Home</HomeLink>
-          <span> | </span>
-          <ExternalLink href="https://www.cancer.gov/policies">
-            Policies
-          </ExternalLink>
-          <span> | </span>
-          <ExternalLink href="https://www.cancer.gov/policies/accessibility">
-            Accessibility
-          </ExternalLink>
-          <span> | </span>
-          <ExternalLink href="https://www.cancer.gov/policies/foia">
-            FOIA
+          <span>Data sets and metadata hosted and access controlled by the </span>
+          <ExternalLink href="https://portal.firecloud.org/">
+            Broad Institute FireCloud
           </ExternalLink>
         </div>
         <div style={styles.innerContainer}>
-          <ExternalLink href="https://www.hhs.gov/">
-            U.S. Department of Health and Human Services
+          <span>Portal UI developed from the open source framework provided by the </span>
+          <ExternalLink href="https://gdc.cancer.gov/">
+            National Cancer Institute Genomic Data Commons
           </ExternalLink>
-          <span> | </span>
-          <ExternalLink href="https://www.nih.gov/">
-            National Institutes of Health
-          </ExternalLink>
-          <span> | </span>
-          <ExternalLink href="https://www.cancer.gov/">
-            National Cancer Institute
-          </ExternalLink>
-          <span> | </span>
-          <ExternalLink href="https://www.usa.gov/">USA.gov</ExternalLink>
-        </div>
-        <div style={styles.innerContainer}>
-          NIH... Turning Discovery Into Health ®
-        </div>
-        <div style={styles.innerContainer}>
-          <span> UI @ {uiVersion || (uiCommitHash || '').slice(0, 7)}</span>
-
-          <span>, API {apiVersion}</span>
-          {apiCommitHash && <span> @ {apiCommitHash.slice(0, 7)}</span>}
-
-          <span>
-            ,{' '}
-            <ExternalLink href="https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/">
-              {dataRelease}
-            </ExternalLink>
-          </span>
         </div>
       </div>
     </footer>
