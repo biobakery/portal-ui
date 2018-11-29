@@ -10,7 +10,6 @@ import { Tooltip } from '@ncigdc/uikit/Tooltip';
 import ProjectsLink from './Links/ProjectsLink';
 import RepositoryLink from './Links/RepositoryLink';
 import ExploreLink from './Links/ExploreLink';
-import AnalysisLink from './Links/AnalysisLink';
 
 const linkStyle = {
   textDecoration: 'none !important',
@@ -37,7 +36,6 @@ const linkStyle = {
 const Projects = styled(ProjectsLink, linkStyle);
 const Cohort = styled(ExploreLink, linkStyle);
 const Repository = styled(RepositoryLink, linkStyle);
-const Analysis = styled(AnalysisLink, linkStyle);
 
 const Background = styled.span({
   backgroundColor: 'rgba(255, 255, 255, 0.35)',
@@ -68,14 +66,6 @@ const ExploringLinks = () => (
         </Background>
         &nbsp; <span style={{ verticalAlign: 'middle' }}>Exploration</span>
       </Cohort>
-    </Tooltip>
-    <Tooltip Component="Launch various analyses using custom sets">
-      <Analysis backgroundColor="#6668c3">
-        <Background>
-          <AnalysisIcon />
-        </Background>
-        &nbsp; <span style={{ verticalAlign: 'middle' }}>Analysis</span>
-      </Analysis>
     </Tooltip>
     <Tooltip Component="Browse and download data">
       <Repository backgroundColor="rgb(3, 111, 173)">
