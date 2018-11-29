@@ -45,9 +45,9 @@ const Home = () => (
     <GradientContainer>
       <InsideContainer flex="1">
         <SubTitle style={{ fontSize: '2rem' }}>
-          Harmonized Cancer Datasets
+          <span>Meta`omic Datasets</span>
         </SubTitle>
-        <Title>Genomic Data Commons Data Portal</Title>
+        <Title>BIOM-Mass Data Portal</Title>
         <SubTitle style={{ margin: '1rem 0' }}>
           <em>Get Started by Exploring:</em>
         </SubTitle>
