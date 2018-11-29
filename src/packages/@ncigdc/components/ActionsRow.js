@@ -8,7 +8,6 @@ import { stringifyJSONParam } from "@ncigdc/utils/uri";
 import { Row } from "@ncigdc/uikit/Flex";
 import Button from "@ncigdc/uikit/Button";
 import withRouter from "@ncigdc/utils/withRouter";
-import AnnotationsLink from "@ncigdc/components/Links/AnnotationsLink";
 import { CreateRepositoryCaseSetButton } from "@ncigdc/modern_components/withSetAction";
 import { fetchFilesAndAdd } from "@ncigdc/dux/cart";
 import DownloadManifestButton from "@ncigdc/components/DownloadManifestButton";
@@ -88,9 +87,6 @@ export default compose(
             </RepositorySlideCount>
           )}
         </Row>
-        <AnnotationsLink>
-          <i className="fa fa-edit" /> Browse Annotations
-        </AnnotationsLink>
       </Row>
     );
   }
