@@ -25,10 +25,6 @@ const RepositoryRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/RepositoryRoute'),
 });
 
-const ExploreRoute = LoadableWithLoading({
-  loader: () => import('@ncigdc/routes/ExploreRoute'),
-});
-
 const ProjectsRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/ProjectsRoute'),
 });
@@ -44,7 +40,6 @@ export default () => (
       <Route exact path="/" component={HomeRoute} />
       <Route exact path="/cart" component={CartRoute} />
       <Route exact path="/repository" component={RepositoryRoute} />
-      <Route exact path="/exploration" component={ExploreRoute} />
       <Route exact path="/projects" component={ProjectsRoute} />
       <Route exact path="/annotations" component={AnnotationsRoute} />
       <Route exact path="/query" component={SmartSearchRoute} />

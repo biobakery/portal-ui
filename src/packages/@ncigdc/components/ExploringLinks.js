@@ -9,7 +9,6 @@ import { Tooltip } from '@ncigdc/uikit/Tooltip';
 
 import ProjectsLink from './Links/ProjectsLink';
 import RepositoryLink from './Links/RepositoryLink';
-import ExploreLink from './Links/ExploreLink';
 
 const linkStyle = {
   textDecoration: 'none !important',
@@ -34,7 +33,6 @@ const linkStyle = {
 };
 
 const Projects = styled(ProjectsLink, linkStyle);
-const Cohort = styled(ExploreLink, linkStyle);
 const Repository = styled(RepositoryLink, linkStyle);
 
 const Background = styled.span({
@@ -58,14 +56,6 @@ const ExploringLinks = () => (
         </Background>
         &nbsp; <span style={{ verticalAlign: 'middle' }}>Projects</span>
       </Projects>
-    </Tooltip>
-    <Tooltip Component="Discover cases, genes and mutations">
-      <Cohort backgroundColor="#753685">
-        <Background>
-          <i className="icon-gdc-data" />
-        </Background>
-        &nbsp; <span style={{ verticalAlign: 'middle' }}>Exploration</span>
-      </Cohort>
     </Tooltip>
     <Tooltip Component="Browse and download data">
       <Repository backgroundColor="rgb(3, 111, 173)">

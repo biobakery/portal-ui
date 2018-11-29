@@ -9,7 +9,6 @@ import biomMassLogo from '@ncigdc/theme/images/biom_mass_logo_tiny.png'
 import HomeLink from '@ncigdc/components/Links/HomeLink';
 import RepositoryLink from '@ncigdc/components/Links/RepositoryLink';
 import CartLink from '@ncigdc/components/Links/CartLink';
-import ExploreLink from '@ncigdc/components/Links/ExploreLink';
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
 import GDCAppsDropdown from '@ncigdc/components/GDCApps/GDCAppsDropdown';
 import UserDropdown from '@ncigdc/components/UserDropdown';
@@ -136,13 +135,6 @@ const Header = compose(
                 <span className="header-hidden-sm">Projects</span>
                 <Hidden>Projects</Hidden>
               </ProjectsLink>
-            </li>
-            <li>
-              <ExploreLink exact activeStyle={styles.activeNavLink(theme)}>
-                <i className="icon-gdc-data" style={styles.iconPadding} />
-                <span className="header-hidden-sm">Exploration</span>
-                <Hidden>Exploration</Hidden>
-              </ExploreLink>
             </li>
             <li>
               <RepositoryLink exact activeStyle={styles.activeNavLink(theme)}>
