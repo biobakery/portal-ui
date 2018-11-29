@@ -50,14 +50,6 @@ const PortalSummary = compose(
           marginLeft: '2rem',
         }}
       >
-        <a
-          className="test-release"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/"
-        >
-          {props.dataRelease}
-        </a>
       </div>
     </Row>
     <Column>
