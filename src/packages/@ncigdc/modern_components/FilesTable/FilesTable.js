@@ -5,15 +5,12 @@ import { compose, setDisplayName, branch, renderComponent } from 'recompose';
 import { connect } from 'react-redux';
 import Pagination from '@ncigdc/components/Pagination';
 import Showing from '@ncigdc/components/Pagination/Showing';
-import AddToCartButtonAll from '@ncigdc/components/AddToCartButtonAll';
 import { Row } from '@ncigdc/uikit/Flex';
 import TableActions from '@ncigdc/components/TableActions';
 import tableModels from '@ncigdc/tableModels';
 import Table, { Th, Tr, Td } from '@ncigdc/uikit/Table';
 import styled from '@ncigdc/theme/styled';
 import Button from '@ncigdc/uikit/Button';
-import AddToCartButtonSingle from '@ncigdc/components/AddToCartButtonSingle';
-import { toggleFilesInCart } from '@ncigdc/dux/cart';
 import { Tooltip } from '@ncigdc/uikit/Tooltip';
 import timestamp from '@ncigdc/utils/timestamp';
 
@@ -45,7 +42,7 @@ export default compose(
     viewer: { repository: { files: { hits } } },
     entityType = 'files',
     tableColumns,
-    canAddToCart = true,
+    canAddToCart = false,
     tableHeader,
     dispatch,
     parentVariables,
@@ -101,10 +98,6 @@ export default compose(
             headings={[
               canAddToCart ? (
                 <Th key="add_to_cart">
-                  <AddToCartButtonAll
-                    edges={hits.edges.map(e => e.node)}
-                    total={hits.total}
-                  />
                 </Th>
               ) : (
                 <Th key="remove_from_cart" />
@@ -119,19 +112,6 @@ export default compose(
                   <Tr key={e.node.id} index={i}>
                     {[
                       <Td key="add_to_cart">
-                        {canAddToCart && (
-                          <AddToCartButtonSingle file={e.node} />
-                        )}
-                        {!canAddToCart && (
-                          <RemoveButton
-                            onClick={() => dispatch(toggleFilesInCart(e.node))}
-                            aria-label="Remove"
-                          >
-                            <Tooltip Component={'Remove'}>
-                              <i className="fa fa-trash-o" />
-                            </Tooltip>
-                          </RemoveButton>
-                        )}
                       </Td>,
                       ...tableInfo
                         .filter(x => x.td)
