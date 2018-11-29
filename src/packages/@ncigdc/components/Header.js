@@ -12,7 +12,6 @@ import CartLink from '@ncigdc/components/Links/CartLink';
 import ExploreLink from '@ncigdc/components/Links/ExploreLink';
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
 import GDCAppsDropdown from '@ncigdc/components/GDCApps/GDCAppsDropdown';
-import QuickSearch from '@ncigdc/components/QuickSearch/QuickSearch';
 import UserDropdown from '@ncigdc/components/UserDropdown';
 import Hidden from '@ncigdc/components/Hidden';
 import { setModal } from '@ncigdc/dux/modal';
@@ -38,7 +37,6 @@ const styles = {
 
 const Header = compose(
   withState('isCollapsed', 'setIsCollapsed', true),
-  withState('isInSearchMode', 'setIsInSearchMode', false),
   withRouter,
   connect(state => ({
     notifications: state.bannerNotification,
@@ -78,8 +76,6 @@ const Header = compose(
     theme,
     isCollapsed,
     setIsCollapsed,
-    isInSearchMode,
-    setIsInSearchMode,
   }) => (
     <header
       id="header"
@@ -155,21 +151,6 @@ const Header = compose(
                 <Hidden>Repository</Hidden>
               </RepositoryLink>
             </li>
-          </ul>
-          <ul className="nav navbar-nav navbar-right">
-            <li>
-              <QuickSearch
-                isInSearchMode={isInSearchMode}
-                setIsInSearchMode={setIsInSearchMode}
-                tabIndex="0"
-              />
-            </li>
-            {user &&
-              !isInSearchMode && (
-                <li className="header-hidden-xs">
-                  <UserDropdown />
-                </li>
-              )}
           </ul>
         </nav>
       </div>

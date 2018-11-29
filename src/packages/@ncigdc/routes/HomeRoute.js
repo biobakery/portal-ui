@@ -4,7 +4,6 @@ import React from 'react';
 import { Row, Column } from '@ncigdc/uikit/Flex';
 import styled from '@ncigdc/theme/styled';
 import ExploringLinks from '@ncigdc/components/ExploringLinks';
-import HomeSearch from '@ncigdc/components/HomeSearch';
 import PortalSummary from '@ncigdc/modern_components/PortalSummary';
 import HumanBody from '@ncigdc/modern_components/HumanBody';
 import { zDepth1 } from '@ncigdc/theme/mixins';
@@ -52,7 +51,6 @@ const Home = () => (
           <em>Get Started by Exploring:</em>
         </SubTitle>
         <ExploringLinks />
-        <HomeSearch />
         <Container className="test-portal-summary">
           <PortalSummary />
         </Container>
