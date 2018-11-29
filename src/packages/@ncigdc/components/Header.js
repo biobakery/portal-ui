@@ -5,7 +5,7 @@ import { compose, pure, lifecycle, withHandlers, withState } from 'recompose';
 import { connect } from 'react-redux';
 
 import { dismissNotification } from '@ncigdc/dux/bannerNotification';
-import nciGdcLogo from '@ncigdc/theme/images/NHI_GDC_DataPortal-logo.svg';
+import biomMassLogo from '@ncigdc/theme/images/biom_mass_logo_tiny.png'
 import HomeLink from '@ncigdc/components/Links/HomeLink';
 import RepositoryLink from '@ncigdc/components/Links/RepositoryLink';
 import CartLink from '@ncigdc/components/Links/CartLink';
@@ -112,7 +112,7 @@ const Header = compose(
             tabIndex="0"
             style={{ padding: 0 }}
           >
-            <img src={nciGdcLogo} alt="gdc-logo" />
+            <img src={biomMassLogo} alt="biommass-logo" />
             <Hidden>
               <h1>GDC Home</h1>
             </Hidden>
