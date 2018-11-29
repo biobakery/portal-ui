@@ -11,7 +11,6 @@ import withRouter from "@ncigdc/utils/withRouter";
 import AnnotationsLink from "@ncigdc/components/Links/AnnotationsLink";
 import { CreateRepositoryCaseSetButton } from "@ncigdc/modern_components/withSetAction";
 import { fetchFilesAndAdd } from "@ncigdc/dux/cart";
-import { ShoppingCartIcon } from "@ncigdc/theme/icons";
 import DownloadManifestButton from "@ncigdc/components/DownloadManifestButton";
 import { IGroupFilter } from "@ncigdc/utils/filters/types";
 import { DISPLAY_SLIDES } from "@ncigdc/utils/constants";
@@ -60,57 +59,6 @@ export default compose(
         }}
       >
         <Row spacing="0.2rem">
-          <Button
-            onClick={() => dispatch(fetchFilesAndAdd(filters, totalFiles))}
-            leftIcon={<ShoppingCartIcon />}
-          >
-            Add All Files to Cart
-          </Button>
-          <DownloadManifestButton fileCount={totalFiles} filters={filters} />
-          {filters ? (
-            <CreateRepositoryCaseSetButton
-              filters={filters}
-              disabled={!totalCases}
-              style={{ paddingLeft: "5px" }}
-              onComplete={(setId: String) => {
-                push({
-                  pathname: "/exploration",
-                  query: {
-                    filters: stringifyJSONParam({
-                      content: [
-                        {
-                          content: {
-                            field: "cases.case_id",
-                            value: [`set_id:${setId}`]
-                          },
-                          op: "IN"
-                        }
-                      ],
-                      op: "AND"
-                    })
-                  }
-                });
-              }}
-            >
-              {"View "}
-              {totalCases.toLocaleString()} {pluralize(" Case", totalCases)}
-              {" in Exploration"}
-            </CreateRepositoryCaseSetButton>
-          ) : (
-            <Button
-              disabled={!totalCases}
-              style={{ paddingLeft: "5px" }}
-              onClick={() =>
-                push({
-                  pathname: "/exploration"
-                })}
-            >
-              {"View "}
-              {totalCases.toLocaleString()} {pluralize(" Case", totalCases)}
-              {" in Exploration"}
-            </Button>
-          )}
-
           {DISPLAY_SLIDES && (
             <RepositorySlideCount filters={filters}>
               {(count: Number, loading: Boolean) => (
