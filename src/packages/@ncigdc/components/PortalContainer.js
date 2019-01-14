@@ -15,7 +15,6 @@ import withRouter from '@ncigdc/utils/withRouter';
 import { GlobalTooltip } from '@ncigdc/uikit/Tooltip';
 import styled from '@ncigdc/theme/styled';
 import { setModal } from '@ncigdc/dux/modal';
-import FirstTimeModal from '@ncigdc/components/Modals/FirstTimeModal';
 
 const SkipLink = styled.a({
   position: 'absolute',
@@ -30,26 +29,11 @@ const SkipLink = styled.a({
   }),
 });
 
-const FIRST_TIME_KEY = 'NCI-Warning';
-
 const enhance = compose(
   withRouter,
   connect(store => ({ notifications: store.bannerNotification })),
   lifecycle({
     componentDidMount(): void {
-      if (!Cookies.get(FIRST_TIME_KEY)) {
-        this.props.dispatch(
-          setModal(
-            <FirstTimeModal
-              onClose={() => {
-                Cookies.set(FIRST_TIME_KEY, true);
-              }}
-            />,
-            false,
-          ),
-        );
-      }
-
       let lastPathname = this.props.location.pathname;
       this.removeListen = this.props.history.listen(location => {
         if (location.pathname !== lastPathname) {
