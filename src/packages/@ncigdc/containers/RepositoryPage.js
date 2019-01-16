@@ -104,11 +104,6 @@ export const RepositoryPageComponent = (props: TProps) => {
   return (
     <div className="test-repository-page">
       <SearchPage
-        filtersLinkProps={{
-          hideLinkOnEmpty: false,
-          linkPathname: '/query',
-          linkText: 'Advanced Search',
-        }}
         facetTabs={[
           {
             id: 'files',
