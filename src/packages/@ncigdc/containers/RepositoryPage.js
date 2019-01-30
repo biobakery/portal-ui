@@ -8,7 +8,6 @@ import { Row } from '@ncigdc/uikit/Flex';
 import SearchPage from '@ncigdc/components/SearchPage';
 import TabbedLinks from '@ncigdc/components/TabbedLinks';
 import NoResultsMessage from '@ncigdc/components/NoResultsMessage';
-import RepoCasesTable from '@ncigdc/modern_components/RepoCasesTable';
 import CaseAggregations from '@ncigdc/modern_components/CaseAggregations';
 import FileAggregations from '@ncigdc/modern_components/FileAggregations';
 
@@ -160,22 +159,6 @@ export const RepositoryPageComponent = (props: TProps) => {
                         aggregations={props.viewer.repository.files.pies}
                       />
                       <FilesTable />
-                    </div>
-                  ) : (
-                    <NoResultsMessage>
-                      No results found using those filters.
-                    </NoResultsMessage>
-                  ),
-                },
-                {
-                  id: 'cases',
-                  text: `Cases (${caseCount.toLocaleString()})`,
-                  component: !!props.viewer.repository.cases.hits.total ? (
-                    <div>
-                      <RepoCasesPies
-                        aggregations={props.viewer.repository.cases.pies}
-                      />
-                      <RepoCasesTable />
                     </div>
                   ) : (
                     <NoResultsMessage>
