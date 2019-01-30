@@ -3,9 +3,7 @@
 import React from 'react';
 import { uniq } from 'lodash';
 import { Th, Td, TdNum, ThNum } from '@ncigdc/uikit/Table';
-import CaseLink from '@ncigdc/components/Links/CaseLink';
 import ProjectLink from '@ncigdc/components/Links/ProjectLink';
-import { RepositoryCasesLink } from '@ncigdc/components/Links/RepositoryLink';
 import FileLink from '@ncigdc/components/Links/FileLink';
 import { makeFilter } from '@ncigdc/utils/filters';
 import FileSize from '@ncigdc/components/FileSize';
@@ -74,23 +72,7 @@ const filesTableModel = [
       node: { cases: { hits: { total = 0, edges: cases } }, file_id: fileId },
     }) => (
       <TdNum>
-        {total > 1 && (
-          <RepositoryCasesLink
-            query={{
-              filters: makeFilter(
-                [{ field: 'files.file_id', value: [fileId] }],
-                false,
-              ),
-            }}
-          >
-            {total.toLocaleString()}
-          </RepositoryCasesLink>
-        )}
-        {total === 1 && (
-          <CaseLink uuid={cases[0].node.case_id}>{total}</CaseLink>
-        )}
-
-        {total === 0 && 0}
+        {total.toLocaleString()}
       </TdNum>
     ),
     downloadable: true,
