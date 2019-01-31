@@ -194,26 +194,7 @@ const CaseAggregationsComponent = (props: TProps) => (
           &nbsp;|&nbsp;
         </span>
       )}
-      <a
-        onClick={() => props.setShouldShowFacetSelection(true)}
-        style={styles.link}
-      >
-        Add a Case/Biospecimen Filter
-      </a>
     </div>
-    <Modal
-      isOpen={props.shouldShowFacetSelection}
-      style={{ content: { border: 0, padding: '15px' } }}
-    >
-      <FacetSelection
-        title="Add a Case/Biospecimen Filter"
-        docType="cases"
-        onSelect={props.handleSelectFacet}
-        onRequestClose={() => props.setShouldShowFacetSelection(false)}
-        excludeFacetsBy={props.facetExclusionTest}
-        additionalFacetData={props.parsedFacets}
-      />
-    </Modal>
 
     {props.userSelectedFacets.map(facet => (
       <FacetWrapper
