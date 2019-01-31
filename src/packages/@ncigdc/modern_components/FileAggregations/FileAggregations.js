@@ -125,28 +125,7 @@ const FileAggregations = (props: TProps) => (
           &nbsp;|&nbsp;
         </span>
       )}
-      <a
-        onClick={() => props.setShouldShowFacetSelection(true)}
-        style={styles.link}
-      >
-        Add a File Filter
-      </a>
     </div>
-    <Modal
-      isOpen={props.shouldShowFacetSelection}
-      style={{ content: { border: 0, padding: '15px' } }}
-    >
-      <FacetSelection
-        title="Add a File Filter"
-        relayVarName="repoCustomFacetFields"
-        docType="files"
-        onSelect={props.handleSelectFacet}
-        onRequestClose={() => props.setShouldShowFacetSelection(false)}
-        excludeFacetsBy={props.facetExclusionTest}
-        additionalFacetData={props.parsedFacets}
-        relay={props.relay}
-      />
-    </Modal>
 
     {props.userSelectedFacets.map(facet => (
       <FacetWrapper
