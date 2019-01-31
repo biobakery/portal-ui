@@ -3,8 +3,6 @@
 import React from 'react';
 import { uniq } from 'lodash';
 import { Th, Td, TdNum, ThNum } from '@ncigdc/uikit/Table';
-import ProjectLink from '@ncigdc/components/Links/ProjectLink';
-import FileLink from '@ncigdc/components/Links/FileLink';
 import { makeFilter } from '@ncigdc/utils/filters';
 import FileSize from '@ncigdc/components/FileSize';
 
@@ -14,13 +12,8 @@ const filesTableModel = [
     id: 'file_id',
     th: () => <Th>File UUID</Th>,
     td: ({ node }) => (
-      <Td>
-        <FileLink
-          uuid={node.file_id}
-          style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}
-        >
-          {node.file_id}
-        </FileLink>
+      <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
+        {node.file_id}
       </Td>
     ),
     sortable: true,
@@ -54,46 +47,10 @@ const filesTableModel = [
     downloadable: true,
     th: () => <Th>File Name</Th>,
     td: ({ node }) => (
-      <Td>
-        <FileLink
-          uuid={node.file_id}
-          style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}
-        >
-          {node.file_name}
-        </FileLink>
+      <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
+        {node.file_name}
       </Td>
     ),
-  },
-  {
-    name: 'Cases',
-    id: 'cases.case_id',
-    th: () => <ThNum>Cases</ThNum>,
-    td: ({
-      node: { cases: { hits: { total = 0, edges: cases } }, file_id: fileId },
-    }) => (
-      <TdNum>
-        {total.toLocaleString()}
-      </TdNum>
-    ),
-    downloadable: true,
-  },
-  {
-    name: 'Project',
-    id: 'cases.project.project_id',
-    th: () => <Th>Project</Th>,
-    td: ({ node }) => (
-      <Td>
-        {uniq(
-          node.cases.hits.edges.map(e => e.node.project.project_id),
-        ).map(pId => (
-          <ProjectLink key={pId} uuid={pId}>
-            {pId}
-          </ProjectLink>
-        ))}
-      </Td>
-    ),
-    sortable: true,
-    downloadable: true,
   },
   {
     name: 'Data Category',
@@ -122,38 +79,6 @@ const filesTableModel = [
     ),
     sortable: true,
     downloadable: true,
-  },
-  {
-    name: 'Annotations',
-    id: 'annotations.annotation_id',
-    th: () => <ThNum>Annotations</ThNum>,
-    td: ({ node }) => (
-      <TdNum>
-        {
-          // leaving link off until we have a proper way to filter the annotation page by file
-          node.annotations.hits.total
-        }
-      </TdNum>
-    ),
-    downloadable: true,
-  },
-  {
-    name: 'Data Type',
-    id: 'data_type',
-    th: () => <Th>Data Type</Th>,
-    td: ({ node }) => <Td>{node.data_type || '--'}</Td>,
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-  },
-  {
-    name: 'Experimental Strategy',
-    id: 'experimental_strategy',
-    th: () => <Th>Experimental Strategy</Th>,
-    td: ({ node }) => <Td>{node.experimental_strategy || '--'}</Td>,
-    sortable: false,
-    downloadable: true,
-    hidden: true,
   },
   {
     name: 'Platform',
