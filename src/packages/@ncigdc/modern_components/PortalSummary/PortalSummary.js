@@ -50,6 +50,7 @@ const PortalSummary = compose(
           marginLeft: '2rem',
         }}
       >
+        {props.dataRelease}
       </div>
     </Row>
     <Column>
