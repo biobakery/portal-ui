@@ -6,10 +6,7 @@ import { connect } from 'react-redux';
 import styled from '@ncigdc/theme/styled';
 import DoubleHelix from '@ncigdc/theme/icons/DoubleHelix';
 import MutationIcon from '@ncigdc/theme/icons/Mutation';
-import ProjectsCount from '@ncigdc/components/ProjectsCount';
 import PrimarySitesCount from '@ncigdc/components/PrimarySitesCount';
-import CasesCount from '@ncigdc/components/CasesCount';
-import FilesCount from '@ncigdc/components/FilesCount';
 
 import { Row, Column } from '@ncigdc/uikit/Flex';
 
@@ -63,7 +60,7 @@ const PortalSummary = compose(
               className="icon-gdc-projects project-icon"
             />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <ProjectsCount hits={props.viewer.projects.hits} />
+              <span> {props.viewer.projects.hits.total} </span>
             </span>
           </Row>
         </CountBox>
@@ -89,7 +86,7 @@ const PortalSummary = compose(
               className="icon-gdc-cases data-icon"
             />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <CasesCount hits={props.viewer.repository.cases.hits} />
+              <span> {props.viewer.repository.cases.hits.total} </span>
             </span>
           </Row>
         </CountBox>
@@ -103,7 +100,7 @@ const PortalSummary = compose(
               className="fa fa-file-o data-icon"
             />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <FilesCount hits={props.viewer.repository.files.hits} />
+              <span> {props.viewer.repository.files.hits.total} </span>
             </span>
           </Row>
         </CountBox>
@@ -112,10 +109,7 @@ const PortalSummary = compose(
           <Row>
             <DoubleHelix color="#01b987" width={20} height={35} />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <CasesCount
-                className="test-genes-count"
-                hits={props.viewer.explore.genes.hits}
-              />
+              <span>{props.viewer.explore.genes.hits.total}</span>
             </span>
           </Row>
         </CountBox>
@@ -124,10 +118,7 @@ const PortalSummary = compose(
           <Row>
             <MutationIcon color="#01b987" width="32px" height="39px" />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <FilesCount
-                className="test-mutations-count"
-                hits={props.viewer.explore.ssms.hits}
-              />
+              <span>{props.viewer.explore.ssms.hits.total}</span>
             </span>
           </Row>
         </CountBox>
