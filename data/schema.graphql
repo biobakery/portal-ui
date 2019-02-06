@@ -6275,6 +6275,7 @@ type Root {
   ): Node
   viewer: Root
   user: User
+  count: Count
   query(query: String, types: [String]): QueryResults
   repository: Repository
   explore: Explore
@@ -7421,6 +7422,15 @@ type TumorGenotype {
 
 type User {
   username: String
+}
+
+type Count {
+  projects: String
+  genes: String
+  ssms: String
+  cases: String
+  files: String
+  primarySite: String
 }
 
 type Validation {
