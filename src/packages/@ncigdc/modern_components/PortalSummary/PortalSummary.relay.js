@@ -15,12 +15,12 @@ export default (Component: ReactClass<*>) => (props: Object) => {
         query PortalSummary_relayQuery {
           viewer {
             count {
-               cases
-               primarySite
                projects
-               genes
-               ssms
-               files
+               participants
+               samples
+               dataFormats
+               rawFiles
+               processedFiles
             }
           }
         }

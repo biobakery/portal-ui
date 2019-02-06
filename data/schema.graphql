@@ -7426,11 +7426,11 @@ type User {
 
 type Count {
   projects: String
-  genes: String
-  ssms: String
-  cases: String
-  files: String
-  primarySite: String
+  participants: String
+  samples: String
+  dataFormats: String
+  rawFiles: String
+  processedFiles: String
 }
 
 type Validation {

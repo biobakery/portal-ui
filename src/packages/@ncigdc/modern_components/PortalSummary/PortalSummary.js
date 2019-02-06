@@ -25,7 +25,7 @@ const Title = styled(Row, {
 const PortalSummary = compose(
   branch(
     ({ viewer }) =>
-      !viewer.count.files,
+      !viewer.count.rawFiles,
     renderComponent(() => <div>No data found.</div>),
   ),
   connect(state => ({
@@ -62,58 +62,61 @@ const PortalSummary = compose(
           </Row>
         </CountBox>
         <CountBox>
-          <Title className="test-primary-sites-label">Primary Sites</Title>
+          <Title className="test-primary-sites-label">Participants</Title>
           <Row>
             <i
               style={{ color: '#01b987', fontSize: '3rem' }}
-              className="icon-gdc-cases data-icon"
+              className="fa fa-users data-icon"
             />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <span> {props.viewer.count.primarySite} </span>
+              <span> {props.viewer.count.participants} </span>
             </span>
           </Row>
         </CountBox>
         <CountBox>
-          <Title className="test-cases-label">Cases</Title>
+          <Title className="test-cases-label">Samples</Title>
           <Row>
             <i
               style={{ color: '#01b987', fontSize: '3rem' }}
-              className="icon-gdc-cases data-icon"
+              className="fa fa-user-circle-o data-icon"
             />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <span> {props.viewer.count.cases} </span>
+              <span> {props.viewer.count.samples} </span>
             </span>
           </Row>
         </CountBox>
       </Row>
       <Row>
         <CountBox>
-          <Title className="test-files-label">Files</Title>
+          <Title className="test-files-label">Data Formats</Title>
           <Row>
             <i
               style={{ color: '#01b987', fontSize: '3rem' }}
-              className="fa fa-file-o data-icon"
+              className="fa fa-file-code-o data-icon"
             />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <span> {props.viewer.count.files} </span>
+              <span> {props.viewer.count.dataFormats} </span>
             </span>
           </Row>
         </CountBox>
         <CountBox>
-          <Title className="test-genes-label">Genes</Title>
+          <Title className="test-genes-label">Raw Files</Title>
           <Row>
             <DoubleHelix color="#01b987" width={20} height={35} />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <span>{props.viewer.count.genes}</span>
+              <span>{props.viewer.count.rawFiles}</span>
             </span>
           </Row>
         </CountBox>
         <CountBox>
-          <Title className="test-mutations-label">Mutations</Title>
+          <Title className="test-mutations-label">Processed Files</Title>
           <Row>
-            <MutationIcon color="#01b987" width="32px" height="39px" />
+            <i
+              style={{ color: '#01b987', fontSize: '3rem' }}
+              className="fa fa-picture-o data-icon"
+            />
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <span>{props.viewer.count.ssms}</span>
+              <span>{props.viewer.count.processedFiles}</span>
             </span>
           </Row>
         </CountBox>
