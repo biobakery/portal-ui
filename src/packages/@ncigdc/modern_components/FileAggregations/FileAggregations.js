@@ -110,23 +110,6 @@ export type TProps = {
 
 const FileAggregations = (props: TProps) => (
   <div className="test-file-aggregations">
-    <div
-      className="text-right"
-      style={{
-        padding: '10px 15px',
-        borderBottom: `1px solid ${props.theme.greyScale5}`,
-      }}
-    >
-      {!!props.userSelectedFacets.length && (
-        <span>
-          <a onClick={props.handleResetFacets} style={styles.link}>
-            Reset
-          </a>{' '}
-          &nbsp;|&nbsp;
-        </span>
-      )}
-    </div>
-
     {props.userSelectedFacets.map(facet => (
       <FacetWrapper
         isRemovable
@@ -138,33 +121,6 @@ const FileAggregations = (props: TProps) => (
         style={{ borderBottom: `1px solid ${props.theme.greyScale5}` }}
       />
     ))}
-    <FacetHeader
-      title="File"
-      field="files.file_id"
-      collapsed={props.fileIdCollapsed}
-      setCollapsed={props.setFileIdCollapsed}
-      description="Enter File UUID or name"
-    />
-    <SuggestionFacet
-      title="File"
-      collapsed={props.fileIdCollapsed}
-      doctype="files"
-      fieldNoDoctype="file_id"
-      placeholder="e.g. 142682.bam, 4f6e2e7a-b..."
-      hits={props.suggestions}
-      setAutocomplete={props.setAutocomplete}
-      style={{ borderBottom: `1px solid ${props.theme.greyScale5}` }}
-      dropdownItem={x => (
-        <Row>
-          <FileIcon style={{ paddingRight: '1rem', paddingTop: '1rem' }} />
-          <div>
-            <div style={{ fontWeight: 'bold' }}>{x.file_id}</div>
-            <div style={{ fontSize: '80%' }}>{x.submitter_id}</div>
-            {x.file_name}
-          </div>
-        </Row>
-      )}
-    />
     {_.reject(presetFacets, { full: 'files.file_id' }).map(facet => (
       <FacetWrapper
         key={facet.full}
