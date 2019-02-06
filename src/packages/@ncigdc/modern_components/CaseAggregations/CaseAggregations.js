@@ -64,21 +64,6 @@ export type TProps = {
 
 const presetFacets = [
   {
-    title: 'Case',
-    field: 'case_id',
-    full: 'cases.case_id',
-    doc_type: 'cases',
-    type: 'id',
-  },
-  {
-    title: 'Case ID',
-    field: 'submitter_id',
-    full: 'cases.submitter_id',
-    doc_type: 'cases',
-    type: 'id',
-    placeholder: 'eg. TCGA-DD*, *DD*, TCGA-DD-AAVP',
-  },
-  {
     title: 'Primary Site',
     field: 'primary_site',
     full: 'cases.primary_site',
@@ -179,23 +164,6 @@ const styles = {
 
 const CaseAggregationsComponent = (props: TProps) => (
   <div className="test-case-aggregations">
-    <div
-      className="text-right"
-      style={{
-        padding: '10px 15px',
-        borderBottom: `1px solid ${props.theme.greyScale5}`,
-      }}
-    >
-      {!!props.userSelectedFacets.length && (
-        <span>
-          <a onClick={props.handleResetFacets} style={styles.link}>
-            Reset
-          </a>{' '}
-          &nbsp;|&nbsp;
-        </span>
-      )}
-    </div>
-
     {props.userSelectedFacets.map(facet => (
       <FacetWrapper
         isRemovable
@@ -207,52 +175,6 @@ const CaseAggregationsComponent = (props: TProps) => (
         style={{ borderBottom: `1px solid ${props.theme.greyScale5}` }}
       />
     ))}
-
-    <FacetHeader
-      title="Case"
-      field="cases.case_id"
-      collapsed={props.caseIdCollapsed}
-      setCollapsed={props.setCaseIdCollapsed}
-      description={
-        'Enter UUID or ID of Case, Sample, Portion, Slide, Analyte or Aliquot'
-      }
-    />
-
-    <SuggestionFacet
-      title="Case"
-      collapsed={props.caseIdCollapsed}
-      doctype="cases"
-      fieldNoDoctype="case_id"
-      placeholder="e.g. TCGA-A5-A0G2, 432fe4a9-2..."
-      hits={props.suggestions}
-      setAutocomplete={props.setAutocomplete}
-      dropdownItem={x => (
-        <Row>
-          <CaseIcon style={{ paddingRight: '1rem', paddingTop: '1rem' }} />
-          <div>
-            <div style={{ fontWeight: 'bold' }}>{x.case_id}</div>
-            <div style={{ fontSize: '80%' }}>{x.submitter_id}</div>
-            {x.project.project_id}
-          </div>
-        </Row>
-      )}
-    />
-    <UploadSetButton
-      type="case"
-      style={{
-        width: '100%',
-        borderBottom: `1px solid ${props.theme.greyScale5}`,
-        padding: '0 1.2rem 1rem',
-      }}
-      UploadModal={UploadCaseSet}
-      defaultQuery={{
-        pathname: '/repository',
-        query: { searchTableTab: 'cases' },
-      }}
-      idField="cases.case_id"
-    >
-      Upload Case Set
-    </UploadSetButton>
     {_.reject(presetFacets, { full: 'cases.case_id' }).map(facet => (
       <FacetWrapper
         key={facet.full}
