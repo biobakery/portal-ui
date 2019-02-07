@@ -11,6 +11,8 @@ import withRouter from '@ncigdc/utils/withRouter';
 import { createDataCategoryColumns } from '@ncigdc/tableModels/utils';
 import CollapsibleList from '@ncigdc/uikit/CollapsibleList';
 
+import { PROJECTLINK } from '@ncigdc/utils/constants'
+
 type TLinkProps = { node: Object, fields?: Array<Object>, children?: mixed };
 type TLink = (props: TLinkProps) => any;
 
@@ -31,7 +33,9 @@ const projectsTableModel = [
     th: () => <Th rowSpan="2">Project</Th>,
     td: ({ node }) => (
       <Td>
-        {node.project_id}
+        <a href={PROJECTLINK}>
+          {node.project_id}
+        </a>
       </Td>
     ),
   },

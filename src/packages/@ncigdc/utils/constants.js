@@ -5,6 +5,10 @@ export const UI_COMMIT_HASH = process.env.REACT_APP_COMMIT_HASH;
 
 const localStorage = window.localStorage || {};
 
+/* Links */
+
+export const PROJECTLINK = "https://portal.firecloud.org/"
+
 /* API ENDPOINTS */
 
 export const AUTH =

@@ -6,7 +6,7 @@ import { Th, Td, TdNum, ThNum } from '@ncigdc/uikit/Table';
 import { makeFilter } from '@ncigdc/utils/filters';
 import FileSize from '@ncigdc/components/FileSize';
 
-const PROJECTLINK = "https://portal.firecloud.org/"
+import { PROJECTLINK } from '@ncigdc/utils/constants'
 
 const filesTableModel = [
   {
