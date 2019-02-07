@@ -6,6 +6,8 @@ import { Th, Td, TdNum, ThNum } from '@ncigdc/uikit/Table';
 import { makeFilter } from '@ncigdc/utils/filters';
 import FileSize from '@ncigdc/components/FileSize';
 
+const PROJECTLINK = "https://portal.firecloud.org/"
+
 const filesTableModel = [
   {
     name: 'File UUID',
@@ -48,7 +50,25 @@ const filesTableModel = [
     th: () => <Th>File Name</Th>,
     td: ({ node }) => (
       <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
-        {node.file_name}
+        <a href={PROJECTLINK}>
+          {node.file_name}
+        </a>
+      </Td>
+    ),
+  },
+  {
+    name: 'Project',
+    id: 'cases.project.project_id',
+    th: () => <Th>Project</Th>,
+    td: ({ node }) => (
+      <Td>
+        {uniq(
+          node.cases.hits.edges.map(e => e.node.project.project_id),
+        ).map(pId => (
+          <a href={PROJECTLINK}>
+            {pId}
+          </a>
+        ))}
       </Td>
     ),
   },
