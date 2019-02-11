@@ -52,7 +52,7 @@ const projectsTableModel = [
     id: 'primary_site',
     sortable: true,
     downloadable: true,
-    th: () => <Th rowSpan="2">Primary Site</Th>,
+    th: () => <Th rowSpan="2">Sample Site</Th>,
     td: ({ node }) => (
       <Td
         key="primary_site"
