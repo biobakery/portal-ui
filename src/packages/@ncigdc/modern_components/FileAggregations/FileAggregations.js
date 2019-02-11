@@ -30,7 +30,6 @@ import { Row } from '@ncigdc/uikit/Flex';
 const presetFacets = [
   { title: 'File', field: 'file_id', full: 'files.file_id', type: 'keyword' },
   { field: 'data_category', full: 'files.data_category', type: 'keyword' },
-  { field: 'data_type', full: 'files.data_type', type: 'keyword' },
   {
     field: 'experimental_strategy',
     full: 'files.experimental_strategy',
@@ -77,10 +76,8 @@ export type TProps = {
     access: { buckets: [TBucket] },
     data_category: { buckets: [TBucket] },
     data_format: { buckets: [TBucket] },
-    data_type: { buckets: [TBucket] },
     experimental_strategy: { buckets: [TBucket] },
     platform: { buckets: [TBucket] },
-    analysis__workflow_type: { buckets: [TBucket] },
   },
   theme: Object,
   suggestions: Array<Object>,

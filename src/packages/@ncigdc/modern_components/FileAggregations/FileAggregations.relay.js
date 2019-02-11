@@ -66,12 +66,6 @@ export default (Component: ReactClass<*>) =>
                         key
                       }
                     }
-                    data_type {
-                      buckets {
-                        doc_count
-                        key
-                      }
-                    }
                     experimental_strategy {
                       buckets {
                         doc_count
