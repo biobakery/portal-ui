@@ -36,12 +36,6 @@ const presetFacets = [
     full: 'files.experimental_strategy',
     type: 'keyword',
   },
-  {
-    title: 'Workflow Type',
-    field: 'analysis.workflow_type',
-    full: 'files.analysis.workflow_type',
-    type: 'keyword',
-  },
   { field: 'data_format', full: 'files.data_format', type: 'keyword' },
   { field: 'platform', full: 'files.platform', type: 'keyword' },
   { field: 'access', full: 'files.access', type: 'keyword' },

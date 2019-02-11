@@ -78,12 +78,6 @@ export default (Component: ReactClass<*>) =>
                         key
                       }
                     }
-                    analysis__workflow_type {
-                      buckets {
-                        doc_count
-                        key
-                      }
-                    }
                     data_format {
                       buckets {
                         doc_count
