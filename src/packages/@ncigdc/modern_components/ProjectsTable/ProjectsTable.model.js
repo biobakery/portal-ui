@@ -26,6 +26,14 @@ const getProjectIdFilter = projects =>
 
 const projectsTableModel = [
   {
+    name: 'Program',
+    id: 'program.name',
+    sortable: true,
+    downloadable: true,
+    th: () => <Th rowSpan="2">Program</Th>,
+    td: ({ node }) => <Td key="program">{node.program.name}</Td>,
+  },
+  {
     name: 'Project',
     id: 'project_id',
     sortable: true,
@@ -67,14 +75,6 @@ const projectsTableModel = [
         {node.primary_site.length <= 1 && node.primary_site}
       </Td>
     ),
-  },
-  {
-    name: 'Program',
-    id: 'program.name',
-    sortable: true,
-    downloadable: true,
-    th: () => <Th rowSpan="2">Program</Th>,
-    td: ({ node }) => <Td key="program">{node.program.name}</Td>,
   },
   {
     name: 'Cases',
