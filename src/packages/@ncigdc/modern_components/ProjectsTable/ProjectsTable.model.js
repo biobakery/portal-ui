@@ -40,36 +40,7 @@ const projectsTableModel = [
     ),
   },
   {
-    name: 'Disease Type',
-    id: 'disease_type',
-    sortable: true,
-    downloadable: true,
-    th: () => <Th rowSpan="2">Disease Type</Th>,
-    td: ({ node }) => (
-      <Td
-        key={node.disease_type}
-        style={{
-          maxWidth: '200px',
-          padding: '3px 15px 3px 3px',
-          whiteSpace: 'normal',
-        }}
-      >
-        {node.disease_type.length > 1 && (
-          <CollapsibleList
-            liStyle={{ whiteSpace: 'normal', listStyleType: 'disc' }}
-            toggleStyle={{ fontStyle: 'normal' }}
-            data={node.disease_type.slice(0).sort()}
-            limit={0}
-            expandText={`${node.disease_type.length} Disease Types`}
-            collapseText="collapse"
-          />
-        )}
-        {node.disease_type.length <= 1 && node.disease_type}
-      </Td>
-    ),
-  },
-  {
-    name: 'Primary Site',
+    name: 'Sample Site',
     id: 'primary_site',
     sortable: true,
     downloadable: true,
@@ -110,7 +81,7 @@ const projectsTableModel = [
     id: 'summary.case_count',
     sortable: true,
     downloadable: true,
-    th: () => <ThNum rowSpan="2">Cases</ThNum>,
+    th: () => <ThNum rowSpan="2">Participants</ThNum>,
     td: ({ node }) => (
       <TdNum>
         {node.summary.case_count.toLocaleString()}
@@ -124,21 +95,24 @@ const projectsTableModel = [
       </TdNum>
     )),
   },
-  {
-    name: 'File size',
-    id: 'summary.file_size',
+ {
+    name: 'Files',
+    id: 'summary.file_count',
     sortable: true,
-    hidden: true,
     downloadable: true,
-    th: () => <ThNum rowSpan="2">File Size</ThNum>,
-    td: ({ node }) => <TdNum>{formatFileSize(node.summary.file_size)}</TdNum>,
-    total: ({ hits }) => (
+    th: () => <ThNum rowSpan="2">Files</ThNum>,
+    td: ({ node }) => (
       <TdNum>
-        {formatFileSize(
-          hits.edges.reduce((acc, val) => acc + val.node.summary.file_size, 0),
-        )}
+        {node.summary.file_count.toLocaleString()}
       </TdNum>
     ),
+    total: withRouter(({ hits, query }) => (
+      <TdNum>
+        {hits.edges
+          .reduce((acc, val) => acc + val.node.summary.file_count, 0)
+          .toLocaleString()}
+      </TdNum>
+    )),
   },
 ];
 

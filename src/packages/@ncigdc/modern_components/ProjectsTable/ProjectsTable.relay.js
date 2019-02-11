@@ -55,7 +55,6 @@ export default (Component: ReactClass<*>) =>
                     node {
                       id
                       project_id
-                      disease_type
                       program {
                         name
                       }
