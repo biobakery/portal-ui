@@ -33,7 +33,7 @@ export type TProps = {
 
 const projectFacets = [
   {
-    title: 'Primary Site',
+    title: 'Sample Site',
     field: 'primary_site',
     full: 'projects.primary_site',
     doc_type: 'project',
@@ -43,13 +43,6 @@ const projectFacets = [
     title: 'Program',
     field: 'program.name',
     full: 'projects.program.name',
-    doc_type: 'project',
-    type: 'keyword',
-  },
-  {
-    title: 'Disease Type',
-    field: 'disease_type',
-    full: 'projects.disease_type',
     doc_type: 'project',
     type: 'keyword',
   },
@@ -98,12 +91,6 @@ export const ProjectAggregationsQuery = {
           }
         }
         program__name {
-          buckets {
-            doc_count
-            key
-          }
-        }
-        disease_type {
           buckets {
             doc_count
             key
