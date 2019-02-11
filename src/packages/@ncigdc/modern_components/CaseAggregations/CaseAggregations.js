@@ -34,10 +34,6 @@ export type TProps = {
     demographic__ethnicity: { buckets: [TBucket] },
     demographic__gender: { buckets: [TBucket] },
     demographic__race: { buckets: [TBucket] },
-    diagnoses__vital_status: { buckets: [TBucket] },
-    diagnoses__days_to_death: { stats: { max: number, min: number } },
-    diagnoses__age_at_diagnosis: { stats: { max: number, min: number } },
-    disease_type: { buckets: [TBucket] },
     primary_site: { buckets: [TBucket] },
     project__program__name: { buckets: [TBucket] },
     project__project_id: { buckets: [TBucket] },
@@ -64,7 +60,7 @@ export type TProps = {
 
 const presetFacets = [
   {
-    title: 'Primary Site',
+    title: 'Sample Site',
     field: 'primary_site',
     full: 'cases.primary_site',
     doc_type: 'cases',
@@ -85,40 +81,11 @@ const presetFacets = [
     type: 'terms',
   },
   {
-    title: 'Disease Type',
-    field: 'disease_type',
-    full: 'cases.disease_type',
-    doc_type: 'cases',
-    type: 'keyword',
-  },
-  {
     title: 'Gender',
     field: 'demographic.gender',
     full: 'cases.demographic.gender',
     doc_type: 'cases',
     type: 'keyword',
-  },
-  {
-    title: 'Age at Diagnosis',
-    field: 'diagnoses.age_at_diagnosis',
-    full: 'cases.diagnoses.age_at_diagnosis',
-    doc_type: 'cases',
-    type: 'long',
-    additionalProps: { convertDays: true },
-  },
-  {
-    title: 'Vital Status',
-    field: 'diagnoses.vital_status',
-    full: 'cases.diagnoses.vital_status',
-    doc_type: 'cases',
-    type: 'keyword',
-  },
-  {
-    title: 'Days to Death',
-    field: 'diagnoses.days_to_death',
-    full: 'cases.diagnoses.days_to_death',
-    doc_type: 'cases',
-    type: 'long',
   },
   {
     title: 'Race',

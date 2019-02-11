@@ -77,36 +77,10 @@ export default (Component: ReactClass<*>) =>
                         key
                       }
                     }
-                    disease_type {
-                      buckets {
-                        doc_count
-                        key
-                      }
-                    }
                     demographic__gender {
                       buckets {
                         doc_count
                         key
-                      }
-                    }
-                    diagnoses__age_at_diagnosis {
-                      stats {
-                        max
-                        min
-                        count
-                      }
-                    }
-                    diagnoses__vital_status {
-                      buckets {
-                        doc_count
-                        key
-                      }
-                    }
-                    diagnoses__days_to_death {
-                      stats {
-                        max
-                        min
-                        count
                       }
                     }
                     demographic__race {
