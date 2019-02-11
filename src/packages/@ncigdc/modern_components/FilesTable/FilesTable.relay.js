@@ -62,12 +62,9 @@ export default (Component: ReactClass<*>) =>
                         file_name
                         file_size
                         access
-                        state
-                        acl
                         data_category
                         data_format
                         platform
-                        data_type
                         experimental_strategy
                         cases {
                           hits(first: 1) {
@@ -80,11 +77,6 @@ export default (Component: ReactClass<*>) =>
                                 }
                               }
                             }
-                          }
-                        }
-                        annotations {
-                          hits(first: 0) {
-                            total
                           }
                         }
                       }
