@@ -80,9 +80,13 @@ export default compose(
           </ExternalLink>
         </div>
         <div style={styles.innerContainer}>
-          <span>Portal UI developed from the open source framework provided by the </span>
+          <span>Portal UI design inspired by the </span>
+          <ExternalLink href="https://portal.hmpdacc.org/">
+            iHMP Data Portal
+          </ExternalLink>
+          <span> and developed with the framework from the </span>
           <ExternalLink href="https://gdc.cancer.gov/">
-            National Cancer Institute Genomic Data Commons
+            NIH NCI GDC Data Portal
           </ExternalLink>
         </div>
       </div>
