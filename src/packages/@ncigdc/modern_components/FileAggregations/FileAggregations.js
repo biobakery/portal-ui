@@ -28,7 +28,6 @@ import FileIcon from '@ncigdc/theme/icons/File';
 import { Row } from '@ncigdc/uikit/Flex';
 
 const presetFacets = [
-  { title: 'File', field: 'file_id', full: 'files.file_id', type: 'keyword' },
   { field: 'data_category', full: 'files.data_category', type: 'keyword' },
   {
     field: 'experimental_strategy',
