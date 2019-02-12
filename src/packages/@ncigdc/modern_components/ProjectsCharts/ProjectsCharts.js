@@ -12,7 +12,6 @@ import { WithSize } from '@ncigdc/utils/withSize';
 import { setFilter, mergeQuery, removeFilter } from '@ncigdc/utils/filters';
 import removeEmptyKeys from '@ncigdc/utils/removeEmptyKeys';
 import StackedBarChart from '@ncigdc/components/Charts/StackedBarChart';
-import ExploreLink from '@ncigdc/components/Links/ExploreLink';
 import styled from '@ncigdc/theme/styled';
 import { withTheme } from '@ncigdc/theme';
 import { TGroupContent, IGroupFilter } from '@ncigdc/utils/filters/types';
@@ -295,151 +294,6 @@ export default compose(
     return (
       <Container className="test-projects-charts">
         <Column
-          style={{
-            paddingRight: '10px',
-            minWidth: '550px',
-            flexGrow: '2',
-          }}
-        >
-          <div
-            style={{
-              alignSelf: 'center',
-              color: theme.greyScale7,
-              padding: '1.5rem 0 0.5rem',
-              fontWeight: 'bold',
-            }}
-          >
-            Top Mutated Cancer Genes in Selected Projects
-            <Tooltip
-              Component={
-                <div style={{ maxWidth: '24em' }}>
-                  From COSMIC Cancer Gene Census and mutation consequence types
-                  in {'{'}missense_variant, frameshift_variant, start_lost,
-                  stop_lost, stop_gained{'}'}
-                </div>
-              }
-            >
-              <QuestionIcon
-                style={{ color: theme.greyScale7, marginLeft: '5px' }}
-              />
-            </Tooltip>
-          </div>
-          {[
-            numUniqueCases ? (
-              ((
-                <div
-                  style={{
-                    alignSelf: 'center',
-                    color: theme.greyScale7,
-                    fontSize: '1.2rem',
-                  }}
-                  key="bar-subtitle"
-                >
-                  <ExploreLink
-                    query={{
-                      searchTableTab: 'cases',
-                      filters: caseCountFilters
-                        ? { op: 'and', content: caseCountFilters }
-                        : null,
-                    }}
-                  >
-                    {numUniqueCases.toLocaleString()}
-                  </ExploreLink>
-                  {` Unique Case${!numUniqueCases || numUniqueCases > 1
-                    ? 's'
-                    : ''} with Somatic Mutation Data`}
-                </div>
-              ),
-              (
-                <span
-                  key="bar-wrapper"
-                  style={{ paddingLeft: '10px', paddingRight: '10px' }}
-                >
-                  <form name="y-axis-unit-toggle" key="y-axis-unit-toggle">
-                    <label
-                      htmlFor="percentage-cases-radio"
-                      style={{
-                        paddingRight: '10px',
-                        color: theme.greyScale7,
-                        fontSize: '1.2rem',
-                      }}
-                    >
-                      <input
-                        type="radio"
-                        value="days"
-                        onChange={() => setYAxisUnit('percent')}
-                        checked={yAxisUnit === 'percent'}
-                        id="percentage-cases-radio"
-                        style={{ marginRight: '5px' }}
-                      />
-                      % of Cases Affected
-                    </label>
-                    <label
-                      htmlFor="number-cases-radio"
-                      style={{
-                        paddingRight: '10px',
-                        color: theme.greyScale7,
-                        fontSize: '1.2rem',
-                      }}
-                    >
-                      <input
-                        type="radio"
-                        value="years"
-                        onChange={() => setYAxisUnit('number')}
-                        checked={yAxisUnit === 'number'}
-                        id="number-cases-radio"
-                        style={{ marginRight: '5px' }}
-                      />
-                      # of Cases Affected
-                    </label>
-                  </form>
-                  <WithSize>
-                    {({ width }) => (
-                      <div style={{ transform: 'scale(0.9)' }}>
-                        <StackedBarChart
-                          width={width}
-                          height={170}
-                          data={stackedBarData}
-                          projectsIdtoName={projects.reduce(
-                            (acc, p) => ({ ...acc, [p.project_id]: p.name }),
-                            {},
-                          )}
-                          colors={Object.keys(primarySiteToColor).reduce(
-                            (acc, pSite) => ({
-                              ...acc,
-                              ...primarySiteToColor[pSite].projects,
-                            }),
-                            {},
-                          )}
-                          yAxis={{
-                            title:
-                              (yAxisUnit === 'number' ? '# of' : '% of') +
-                              ' Cases Affected',
-                          }}
-                          styles={{
-                            xAxis: {
-                              stroke: theme.greyScale4,
-                              textFill: theme.greyScale3,
-                            },
-                            yAxis: {
-                              stroke: theme.greyScale4,
-                              textFill: theme.greyScale3,
-                            },
-                          }}
-                        />
-                      </div>
-                    )}
-                  </WithSize>
-                </span>
-              ))
-            ) : (
-              <div style={{ alignSelf: 'center', color: 'rgb(144,144,144)' }}>
-                No Data
-              </div>
-            ),
-          ]}
-        </Column>
-        <Column
           style={{ minWidth: '200px', flexGrow: '1', flexBasis: '33%' }}
           className="test-case-distribution-per-project"
         >
@@ -462,27 +316,7 @@ export default compose(
               }}
               key="pie-subtitle"
             >
-              <ExploreLink
-                query={{
-                  searchTableTab: 'cases',
-                  filters: projects.length
-                    ? {
-                        op: 'and',
-                        content: [
-                          {
-                            op: 'in',
-                            content: {
-                              field: 'cases.project.project_id',
-                              value: projects.map(x => x.project_id),
-                            },
-                          },
-                        ],
-                      }
-                    : null,
-                }}
-              >
-                {totalCases.toLocaleString()}
-              </ExploreLink>
+              {totalCases.toLocaleString()}
               {` Case${totalCases === 0 || totalCases > 1 ? 's' : ''}
               across ${projects.length.toLocaleString()} Project${projects.length ===
                 0 || projects.length > 1
