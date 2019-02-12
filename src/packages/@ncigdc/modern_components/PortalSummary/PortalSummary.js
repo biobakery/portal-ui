@@ -62,7 +62,7 @@ const PortalSummary = compose(
           </Row>
         </CountBox>
         <CountBox>
-          <Title className="test-primary-sites-label">Participants</Title>
+          <Title className="test-primary-sites-label">Cases</Title>
           <Row>
             <i
               style={{ color: '#01b987', fontSize: '3rem' }}
