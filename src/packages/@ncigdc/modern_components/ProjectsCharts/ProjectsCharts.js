@@ -32,9 +32,6 @@ type TProps = {
   caseCountFilters: TGroupContent,
   fmgChartFilters: IGroupFilter,
   numUniqueCases: number,
-  topGenesWithCasesPerProject: {
-    [gene_id: string]: { [project_id: string]: number, symbol: string },
-  },
   projectsIsFetching: boolean,
   genesIsFetching: boolean,
   topGenesSource: Array<{
@@ -80,44 +77,16 @@ export default compose(
   withState('yAxisUnit', 'setYAxisUnit', 'percent'),
   withRouter,
   withProps(props => {
-    const { aggregations } = JSON.parse(
-      props.analysisViewer.analysis.top_cases_count_by_genes.data,
-    );
-
-    const caseAggs = aggregations.projects.buckets.filter(b =>
-      props.projectIds.includes(b.key),
-    );
-
     const numUniqueCases = props.viewer.explore.cases.hits.total;
-
-    const topGenesWithCasesPerProject = caseAggs.reduce(
-      (acc, agg) =>
-        agg.genes.my_genes.gene_id.buckets.reduce(
-          (genes, gene) => ({
-            ...genes,
-            [gene.key]: {
-              ...genes[gene.key],
-              [agg.key]: gene.doc_count,
-            },
-          }),
-          acc,
-        ),
-      props.topGenesSource.reduce(
-        (acc, g) => ({ ...acc, [g.gene_id]: {} }),
-        {},
-      ),
-    );
 
     return {
       numUniqueCases,
-      topGenesWithCasesPerProject,
     };
   }),
   withTheme,
 )(
   ({
     numUniqueCases,
-    topGenesWithCasesPerProject,
     projectsIsFetching,
     genesIsFetching,
     topGenesSource,
@@ -133,76 +102,6 @@ export default compose(
     fmgChartFilters,
   }: TProps) => {
     const projects = projectsViewer.projects.hits.edges.map(x => x.node);
-    const stackedBarCalculations = topGenesSource.reduce(
-      (acc, { gene_id: geneId }) => ({
-        ...acc,
-        [geneId]: {
-          countTotal: Object.keys(topGenesWithCasesPerProject[geneId]).reduce(
-            (sum, projectId) =>
-              sum + topGenesWithCasesPerProject[geneId][projectId],
-            0,
-          ),
-          byProject: Object.keys(
-            topGenesWithCasesPerProject[geneId],
-          ).map(projectId => ({
-            projectId,
-            percent:
-              topGenesWithCasesPerProject[geneId][projectId] /
-              numUniqueCases *
-              100,
-            count: topGenesWithCasesPerProject[geneId][projectId],
-          })),
-        },
-      }),
-      {},
-    );
-    const stackedBarData = topGenesSource
-      .map(({ gene_id: geneId, symbol }) => ({
-        symbol,
-        gene_id: geneId,
-        onClick: () =>
-          push({
-            pathname: `/genes/${geneId}`,
-            query: {
-              filters: JSURL.stringify(
-                removeFilter(f => f.match(/^genes\./), fmgChartFilters),
-              ),
-            },
-          }),
-        tooltips: stackedBarCalculations[geneId].byProject.reduce(
-          (acc, { projectId, percent, count }) => ({
-            ...acc,
-            [projectId]: (
-              <span>
-                <b>
-                  {projectId}:{' '}
-                  {
-                    (projects.find(p => p.project_id === projectId) || {
-                      name: '',
-                    }).name
-                  }
-                </b>
-                <br /> {count.toLocaleString()} Case{count > 1 ? 's' : ''}{' '}
-                Affected<br />
-                {count.toLocaleString()} / {numUniqueCases.toLocaleString()} ({percent.toFixed(2)}%)
-              </span>
-            ),
-          }),
-          {},
-        ),
-        ...stackedBarCalculations[geneId].byProject.reduce(
-          (acc, { projectId, percent, count }) => ({
-            ...acc,
-            [projectId]: yAxisUnit === 'number' ? count : percent,
-          }),
-          {},
-        ),
-        total:
-          yAxisUnit === 'number'
-            ? stackedBarCalculations[geneId].countTotal
-            : stackedBarCalculations[geneId].countTotal / numUniqueCases * 100,
-      }))
-      .sort((a, b) => b.total - a.total); // relay score sorting isn't returned in reliable order
 
     const pieChartData = projects.map(project => {
       const count = project.summary.case_count;
@@ -246,50 +145,6 @@ export default compose(
       0,
     );
 
-    const projectsInTopGenes = Object.keys(topGenesWithCasesPerProject).reduce(
-      (acc, g) => [...acc, ...Object.keys(topGenesWithCasesPerProject[g])],
-      [],
-    );
-
-    const primarySiteProjects = sortBy(projects, [
-      p => projectsInTopGenes.includes(p),
-      p => p.project_id,
-    ]).reduce(
-      (acc, p, i) => ({
-        ...acc,
-        [p.primary_site]: {
-          color: acc[p.primary_site] ? acc[p.primary_site].color : color(i),
-          projects: [
-            ...(acc[p.primary_site] || { projects: [] }).projects,
-            p.project_id,
-          ],
-        },
-      }),
-      {},
-    );
-
-    // brighten project colors by a multiplier that's based on projects number, so the slices don't get too light
-    // and if there's only two slices the colors are different enough
-    const primarySiteToColor = Object.keys(primarySiteProjects).reduce(
-      (primarySiteAcc, primarySite) => ({
-        ...primarySiteAcc,
-        [primarySite]: {
-          ...primarySiteProjects[primarySite],
-          projects: primarySiteProjects[primarySite].projects.reduce(
-            (acc, projectId, i) => ({
-              ...acc,
-              [projectId]: d3
-                .color(primarySiteProjects[primarySite].color)
-                .darker(
-                  1 / primarySiteProjects[primarySite].projects.length * i,
-                ),
-            }),
-            {},
-          ),
-        },
-      }),
-      {},
-    );
 
     return (
       <Container className="test-projects-charts">
