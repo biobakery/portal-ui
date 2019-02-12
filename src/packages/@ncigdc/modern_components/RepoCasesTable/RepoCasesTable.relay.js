@@ -63,7 +63,6 @@ export default (Component: React.Class<*>) =>
                         id
                         case_id
                         primary_site
-                        disease_type
                         submitter_id
                         project {
                           project_id
@@ -85,18 +84,6 @@ export default (Component: React.Class<*>) =>
                           gender
                           ethnicity
                           race
-                        }
-                        diagnoses {
-                          hits(first: 99) {
-                            edges {
-                              node {
-                                primary_diagnosis
-                                age_at_diagnosis
-                                vital_status
-                                days_to_death
-                              }
-                            }
-                          }
                         }
                         summary {
                           data_categories {
