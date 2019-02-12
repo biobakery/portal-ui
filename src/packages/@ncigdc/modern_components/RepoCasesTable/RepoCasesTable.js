@@ -9,9 +9,6 @@ import { Row } from '@ncigdc/uikit/Flex';
 import TableActions from '@ncigdc/components/TableActions';
 import tableModels from '@ncigdc/tableModels';
 import Table, { Tr } from '@ncigdc/uikit/Table';
-import { CreateRepositoryCaseSetButton } from '@ncigdc/modern_components/withSetAction';
-import { AppendRepositoryCaseSetButton } from '@ncigdc/modern_components/withSetAction';
-import { RemoveFromRepositoryCaseSetButton } from '@ncigdc/modern_components/withSetAction';
 import { theme } from '@ncigdc/theme';
 import withSelectIds from '@ncigdc/utils/withSelectIds';
 import timestamp from '@ncigdc/utils/timestamp';
@@ -72,9 +69,6 @@ export default compose(
             score={variables.score}
             sort={variables.cases_sort}
             currentFilters={variables.filters}
-            CreateSetButton={CreateRepositoryCaseSetButton}
-            AppendSetButton={AppendRepositoryCaseSetButton}
-            RemoveFromSetButton={RemoveFromRepositoryCaseSetButton}
             idField="cases.case_id"
             selectedIds={selectedIds}
           />
