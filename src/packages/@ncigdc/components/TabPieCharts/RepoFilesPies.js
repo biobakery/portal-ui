@@ -23,7 +23,6 @@ export type TProps = {
   query: Object,
   aggregations: {
     data_category: { buckets: [TBucket] },
-    data_type: { buckets: [TBucket] },
     experimental_strategy: { buckets: [TBucket] },
     data_format: { buckets: [TBucket] },
     access: { buckets: [TBucket] },
@@ -59,7 +58,7 @@ const RepoFilesPiesComponent = ({
             style={{ minWidth: `${pieColMinWidth}px` }}
             className="test-primary-site-pie"
           >
-            <PieTitle>Primary Site</PieTitle>
+            <PieTitle>Sample Site</PieTitle>
             <SelfFilteringPie
               buckets={_.get(aggregations, 'cases__primary_site.buckets')}
               fieldName="files.cases.primary_site"
@@ -114,24 +113,6 @@ const RepoFilesPiesComponent = ({
           </ColumnCenter>
           <ColumnCenter
             style={{ minWidth: `${pieColMinWidth}px` }}
-            className="test-data-type"
-          >
-            <PieTitle>Data Type</PieTitle>
-            <SelfFilteringPie
-              buckets={_.get(aggregations, 'data_type.buckets')}
-              fieldName="files.data_type"
-              docTypeSingular="file"
-              currentFieldNames={currentFieldNames}
-              currentFilters={currentFilters}
-              query={query}
-              push={push}
-              path="doc_count"
-              height={125}
-              width={125}
-            />
-          </ColumnCenter>
-          <ColumnCenter
-            style={{ minWidth: `${pieColMinWidth}px` }}
             className="test-data-format"
           >
             <PieTitle>Data Format</PieTitle>
@@ -148,26 +129,26 @@ const RepoFilesPiesComponent = ({
               width={125}
             />
           </ColumnCenter>
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            key="files.experimental_strategy"
+            className="test-experimental-strategy"
+          >
+            <PieTitle>Experimental Strategy</PieTitle>
+            <SelfFilteringPie
+              buckets={_.get(aggregations, 'experimental_strategy.buckets')}
+              fieldName="files.experimental_strategy"
+              docTypeSingular="file"
+              currentFieldNames={currentFieldNames}
+              currentFilters={currentFilters}
+              query={query}
+              push={push}
+              path="doc_count"
+              height={125}
+              width={125}
+            />
+          </ColumnCenter>,
           {showingMore && [
-            <ColumnCenter
-              style={{ minWidth: `${pieColMinWidth}px` }}
-              key="files.experimental_strategy"
-              className="test-experimental-strategy"
-            >
-              <PieTitle>Experimental Strategy</PieTitle>
-              <SelfFilteringPie
-                buckets={_.get(aggregations, 'experimental_strategy.buckets')}
-                fieldName="files.experimental_strategy"
-                docTypeSingular="file"
-                currentFieldNames={currentFieldNames}
-                currentFilters={currentFilters}
-                query={query}
-                push={push}
-                path="doc_count"
-                height={125}
-                width={125}
-              />
-            </ColumnCenter>,
             <ColumnCenter
               key="files.access"
               style={{ minWidth: `${pieColMinWidth}px` }}
@@ -216,12 +197,6 @@ export const RepoFilesPiesQuery = {
           }
         }
         data_category {
-          buckets {
-            doc_count
-            key
-          }
-        }
-        data_type {
           buckets {
             doc_count
             key
