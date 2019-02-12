@@ -58,17 +58,11 @@ export default (Component: ReactClass<*>) =>
                       id
                       project_id
                       name
-                      disease_type
                       program {
                         name
                       }
-                      primary_site
                       summary {
                         case_count
-                        data_categories {
-                          case_count
-                          data_category
-                        }
                         file_count
                       }
                     }
