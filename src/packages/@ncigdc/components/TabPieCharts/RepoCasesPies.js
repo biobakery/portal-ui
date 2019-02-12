@@ -16,8 +16,6 @@ export type TProps = {
     demographic__ethnicity: { buckets: [TBucket] },
     demographic__gender: { buckets: [TBucket] },
     demographic__race: { buckets: [TBucket] },
-    diagnoses__vital_status: { buckets: [TBucket] },
-    disease_type: { buckets: [TBucket] },
     primary_site: { buckets: [TBucket] },
     project__program__name: { buckets: [TBucket] },
     project__project_id: { buckets: [TBucket] },
@@ -62,41 +60,11 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
           width={125}
         />
       </ColumnCenter>
-      <ColumnCenter className="test-disease-type">
-        <PieTitle>Disease Type</PieTitle>
-        <SelfFilteringPie
-          buckets={_.get(aggregations, 'disease_type.buckets')}
-          fieldName="cases.disease_type"
-          docTypeSingular="case"
-          currentFieldNames={currentFieldNames}
-          currentFilters={currentFilters}
-          query={query}
-          push={push}
-          path="doc_count"
-          height={125}
-          width={125}
-        />
-      </ColumnCenter>
       <ColumnCenter className="test-gender">
         <PieTitle>Gender</PieTitle>
         <SelfFilteringPie
           buckets={_.get(aggregations, 'demographic__gender.buckets')}
           fieldName="cases.demographic.gender"
-          docTypeSingular="case"
-          currentFieldNames={currentFieldNames}
-          currentFilters={currentFilters}
-          query={query}
-          push={push}
-          path="doc_count"
-          height={125}
-          width={125}
-        />
-      </ColumnCenter>
-      <ColumnCenter className="test-vital-status">
-        <PieTitle>Vital Status</PieTitle>
-        <SelfFilteringPie
-          buckets={_.get(aggregations, 'diagnoses__vital_status.buckets')}
-          fieldName="cases.diagnoses.vital_status"
           docTypeSingular="case"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
@@ -128,18 +96,6 @@ export const RepoCasesPiesQuery = {
           }
         }
         demographic__race {
-          buckets {
-            doc_count
-            key
-          }
-        }
-        diagnoses__vital_status {
-          buckets {
-            doc_count
-            key
-          }
-        }
-        disease_type {
           buckets {
             doc_count
             key
