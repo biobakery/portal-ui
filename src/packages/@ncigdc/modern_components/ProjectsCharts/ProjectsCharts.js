@@ -112,11 +112,52 @@ export default compose(
       };
     });
 
+    const pieChartDataFiles = projects.map(project => {
+      const count = project.summary.file_count;
+
+      return {
+        id: project.project_id+"files",
+        count,
+        clickHandler: () => {
+          const newQuery = mergeQuery(
+            {
+              filters: setFilter({
+                field: 'projects.project_id',
+                value: [].concat(project.project_id || []),
+              }),
+            },
+            query,
+            'toggle',
+          );
+
+          const q = removeEmptyKeys({
+            ...newQuery,
+            filters: newQuery.filters && JSURL.stringify(newQuery.filters),
+          });
+
+          push({ pathname, query: q });
+        },
+        tooltip: (
+          <span>
+            <b>
+              {project.project_id}: {project.name}
+            </b>
+            <br />
+            {count.toLocaleString()} file{count > 1 ? 's' : ''}
+          </span>
+        ),
+      };
+    });
+
     const totalCases = projects.reduce(
       (sum, p) => sum + p.summary.case_count,
       0,
     );
 
+    const totalFiles = projects.reduce(
+      (sum, p) => sum + p.summary.file_count,
+      0,
+    );
 
     return (
       <Container className="test-projects-charts">
@@ -154,6 +195,46 @@ export default compose(
               key="pie-chart"
               path="count"
               data={pieChartData}
+              height={150}
+              width={150}
+              marginTop={25}
+            />,
+          ]}
+        </Column>
+        <Column
+          style={{ minWidth: '200px', flexGrow: '1', flexBasis: '33%' }}
+          className="test-file-distribution-per-project"
+        >
+          <div
+            style={{
+              alignSelf: 'center',
+              color: theme.greyScale7,
+              padding: '1.5rem 0 0.5rem',
+              fontWeight: 'bold',
+            }}
+          >
+            File Distribution per Project
+          </div>
+          {[
+            <div
+              style={{
+                alignSelf: 'center',
+                fontSize: '1.2rem',
+                marginBottom: '2rem',
+              }}
+              key="file-pie-subtitle"
+            >
+              {totalFiles.toLocaleString()}
+              {` File${totalFiles === 0 || totalFiles > 1 ? 's' : ''}
+              across ${projects.length.toLocaleString()} Project${projects.length ===
+                0 || projects.length > 1
+                ? 's'
+                : ''}`}
+            </div>,
+            <PieChart
+              key="file-pie-chart"
+              path="count"
+              data={pieChartDataFiles}
               height={150}
               width={150}
               marginTop={25}
