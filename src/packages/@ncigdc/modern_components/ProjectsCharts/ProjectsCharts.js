@@ -45,25 +45,6 @@ type TProps = {
   query: Object,
   pathname: string,
   push: Function,
-  viewer: {
-    explore: {
-      cases: {
-        hits: {
-          total: number,
-        },
-      },
-      genes: {
-        hits: {
-          edges: Array<{
-            node: {
-              gene_id: string,
-              symbol: string,
-            },
-          }>,
-        },
-      },
-    },
-  },
 };
 
 const Container = styled(Row, {
@@ -76,24 +57,15 @@ const Container = styled(Row, {
 export default compose(
   withState('yAxisUnit', 'setYAxisUnit', 'percent'),
   withRouter,
-  withProps(props => {
-    const numUniqueCases = props.viewer.explore.cases.hits.total;
-
-    return {
-      numUniqueCases,
-    };
-  }),
   withTheme,
 )(
   ({
-    numUniqueCases,
     projectsIsFetching,
     genesIsFetching,
     topGenesSource,
     yAxisUnit,
     setYAxisUnit,
     projectsViewer,
-    viewer,
     theme,
     query,
     pathname,
