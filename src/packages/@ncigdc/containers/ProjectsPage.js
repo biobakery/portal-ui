@@ -29,24 +29,6 @@ export type TProps = {
 export const ProjectsPageComponent = (props: TProps) => (
   <SearchPage
     className="test-projects-page"
-    filtersLinkProps={{
-      linkPathname: '/repository',
-      linkText: 'Open Query in Repository',
-      linkFieldMap: (field: string) => {
-        if (field.indexOf('projects.summary') > -1) {
-          return `files.${field.split('.').pop()}`;
-        }
-
-        if (
-          field.indexOf('projects.primary_site') > -1 ||
-          field.indexOf('projects.disease_type') > -1
-        ) {
-          return field.replace('projects', 'cases');
-        }
-
-        return field.replace(/^projects/, 'cases.project');
-      },
-    }}
     facetTabs={[
       {
         id: 'projects',
