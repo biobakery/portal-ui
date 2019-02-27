@@ -1,22 +1,16 @@
-<p align="center">
-	<a href="https://portal.gdc.cancer.gov/">
-		<img src="http://i.imgur.com/b6arSwT.png" width="456" alt="GDC Data Portal">
-	</a>
-</p>
-<p align="center">
-  <b>#react #relay #redux #recompose #flow #jest #d3</b>
-</p>
-<p align="center">
-	<a href="https://travis-ci.org/NCI-GDC/portal-ui">
-		<img src="https://travis-ci.org/NCI-GDC/portal-ui.svg?branch=next"
-			 alt="Build Status">
-	</a>
-</p>
+
+# BIOM-Mass Portal UI
+
+
+Portal UI design inspired by the [iHMP Data Portal](https://portal.hmpdacc.org/) and developed with the framework from the [NIH NCI GDC Data Portal](https://gdc.cancer.gov/).
+
+Data sets and metadata hosted and access controlled by the [Broad Institute FireCloud](https://portal.firecloud.org/).
+
+The GraphQL server used with this portal is the [BIOM-Mass FireCloud GraphQL server](https://github.com/biobakery/firecloud-graphql).
 
 - [Technologies](#technologies)
 - [Installation](#installation)
-- [Tests](#tests)
-- [Development](#development)
+- [Run](#run)
 - [Contributing](#contributing)
 
 ## Technologies
@@ -31,44 +25,13 @@
 
 ## Installation
 
-Install Watchman
+Install Watchman with Homebrew with the command `$ brew install watchman`.
 
-```
-brew update
-brew install watchman
-```
+Install the other required packages for this portal with `$ npm i` (use Node v8 (npm v5)).
 
-We recommend using **Node v8 (npm v5)**.
+## Run
 
-```
-npm i
-```
+Install the BIOM-Mass GraphQL server and start it running. 
 
-## Tests
+Next start the portal ui with the command `$ npm start`.
 
-```
-npm test
-```
-
-<img src="http://i.imgur.com/SBplvwn.png" />
-
-## Development
-
-By default the portal will attempt to connect to an api instance running on `localhost:5000`, however this can changed by setting the environment variable `REACT_APP_API`, or by setting `localStorage.REACT_APP_API` in the browser.
-
-```
-# start ui connected to localhost:5000 api server
-npm start
-
-# start ui connected to UChicago api server
-REACT_APP_API=https://api.gdc.cancer.gov/v0/ npm start
-
-// change api url during runtime in browser
-localStorage.REACT_APP_API = 'https://api.gdc.cancer.gov/v0/'
-```
-
-<img src="http://i.imgur.com/5dQYvoW.png" />
-
-## Contributing
-
-Read how to contribute [here](CONTRIBUTING.md)
