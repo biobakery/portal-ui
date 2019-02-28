@@ -35,3 +35,7 @@ Install the BIOM-Mass GraphQL server and start it running.
 
 Next start the portal ui with the command `$ npm start`.
 
+## Schema
+
+To generate a schema of the local GraphQL server run the command `$ node ./data/getSchema`.
+
