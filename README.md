@@ -11,7 +11,7 @@ The GraphQL server used with this portal is the [BIOM-Mass FireCloud GraphQL ser
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Run](#run)
-- [Contributing](#contributing)
+- [Schema](#schema)
 
 ## Technologies
 
@@ -31,9 +31,17 @@ Install the other required packages for this portal with `$ npm i` (use Node v8 
 
 ## Run
 
+### Development
 Install the BIOM-Mass GraphQL server and start it running. 
 
 Next start the portal ui with the command `$ npm start`.
+
+## Production
+
+1. Start the BIOM-Mass GraphQL server running. 
+2. Build the source for the UI with `$ npm run-script build`. 
+3. Build the docker image with `$ sudo docker build -n portal-ui .`.
+4. Start the docker container (allowing access to host ports) `$ sudo docker run -d --network=host --name portal_ui portal_ui`.
 
 ## Schema
 
