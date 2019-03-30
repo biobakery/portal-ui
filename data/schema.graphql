@@ -618,6 +618,8 @@ type Case implements Node {
   submitter_slide_ids: String
   annotations: CaseAnnotations
   demographic: Demographic
+  metadata_participant: MetadataParticipant
+  metadata_sample: [MetadataSample]
   diagnoses: Diagnoses
   files: CaseFiles
   exposures: Exposures
@@ -628,6 +630,46 @@ type Case implements Node {
   tissue_source_site: TissueSourceSite
   score: Int
 }
+
+type MetadataParticipant{
+  participant: Int
+  age_2012: Int
+  totMETs1: String
+  weight_lbs: String
+}
+
+type MetadataSample{
+
+  id: Int
+  project: String
+  sample: String
+  participant: Int
+  DaysSince1Jan12: Int
+  drAlcohol: Float
+  drB12: Float
+  drCalories: Float
+  drCarbs: Float
+  drCholine: Float
+  drFat: Float
+  drFiber: Float
+  drFolate: Float
+  drIron: Float
+  drProtein: Float
+  participant: Int
+  q2Alcohol: String
+  q2B12: String
+  q2Calories: String
+  q2Carbs: String
+  q2Choline: String
+  q2Fat: String
+  q2Fiber: String
+  q2Folate: String
+  q2Iron: String
+  q2Protein: String
+  Time: String
+  week: Int
+}
+
 
 type CaseAggregations {
   updated_datetime: Aggregations
@@ -657,6 +699,9 @@ type CaseAggregations {
   demographic__demographic_id: Aggregations
   demographic__ethnicity: Aggregations
   demographic__year_of_death: NumericAggergations
+  metadata_participant__age_2012: Aggregations
+  metadata_participant__totMETs1: Aggregations
+  metadata_participant__weight_lbs: Aggregations
   lost_to_followup: Aggregations
   state: Aggregations
   case_id: Aggregations

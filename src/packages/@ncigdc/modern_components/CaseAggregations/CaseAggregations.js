@@ -31,6 +31,9 @@ export type TProps = {
   facets: { facets: string },
   parsedFacets: Object,
   aggregations: {
+    metadata_participant__age_2012: { buckets: [TBucket] },
+    metadata_participant__totMETs1: { buckets: [TBucket] },
+    metadata_participant__weight_lbs: { buckets: [TBucket] },
     demographic__ethnicity: { buckets: [TBucket] },
     demographic__gender: { buckets: [TBucket] },
     demographic__race: { buckets: [TBucket] },
@@ -79,6 +82,27 @@ const presetFacets = [
     full: 'cases.project.project_id',
     doc_type: 'cases',
     type: 'terms',
+  },
+  {
+    title: 'Age in 2012',
+    field: 'metadata_participant.age_2012',
+    full: 'cases.metadata_participant.age_2012',
+    doc_type: 'cases',
+    type: 'keyword',
+  },
+  {
+    title: 'totMETs1',
+    field: 'metadata_participant.totMETs1',
+    full: 'cases.metadata_participant.totMETs1',
+    doc_type: 'cases',
+    type: 'keyword',
+  },
+  {
+    title: 'Weight Lbs',
+    field: 'metadata_participant.weight_lbs',
+    full: 'cases.metadata_participant.weight_lbs',
+    doc_type: 'cases',
+    type: 'keyword',
   },
   {
     title: 'Gender',

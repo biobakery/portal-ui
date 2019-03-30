@@ -85,6 +85,16 @@ export default (Component: React.Class<*>) =>
                           ethnicity
                           race
                         }
+                        metadata_participant {
+                          age_2012
+                          weight_lbs
+                          totMETs1
+                        }
+                        metadata_sample {
+                          week
+                          drFiber
+                          drCalories
+                        }
                         summary {
                           data_categories {
                             file_count
