@@ -634,8 +634,8 @@ type Case implements Node {
 type MetadataParticipant{
   participant: Int
   age_2012: Int
-  totMETs1: String
-  weight_lbs: String
+  totMETs1: Float
+  weight_lbs: Float
 }
 
 type MetadataSample{
