@@ -7,6 +7,7 @@ import { makeFilter } from '@ncigdc/utils/filters';
 import FileSize from '@ncigdc/components/FileSize';
 
 import { PROJECTLINK } from '@ncigdc/utils/constants'
+import { STORAGELINK } from '@ncigdc/utils/constants'
 
 const filesTableModel = [
   {
@@ -51,7 +52,7 @@ const filesTableModel = [
     th: () => <Th>File Name</Th>,
     td: ({ node }) => (
       <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
-        <a href={node.file_id}>
+        <a href={node.file_id.replace("gs://",STORAGELINK)}>
           {node.file_name}
         </a>
       </Td>
