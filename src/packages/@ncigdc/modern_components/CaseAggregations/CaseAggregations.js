@@ -95,7 +95,7 @@ const presetFacets = [
     type: 'keyword',
   },
   {
-    title: 'Met',
+    title: 'Activity (MET)',
     field: 'demographic.met',
     full: 'cases.demographic.met',
     doc_type: 'cases',

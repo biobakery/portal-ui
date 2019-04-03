@@ -145,12 +145,12 @@ const casesTableModel = [
     ),
   },
   {
-    name: 'Met',
+    name: 'Activity',
     id: 'demographic.met',
     sortable: false,
     downloadable: true,
     hidden: false,
-    th: () => <Th rowSpan="2">Met</Th>,
+    th: () => <Th rowSpan="2">Activity (MET)</Th>,
     td: ({ node }) => (
       <Td>{(node.demographic && node.demographic.met) || '--'}</Td>
     ),

@@ -2010,7 +2010,7 @@ type Demographic {
   # weight in lbs
   weight: Int
 
-  # totMets1
+  # totMets1, total activity (exercise)
   met: Int
 
   # The current state of the object.

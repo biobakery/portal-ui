@@ -91,7 +91,7 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
         />
       </ColumnCenter>
       <ColumnCenter className="test-met">
-        <PieTitle>Met</PieTitle>
+        <PieTitle>Activity (MET)</PieTitle>
         <SelfFilteringPie
           buckets={_.get(aggregations, 'demographic__met.buckets')}
           fieldName="cases.demographic.met"
