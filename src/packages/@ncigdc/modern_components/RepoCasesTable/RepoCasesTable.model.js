@@ -94,7 +94,15 @@ const casesTableModel = [
     ),
     td: ({ node, index }) => (
       <Td>
-        {node.submitter_id}
+        <CaseLink
+          uuid={node.case_id}
+          id={`row-${index}-case-link`}
+          merge
+          whitelist={['filters']}
+        >
+          {node.submitter_id}
+        </CaseLink>
+
       </Td>
     ),
   },
@@ -110,7 +118,7 @@ const casesTableModel = [
     ),
     td: ({ node, index }) => (
       <Td>
-        <a href={PROJECTLINK}>
+        <a href={PROJECTLINK+node.project.project_id}>
           {node.project.project_id}
         </a>
       </Td>
@@ -129,18 +137,50 @@ const casesTableModel = [
     td: ({ node }) => <Td key="primary_site">{node.primary_site}</Td>,
   },
   {
-    name: 'Gender',
-    id: 'demographic.gender',
+    name: 'Age in 2012',
+    id: 'metadata_participant.age_2012',
     sortable: true,
     downloadable: true,
     th: () => (
-      <Th key="demographic.gender" rowSpan="2">
-        Gender
+      <Th key="metadata_participant.age_2012" rowSpan="1">
+        Age in 2012
       </Th>
     ),
     td: ({ node }) => (
-      <Td key="demographic.gender">
-        {_.capitalize(node.demographic.gender) || '--'}
+      <Td key="metadata_participant.age_2012">
+        {_.capitalize(node.metadata_participant.age_2012) || '--'}
+      </Td>
+    ),
+  },
+ {
+    name: 'Weight Lbs',
+    id: 'metadata_participant.weight_lbs',
+    sortable: true,
+    downloadable: true,
+    th: () => (
+      <Th key="metadata_participant.weight_lbs" rowSpan="1">
+        Weight Lbs
+      </Th>
+    ),
+    td: ({ node }) => (
+      <Td key="metadata_participant.weight_lbs">
+        {_.capitalize(node.metadata_participant.weight_lbs) || '--'}
+      </Td>
+    ),
+  },
+ {
+    name: 'totMETs1',
+    id: 'metadata_participant.totMETs1',
+    sortable: true,
+    downloadable: true,
+    th: () => (
+      <Th key="metadata_participant.totMETs1" rowSpan="1">
+        totMETs1
+      </Th>
+    ),
+    td: ({ node }) => (
+      <Td key="metadata_participant.totMETs1">
+        {_.capitalize(node.metadata_participant.totMETs1) || '--'}
       </Td>
     ),
   },
@@ -181,28 +221,6 @@ const casesTableModel = [
     hidden: true,
     th: () => <Th rowSpan="2">Program</Th>,
     td: ({ node }) => <Td>{node.project.program.name}</Td>,
-  },
-  {
-    name: 'Ethnicity',
-    id: 'demographic.ethnicity',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Ethnicity</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.ethnicity) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Race',
-    id: 'demographic.race',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Race</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.race) || '--'}</Td>
-    ),
   },
 ];
 

@@ -77,19 +77,19 @@ export default (Component: ReactClass<*>) =>
                         key
                       }
                     }
-                    demographic__gender {
+                    metadata_participant__age_2012 {
                       buckets {
                         doc_count
                         key
                       }
                     }
-                    demographic__race {
+                    metadata_participant__totMETs1 {
                       buckets {
                         doc_count
                         key
                       }
                     }
-                    demographic__ethnicity {
+                    metadata_participant__weight_lbs {
                       buckets {
                         doc_count
                         key

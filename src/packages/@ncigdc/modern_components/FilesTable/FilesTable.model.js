@@ -7,6 +7,7 @@ import { makeFilter } from '@ncigdc/utils/filters';
 import FileSize from '@ncigdc/components/FileSize';
 
 import { PROJECTLINK } from '@ncigdc/utils/constants'
+import { STORAGELINK } from '@ncigdc/utils/constants'
 
 const filesTableModel = [
   {
@@ -45,12 +46,13 @@ const filesTableModel = [
   {
     name: 'File Name',
     id: 'file_name',
+    file_id: 'file_id',
     sortable: true,
     downloadable: true,
     th: () => <Th>File Name</Th>,
     td: ({ node }) => (
       <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
-        <a href={PROJECTLINK}>
+         <a href={node.file_id.replace("gs://",STORAGELINK)}>
           {node.file_name}
         </a>
       </Td>
@@ -65,7 +67,7 @@ const filesTableModel = [
         {uniq(
           node.cases.hits.edges.map(e => e.node.project.project_id),
         ).map(pId => (
-          <a href={PROJECTLINK}>
+          <a href={PROJECTLINK + pId}>
             {pId}
           </a>
         ))}

@@ -7,7 +7,8 @@ const localStorage = window.localStorage || {};
 
 /* Links */
 
-export const PROJECTLINK = "https://portal.firecloud.org/"
+export const PROJECTLINK = "https://portal.firecloud.org/#workspaces/firecloud-biom-mass/"
+export const STORAGELINK = "https://storage.cloud.google.com/"
 
 /* API ENDPOINTS */
 
