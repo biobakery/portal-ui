@@ -104,7 +104,7 @@ const casesTableModel = [
     ),
     td: ({ node, index }) => (
       <Td>
-        <a href={PROJECTLINK}>
+        <a href={PROJECTLINK + node.project.project_id}>
           {node.project.project_id}
         </a>
       </Td>

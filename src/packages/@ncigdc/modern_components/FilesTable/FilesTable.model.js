@@ -65,7 +65,7 @@ const filesTableModel = [
         {uniq(
           node.cases.hits.edges.map(e => e.node.project.project_id),
         ).map(pId => (
-          <a href={PROJECTLINK}>
+          <a href={PROJECTLINK + pId}>
             {pId}
           </a>
         ))}
