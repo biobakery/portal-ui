@@ -644,6 +644,9 @@ type CaseAggregations {
   demographic__updated_datetime: Aggregations
   demographic__weeks_gestation_at_birth: NumericAggergations
   demographic__gender: Aggregations
+  demographic__age: Aggregations
+  demographic__weight: Aggregations
+  demographic__met: Aggregations
   demographic__state: Aggregations
   demographic__submitter_id: Aggregations
   demographic__created_datetime: Aggregations

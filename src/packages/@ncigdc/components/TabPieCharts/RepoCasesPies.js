@@ -13,9 +13,9 @@ export type TProps = {
   push: Function,
   query: Object,
   aggregations: {
-    demographic__ethnicity: { buckets: [TBucket] },
-    demographic__gender: { buckets: [TBucket] },
-    demographic__race: { buckets: [TBucket] },
+    demographic__age: { buckets: [TBucket] },
+    demographic__weight: { buckets: [TBucket] },
+    demographic__met: { buckets: [TBucket] },
     primary_site: { buckets: [TBucket] },
     project__program__name: { buckets: [TBucket] },
     project__project_id: { buckets: [TBucket] },
@@ -60,11 +60,41 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
           width={125}
         />
       </ColumnCenter>
-      <ColumnCenter className="test-gender">
-        <PieTitle>Gender</PieTitle>
+      <ColumnCenter className="test-age">
+        <PieTitle>Age</PieTitle>
         <SelfFilteringPie
-          buckets={_.get(aggregations, 'demographic__gender.buckets')}
-          fieldName="cases.demographic.gender"
+          buckets={_.get(aggregations, 'demographic__age.buckets')}
+          fieldName="cases.demographic.age"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+      <ColumnCenter className="test-weight">
+        <PieTitle>Weight</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'demographic__weight.buckets')}
+          fieldName="cases.demographic.weight"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+      <ColumnCenter className="test-met">
+        <PieTitle>Met</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'demographic__met.buckets')}
+          fieldName="cases.demographic.met"
           docTypeSingular="case"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
@@ -83,19 +113,19 @@ export const RepoCasesPiesQuery = {
   fragments: {
     aggregations: () => Relay.QL`
       fragment on CaseAggregations {
-        demographic__ethnicity {
+        demographic__age {
           buckets {
             doc_count
             key
           }
         }
-        demographic__gender {
+        demographic__weight {
           buckets {
             doc_count
             key
           }
         }
-        demographic__race {
+        demographic__met {
           buckets {
             doc_count
             key
