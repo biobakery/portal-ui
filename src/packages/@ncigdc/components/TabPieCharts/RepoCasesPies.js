@@ -93,6 +93,21 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
           width={125}
         />
       </ColumnCenter>
+     <ColumnCenter className="test-totMETs1">
+        <PieTitle>totMETs1</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'metadata_participant__totMETs1.buckets')}
+          fieldName="cases.metadata_participant.totMETs1"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
     </RowCenter>
   );
 };

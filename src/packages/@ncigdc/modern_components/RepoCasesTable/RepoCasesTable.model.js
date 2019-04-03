@@ -222,28 +222,6 @@ const casesTableModel = [
     th: () => <Th rowSpan="2">Program</Th>,
     td: ({ node }) => <Td>{node.project.program.name}</Td>,
   },
-  {
-    name: 'Ethnicity',
-    id: 'demographic.ethnicity',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Ethnicity</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.ethnicity) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Race',
-    id: 'demographic.race',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Race</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.race) || '--'}</Td>
-    ),
-  },
 ];
 
 export default casesTableModel;

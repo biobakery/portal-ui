@@ -80,11 +80,6 @@ export default (Component: React.Class<*>) =>
                             }
                           }
                         }
-                        demographic {
-                          gender
-                          ethnicity
-                          race
-                        }
                         metadata_participant {
                           age_2012
                           weight_lbs

@@ -95,24 +95,6 @@ export default (Component: ReactClass<*>) =>
                         key
                       }
                     }
-                    demographic__gender {
-                      buckets {
-                        doc_count
-                        key
-                      }
-                    }
-                    demographic__race {
-                      buckets {
-                        doc_count
-                        key
-                      }
-                    }
-                    demographic__ethnicity {
-                      buckets {
-                        doc_count
-                        key
-                      }
-                    }
                   }
                 }
               }
