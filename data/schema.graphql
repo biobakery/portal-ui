@@ -2001,6 +2001,15 @@ type Demographic {
   #
   gender: String
 
+  # age in 2012
+  age: Int
+
+  # weight in lbs
+  weight: Int
+
+  # totMets1
+  met: Int
+
   # The current state of the object.
   #
   state: String

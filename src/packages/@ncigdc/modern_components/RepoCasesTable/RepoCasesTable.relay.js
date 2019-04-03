@@ -81,9 +81,9 @@ export default (Component: React.Class<*>) =>
                           }
                         }
                         demographic {
-                          gender
-                          ethnicity
-                          race
+                          age
+                          weight
+                          met
                         }
                         summary {
                           data_categories {

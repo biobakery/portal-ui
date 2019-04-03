@@ -84,19 +84,13 @@ const casesTableModel = [
     td: ({ node }) => <Td>{node.case_id}</Td>,
   },
   {
-    name: 'Case ID',
-    id: 'submitter_id',
+    name: 'Program',
+    id: 'project.program.name',
+    sortable: false,
     downloadable: true,
-    th: () => (
-      <Th key="submitter_id" rowSpan="2">
-        Case ID
-      </Th>
-    ),
-    td: ({ node, index }) => (
-      <Td>
-        {node.submitter_id}
-      </Td>
-    ),
+    hidden: false,
+    th: () => <Th rowSpan="2">Program</Th>,
+    td: ({ node }) => <Td>{node.project.program.name}</Td>,
   },
   {
     name: 'Project',
@@ -129,19 +123,36 @@ const casesTableModel = [
     td: ({ node }) => <Td key="primary_site">{node.primary_site}</Td>,
   },
   {
-    name: 'Gender',
-    id: 'demographic.gender',
-    sortable: true,
+    name: 'Age',
+    id: 'demographic.age',
+    sortable: false,
     downloadable: true,
-    th: () => (
-      <Th key="demographic.gender" rowSpan="2">
-        Gender
-      </Th>
-    ),
+    hidden: false,
+    th: () => <Th rowSpan="2">Age</Th>,
     td: ({ node }) => (
-      <Td key="demographic.gender">
-        {_.capitalize(node.demographic.gender) || '--'}
-      </Td>
+      <Td>{(node.demographic && node.demographic.age) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Weight',
+    id: 'demographic.weight',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Weight</Th>,
+    td: ({ node }) => (
+      <Td>{(node.demographic && node.demographic.weight) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Met',
+    id: 'demographic.met',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Met</Th>,
+    td: ({ node }) => (
+      <Td>{(node.demographic && node.demographic.met) || '--'}</Td>
     ),
   },
   {
@@ -172,37 +183,6 @@ const casesTableModel = [
         </RepositoryCasesLink>
       </TdNum>
     )),
-  },
-  {
-    name: 'Program',
-    id: 'project.program.name',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Program</Th>,
-    td: ({ node }) => <Td>{node.project.program.name}</Td>,
-  },
-  {
-    name: 'Ethnicity',
-    id: 'demographic.ethnicity',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Ethnicity</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.ethnicity) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Race',
-    id: 'demographic.race',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Race</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.race) || '--'}</Td>
-    ),
   },
 ];
 
