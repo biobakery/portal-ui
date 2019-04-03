@@ -85,21 +85,21 @@ const presetFacets = [
     field: 'demographic.age',
     full: 'cases.demographic.age',
     doc_type: 'cases',
-    type: 'keyword',
+    type: 'long',
   },
   {
     title: 'Weight',
     field: 'demographic.weight',
     full: 'cases.demographic.weight',
     doc_type: 'cases',
-    type: 'keyword',
+    type: 'long',
   },
   {
     title: 'Activity (MET)',
     field: 'demographic.met',
     full: 'cases.demographic.met',
     doc_type: 'cases',
-    type: 'keyword',
+    type: 'long',
   },
 ];
 
