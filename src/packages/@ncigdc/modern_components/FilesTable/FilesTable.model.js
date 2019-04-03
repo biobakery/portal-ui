@@ -52,7 +52,7 @@ const filesTableModel = [
     th: () => <Th>File Name</Th>,
     td: ({ node }) => (
       <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
-        <a href={node.file_id.replace("gs://",STORAGELINK)}>
+         <a href={node.file_id.replace("gs://",STORAGELINK)}>
           {node.file_name}
         </a>
       </Td>

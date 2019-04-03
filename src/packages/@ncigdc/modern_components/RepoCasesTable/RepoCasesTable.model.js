@@ -94,7 +94,15 @@ const casesTableModel = [
     ),
     td: ({ node, index }) => (
       <Td>
-        {node.submitter_id}
+        <CaseLink
+          uuid={node.case_id}
+          id={`row-${index}-case-link`}
+          merge
+          whitelist={['filters']}
+        >
+          {node.submitter_id}
+        </CaseLink>
+
       </Td>
     ),
   },

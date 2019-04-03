@@ -16,6 +16,9 @@ export type TProps = {
     demographic__ethnicity: { buckets: [TBucket] },
     demographic__gender: { buckets: [TBucket] },
     demographic__race: { buckets: [TBucket] },
+    metadata_participant__age_2012:  { buckets: [TBucket] },
+    metadata_participant__totMETs1: { buckets: [TBucket] },
+    metadata_participant__weight_lbs: { buckets: [TBucket] },
     primary_site: { buckets: [TBucket] },
     project__program__name: { buckets: [TBucket] },
     project__project_id: { buckets: [TBucket] },
@@ -60,11 +63,26 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
           width={125}
         />
       </ColumnCenter>
-      <ColumnCenter className="test-gender">
-        <PieTitle>Gender</PieTitle>
+      <ColumnCenter className="test-age">
+        <PieTitle>Age in 2012</PieTitle>
         <SelfFilteringPie
-          buckets={_.get(aggregations, 'demographic__gender.buckets')}
-          fieldName="cases.demographic.gender"
+          buckets={_.get(aggregations, 'metadata_participant__age_2012.buckets')}
+          fieldName="cases.metadata_participant.age_2012"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+      <ColumnCenter className="test-weight">
+        <PieTitle>Weight Lbs</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'metadata_participant__weight_lbs.buckets')}
+          fieldName="cases.metadata_participant.weight_lbs"
           docTypeSingular="case"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
@@ -96,6 +114,24 @@ export const RepoCasesPiesQuery = {
           }
         }
         demographic__race {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        metadata_participant__age_2012 {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        metadata_participant__totMETs1 {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        metadata_participant__weight_lbs {
           buckets {
             doc_count
             key
