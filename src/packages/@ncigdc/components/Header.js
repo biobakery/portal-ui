@@ -21,6 +21,7 @@ import Banner from '@ncigdc/uikit/Banner';
 import { withTheme } from '@ncigdc/theme';
 import DatabaseIcon from '@ncigdc/theme/icons/Database';
 import { Row } from '@ncigdc/uikit/Flex';
+import LoginButton from '@ncigdc/components/LoginButton';
 
 import './Header.css';
 
@@ -143,6 +144,13 @@ const Header = compose(
                 <Hidden>Repository</Hidden>
               </RepositoryLink>
             </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            {!user && (
+                <li>
+                  <LoginButton />
+                </li>
+              )}
           </ul>
         </nav>
       </div>
