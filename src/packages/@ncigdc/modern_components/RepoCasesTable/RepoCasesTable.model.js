@@ -72,13 +72,13 @@ const getProjectIdFilter = projects =>
 
 const casesTableModel = [
   {
-    name: 'Case UUID',
+    name: 'Participant UUID',
     id: 'case_id',
     hidden: true,
     downloadable: true,
     th: () => (
       <Th key="case_id" rowSpan="2">
-        Case UUID
+        Participant UUID
       </Th>
     ),
     td: ({ node }) => <Td>{node.case_id}</Td>,

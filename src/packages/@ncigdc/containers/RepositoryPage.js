@@ -120,7 +120,7 @@ export const RepositoryPageComponent = (props: TProps) => {
           },
           {
             id: 'cases',
-            text: 'Cases',
+            text: 'Participants',
             component: (
               <CaseAggregations
                 suggestions={
@@ -169,7 +169,7 @@ export const RepositoryPageComponent = (props: TProps) => {
                 },
                 {
                   id: 'cases',
-                  text: `Cases (${caseCount.toLocaleString()})`,
+                  text: `Participants (${caseCount.toLocaleString()})`,
                   component: !!props.viewer.repository.cases.hits.total ? (
                     <div>
                       <RepoCasesPies

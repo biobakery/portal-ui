@@ -81,7 +81,7 @@ const projectsTableModel = [
     id: 'summary.case_count',
     sortable: true,
     downloadable: true,
-    th: () => <ThNum rowSpan="2">Cases</ThNum>,
+    th: () => <ThNum rowSpan="2">Participants</ThNum>,
     td: ({ node }) => (
       <TdNum>
         {node.summary.case_count.toLocaleString()}
