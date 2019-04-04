@@ -131,6 +131,19 @@ export const RepositoryPageComponent = (props: TProps) => {
               />
             ),
           },
+          {
+            id: 'samples',
+            text: 'Samples',
+            component: (
+              <CaseAggregations
+                suggestions={
+                  (props.viewer.autocomplete_case || { hits: [] }).hits
+                }
+                setAutocomplete={setAutocompleteCases}
+                relay={props.relay}
+              />
+            ),
+          },
         ]}
         results={
           <span>
@@ -170,6 +183,22 @@ export const RepositoryPageComponent = (props: TProps) => {
                 {
                   id: 'cases',
                   text: `Participants (${caseCount.toLocaleString()})`,
+                  component: !!props.viewer.repository.cases.hits.total ? (
+                    <div>
+                      <RepoCasesPies
+                        aggregations={props.viewer.repository.cases.pies}
+                      />
+                      <RepoCasesTable />
+                    </div>
+                  ) : (
+                    <NoResultsMessage>
+                      No results found using those filters.
+                    </NoResultsMessage>
+                  ),
+                },
+                {
+                  id: 'samples',
+                  text: `Samples (${caseCount.toLocaleString()})`,
                   component: !!props.viewer.repository.cases.hits.total ? (
                     <div>
                       <RepoCasesPies
