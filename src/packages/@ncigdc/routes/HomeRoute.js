@@ -9,7 +9,7 @@ import { zDepth1 } from '@ncigdc/theme/mixins';
 
 import MLSCLogo from '@ncigdc/theme/images/mlsc_logo.png'
 import HutlabLogo from '@ncigdc/theme/images/hutlab_logo.png'
-import FirecloudLogo from '@ncigdc/theme/images/firecloud_logo.png'
+import TerraLogo from '@ncigdc/theme/images/terra_logo.png'
 
 const Title = styled.div({
   color: 'white',
@@ -89,9 +89,9 @@ const Home = () => (
       <Row style={{ fontSize: '1.3em' }}></Row>
       <Row style={{ textAlign: 'center' }}>
         <ImageContainer>
-          <LogoContainer><a href="http://www.masslifesciences.com"><img src={MLSCLogo} border="3"/></a></LogoContainer>
           <LogoContainer><a href="http://huttenhower.sph.harvard.edu/"><img src={HutlabLogo} alt="Huttenhower"/></a></LogoContainer>
-          <LogoContainer><a href="https://software.broadinstitute.org/firecloud/"><img src={FirecloudLogo} alt="FireCloud"/></a></LogoContainer>
+          <LogoContainer><a href="http://www.masslifesciences.com"><img src={MLSCLogo} border="3"/></a></LogoContainer>
+          <LogoContainer><a href="https://terra.bio/"><img src={TerraLogo} alt="FireCloud"/></a></LogoContainer>
         </ImageContainer>
       </Row>
     </Column>

@@ -74,9 +74,9 @@ export default compose(
     >
       <div style={styles.outerContainer}>
         <div style={styles.innerContainer}>
-          <span>Data sets and metadata hosted and access controlled by the </span>
-          <ExternalLink href="https://portal.firecloud.org/">
-            Broad Institute FireCloud
+          <span>Data sets hosted and access controlled by </span>
+          <ExternalLink href="https://terra.bio/">
+            Terra (Broad Institute)
           </ExternalLink>
         </div>
         <div style={styles.innerContainer}>
@@ -86,7 +86,7 @@ export default compose(
           </ExternalLink>
           <span> and developed with the framework from the </span>
           <ExternalLink href="https://gdc.cancer.gov/">
-            NIH NCI GDC Data Portal
+            GDC Data Portal (NIH NCI)
           </ExternalLink>
         </div>
       </div>
