@@ -39,49 +39,33 @@ const dataCategoryColumns = createDataCategoryColumns({
   Link: RepositoryFilesLink,
   getCellLinkFilters: node => [
     {
-      field: 'cases.case_id',
-      value: node.case_id,
+      field: 'samples.sample_id',
+      value: node.sample_id,
     },
   ],
   getTotalLinkFilters: hits => [],
 });
 
-const FilesLink = ({ node, fields = [], children }) =>
-  children === '0' ? (
-    <span>0</span>
-  ) : (
-    <RepositoryFilesLink
-      query={{
-        filters: makeFilter([
-          { field: 'cases.case_id', value: [node.case_id] },
-          ...fields,
-        ]),
-      }}
-    >
-      {children}
-    </RepositoryFilesLink>
-  );
-
 const getProjectIdFilter = projects =>
   makeFilter([
     {
-      field: 'cases.project.project_id',
+      field: 'samples.project.project_id',
       value: projects.edges.map(({ node: p }) => p.project_id),
     },
   ]);
 
-const casesTableModel = [
+const samplesTableModel = [
   {
-    name: 'Participant UUID',
-    id: 'case_id',
+    name: 'Sample UUID',
+    id: 'sample_id',
     hidden: true,
     downloadable: true,
     th: () => (
-      <Th key="case_id" rowSpan="2">
-        Participant UUID
+      <Th key="sample_id" rowSpan="2">
+        Sample UUID
       </Th>
     ),
-    td: ({ node }) => <Td>{node.case_id}</Td>,
+    td: ({ node }) => <Td>{node.sample_id}</Td>,
   },
   {
     name: 'Program',
@@ -186,4 +170,4 @@ const casesTableModel = [
   },
 ];
 
-export default casesTableModel;
+export default samplesTableModel;

@@ -49,7 +49,7 @@ export default (Component: React.Class<*>) =>
           ) {
             viewer {
               repository {
-                cases {
+                samples {
                   hits(
                     score: $score
                     first: $cases_size
@@ -61,7 +61,7 @@ export default (Component: React.Class<*>) =>
                     edges {
                       node {
                         id
-                        case_id
+                        sample_id
                         primary_site
                         submitter_id
                         project {

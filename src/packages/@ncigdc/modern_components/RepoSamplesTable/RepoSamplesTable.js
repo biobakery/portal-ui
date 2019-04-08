@@ -14,19 +14,19 @@ import withSelectIds from '@ncigdc/utils/withSelectIds';
 import timestamp from '@ncigdc/utils/timestamp';
 
 export default compose(
-  setDisplayName('RepoCasesTablePresentation'),
-  connect(state => ({ tableColumns: state.tableColumns.cases.ids })),
+  setDisplayName('RepoSamplesTablePresentation'),
+  connect(state => ({ tableColumns: state.tableColumns.samples.ids })),
   branch(
     ({ viewer }) =>
-      !viewer.repository.cases.hits ||
-      !viewer.repository.cases.hits.edges.length,
+      !viewer.repository.samples.hits ||
+      !viewer.repository.samples.hits.edges.length,
     renderComponent(() => <div>No results found</div>),
   ),
   withSelectIds,
 )(
   ({
-    viewer: { repository: { cases: { hits } } },
-    entityType = 'cases',
+    viewer: { repository: { samples: { hits } } },
+    entityType = 'samples',
     tableColumns,
     variables,
     selectedIds,
@@ -40,7 +40,7 @@ export default compose(
       .filter(x => tableColumns.includes(x.id));
 
     return (
-      <div className="test-cases-table">
+      <div className="test-samples-table">
         <Row
           style={{
             backgroundColor: 'white',
@@ -64,12 +64,12 @@ export default compose(
               .filter(x => x.downloadable)
               .map(x => x.field || x.id)}
             sortOptions={tableInfo.filter(x => x.sortable)}
-            tsvSelector="#repository-cases-table"
-            tsvFilename={`repository-cases-table.${timestamp()}.tsv`}
+            tsvSelector="#repository-samples-table"
+            tsvFilename={`repository-samples-table.${timestamp()}.tsv`}
             score={variables.score}
             sort={variables.cases_sort}
             currentFilters={variables.filters}
-            idField="cases.case_id"
+            idField="samples.sample_id"
             selectedIds={selectedIds}
           />
         </Row>
@@ -96,7 +96,7 @@ export default compose(
                     key={e.node.id}
                     index={i}
                     style={{
-                      ...(selectedIds.includes(e.node.case_id) && {
+                      ...(selectedIds.includes(e.node.sample_id) && {
                         backgroundColor: theme.tableHighlight,
                       }),
                     }}

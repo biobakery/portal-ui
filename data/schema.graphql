@@ -6264,6 +6264,13 @@ type RemoveFromSsmSet {
 type Repository {
   cases: RepositoryCases
   files: Files
+  samples: RepositorySamples
+}
+
+type RepositorySamples {
+  hits(first: Int, offset: Int, sort: [Sort], score: String, filters: FiltersArgument, before: String, after: String, last: Int): SampleConnection
+  aggregations(filters: FiltersArgument, aggregations_filter_themselves: Boolean): CaseAggregations
+  facets(filters: FiltersArgument, facets: [String]): JSONString
 }
 
 type RepositoryCases {
@@ -6301,6 +6308,13 @@ type Sample implements Node {
   id: ID!
   annotations: CaseAnnotations
   portions: Portions
+  primary_site: String
+  submitter_id: String
+  demographic: Demographic
+  project: Project
+  summary: Summary
+  annotations: CaseAnnotations
+  files: CaseFiles
 
   # The accompanying sample type id for the sample type.
   #
