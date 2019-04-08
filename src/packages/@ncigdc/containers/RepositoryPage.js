@@ -9,6 +9,7 @@ import SearchPage from '@ncigdc/components/SearchPage';
 import TabbedLinks from '@ncigdc/components/TabbedLinks';
 import NoResultsMessage from '@ncigdc/components/NoResultsMessage';
 import RepoCasesTable from '@ncigdc/modern_components/RepoCasesTable';
+import RepoSamplesTable from '@ncigdc/modern_components/RepoSamplesTable';
 import CaseAggregations from '@ncigdc/modern_components/CaseAggregations';
 import FileAggregations from '@ncigdc/modern_components/FileAggregations';
 
@@ -204,7 +205,7 @@ export const RepositoryPageComponent = (props: TProps) => {
                       <RepoCasesPies
                         aggregations={props.viewer.repository.cases.pies}
                       />
-                      <RepoCasesTable />
+                      <RepoSamplesTable />
                     </div>
                   ) : (
                     <NoResultsMessage>
