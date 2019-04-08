@@ -101,6 +101,7 @@ export const RepositoryPageComponent = (props: TProps) => {
 
   const fileCount = props.viewer.repository.files.hits.total;
   const caseCount = props.viewer.repository.cases.hits.total;
+  const sampleCount = props.viewer.repository.samples.hits.total;
   const fileSize = props.viewer.cart_summary.aggregations.fs.value;
   return (
     <div className="test-repository-page">
@@ -151,6 +152,7 @@ export const RepositoryPageComponent = (props: TProps) => {
             <ActionsRow
               totalCases={caseCount}
               totalFiles={fileCount}
+              totalSamples={sampleCount}
               filters={props.filters}
             />
             <TabbedLinks
@@ -199,8 +201,8 @@ export const RepositoryPageComponent = (props: TProps) => {
                 },
                 {
                   id: 'samples',
-                  text: `Samples (${caseCount.toLocaleString()})`,
-                  component: !!props.viewer.repository.cases.hits.total ? (
+                  text: `Samples (${sampleCount.toLocaleString()})`,
+                  component: !!props.viewer.repository.samples.hits.total ? (
                     <div>
                       <RepoCasesPies
                         aggregations={props.viewer.repository.cases.pies}
@@ -274,6 +276,11 @@ export const RepositoryPageQuery = {
             pies: aggregations(filters: $filters aggregations_filter_themselves: true) {
               ${RepoCasesPies.getFragment('aggregations')}
             }
+            hits(score: "annotations.annotation_id" first: $cases_size offset: $cases_offset, filters: $filters, sort: $cases_sort) {
+              total
+            }
+          }
+          samples {
             hits(score: "annotations.annotation_id" first: $cases_size offset: $cases_offset, filters: $filters, sort: $cases_sort) {
               total
             }
