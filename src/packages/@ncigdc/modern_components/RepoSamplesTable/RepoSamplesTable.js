@@ -49,17 +49,17 @@ export default compose(
           }}
         >
           <Showing
-            docType="cases"
+            docType="samples"
             prefix={entityType}
             params={variables}
             total={hits.total}
           />
           <TableActions
-            type="case"
+            type="sample"
             scope="repository"
             arrangeColumnKey={entityType}
             total={hits.total}
-            endpoint="cases"
+            endpoint="samples"
             downloadFields={tableInfo
               .filter(x => x.downloadable)
               .map(x => x.field || x.id)}

@@ -22,9 +22,9 @@ export default (Component: React.Class<*>) =>
         const q = parse(location.search);
         return {
           variables: {
-            cases_offset: parseIntParam(q.cases_offset, 0),
-            cases_size: parseIntParam(q.cases_size, 20),
-            cases_sort: parseJSONParam(q.cases_sort, null),
+            samples_offset: parseIntParam(q.samples_offset, 0),
+            samples_size: parseIntParam(q.samples_size, 20),
+            samples_sort: parseJSONParam(q.samples_sort, null),
             filters: parseFilterParam(q.filters, defaultFilters),
             score: 'annotations.annotation_id',
           },
@@ -41,9 +41,9 @@ export default (Component: React.Class<*>) =>
         Component={Component}
         query={graphql`
           query RepoSamplesTable_relayQuery(
-            $cases_size: Int
-            $cases_offset: Int
-            $cases_sort: [Sort]
+            $samples_size: Int
+            $samples_offset: Int
+            $samples_sort: [Sort]
             $filters: FiltersArgument
             $score: String
           ) {
@@ -52,9 +52,9 @@ export default (Component: React.Class<*>) =>
                 samples {
                   hits(
                     score: $score
-                    first: $cases_size
-                    offset: $cases_offset
-                    sort: $cases_sort
+                    first: $samples_size
+                    offset: $samples_offset
+                    sort: $samples_sort
                     filters: $filters
                   ) {
                     total
