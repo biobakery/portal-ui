@@ -11,6 +11,7 @@ import NoResultsMessage from '@ncigdc/components/NoResultsMessage';
 import RepoCasesTable from '@ncigdc/modern_components/RepoCasesTable';
 import RepoSamplesTable from '@ncigdc/modern_components/RepoSamplesTable';
 import CaseAggregations from '@ncigdc/modern_components/CaseAggregations';
+import SampleAggregations from '@ncigdc/modern_components/SampleAggregations';
 import FileAggregations from '@ncigdc/modern_components/FileAggregations';
 
 import FilesTable from '@ncigdc/modern_components/FilesTable';
@@ -32,6 +33,9 @@ export type TProps = {
     autocomplete_case: {
       hits: Array<Object>,
     },
+    autocomplete_sample: {
+      hits: Array<Object>,
+    },
     autocomplete_file: {
       hits: Array<Object>,
     },
@@ -48,12 +52,24 @@ export type TProps = {
           facets: string,
         },
       },
+      customSampleFacets: {
+        facets: {
+          facets: string,
+        },
+      },
       customFileFacets: {
         facets: {
           facets: string,
         },
       },
       cases: {
+        aggregations: {},
+        pies: {},
+        hits: {
+          total: number,
+        },
+      },
+      samples: {
         aggregations: {},
         pies: {},
         hits: {
@@ -86,6 +102,14 @@ export const RepositoryPageComponent = (props: TProps) => {
       {
         idAutocompleteCase: value,
         runAutocompleteCase: !!value,
+      },
+      onReadyStateChange,
+    );
+  const setAutocompleteSamples = (value, onReadyStateChange) =>
+    props.relay.setVariables(
+      {
+        idAutocompleteSample: value,
+        runAutocompleteSample: !!value,
       },
       onReadyStateChange,
     );
@@ -137,11 +161,11 @@ export const RepositoryPageComponent = (props: TProps) => {
             id: 'samples',
             text: 'Samples',
             component: (
-              <CaseAggregations
+              <SampleAggregations
                 suggestions={
-                  (props.viewer.autocomplete_case || { hits: [] }).hits
+                  (props.viewer.autocomplete_sample || { hits: [] }).hits
                 }
-                setAutocomplete={setAutocompleteCases}
+                setAutocomplete={setAutocompleteSamples}
                 relay={props.relay}
               />
             ),
@@ -229,13 +253,18 @@ export const RepositoryPageQuery = {
     cases_offset: null,
     cases_size: null,
     cases_sort: null,
+    samples_offset: null,
+    samples_size: null,
+    samples_sort: null,
     files_offset: null,
     files_size: null,
     files_sort: null,
     filters: null,
     idAutocompleteCase: null,
+    idAutocompleteSample: null,
     idAutocompleteFile: null,
     runAutocompleteCase: false,
+    runAutocompleteSample: false,
     runAutocompleteFile: false,
   },
   fragments: {
@@ -246,6 +275,18 @@ export const RepositoryPageQuery = {
             id
             ...on Case {
               case_id
+              project {
+                project_id
+              }
+              submitter_id
+            }
+          }
+        }
+        autocomplete_sample: query (query: $idAutocompleteSample types: ["sample"]) @include(if: $runAutocompleteSample) {
+          hits {
+            id
+            ...on Sample {
+              sample_id
               project {
                 project_id
               }
@@ -281,7 +322,7 @@ export const RepositoryPageQuery = {
             }
           }
           samples {
-            hits(score: "annotations.annotation_id" first: $cases_size offset: $cases_offset, filters: $filters, sort: $cases_sort) {
+            hits(score: "annotations.annotation_id" first: $samples_size offset: $samples_offset, filters: $filters, sort: $samples_sort) {
               total
             }
           }

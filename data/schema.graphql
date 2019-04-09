@@ -629,6 +629,15 @@ type Case implements Node {
   score: Int
 }
 
+type SampleAggregations {
+  demographic__age: Aggregations
+  demographic__weight: Aggregations
+  demographic__met: Aggregations
+  project__project_id: Aggregations
+  project__program__name: Aggregations
+  primary_site: Aggregations
+}
+
 type CaseAggregations {
   updated_datetime: Aggregations
   submitter_analyte_ids: Aggregations
