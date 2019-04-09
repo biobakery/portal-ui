@@ -85,6 +85,12 @@ export default (Component: React.Class<*>) =>
                           weight
                           met
                         }
+                        time
+                        week
+                        fiber
+                        fat
+                        iron
+                        alcohol
                         summary {
                           data_categories {
                             file_count

@@ -107,36 +107,69 @@ const samplesTableModel = [
     td: ({ node }) => <Td key="primary_site">{node.primary_site}</Td>,
   },
   {
-    name: 'Age',
-    id: 'demographic.age',
+    name: 'Week',
+    id: 'week',
     sortable: false,
     downloadable: true,
     hidden: false,
-    th: () => <Th rowSpan="2">Age</Th>,
+    th: () => <Th rowSpan="2">Week</Th>,
     td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.age) || '--'}</Td>
+      <Td>{(node.week) || '--'}</Td>
     ),
   },
   {
-    name: 'Weight',
-    id: 'demographic.weight',
+    name: 'Time',
+    id: 'time',
     sortable: false,
     downloadable: true,
     hidden: false,
-    th: () => <Th rowSpan="2">Weight</Th>,
+    th: () => <Th rowSpan="2">Time</Th>,
     td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.weight) || '--'}</Td>
+      <Td>{(node.time) || '--'}</Td>
     ),
   },
   {
-    name: 'Activity',
-    id: 'demographic.met',
+    name: 'Fiber',
+    id: 'fiber',
     sortable: false,
     downloadable: true,
     hidden: false,
-    th: () => <Th rowSpan="2">Activity (MET)</Th>,
+    th: () => <Th rowSpan="2">Fiber</Th>,
     td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.met) || '--'}</Td>
+      <Td>{(node.fiber) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Fat',
+    id: 'fat',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Fat</Th>,
+    td: ({ node }) => (
+      <Td>{(node.fat) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Iron',
+    id: 'iron',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Iron</Th>,
+    td: ({ node }) => (
+      <Td>{(node.iron) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Alcohol',
+    id: 'alcohol',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Alcohol</Th>,
+    td: ({ node }) => (
+      <Td>{(node.alcohol) || '--'}</Td>
     ),
   },
   {
