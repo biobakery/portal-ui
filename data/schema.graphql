@@ -636,6 +636,12 @@ type SampleAggregations {
   project__project_id: Aggregations
   project__program__name: Aggregations
   primary_site: Aggregations
+  week: Aggregations
+  time: Aggregations
+  fiber: Aggregations
+  fat: Aggregations
+  iron: Aggregations
+  alcohol: Aggregations
 }
 
 type CaseAggregations {
