@@ -19,6 +19,7 @@ export type TProps = {
     primary_site: { buckets: [TBucket] },
     project__program__name: { buckets: [TBucket] },
     project__project_id: { buckets: [TBucket] },
+    sample__time: { buckets: [TBucket] },
   },
 };
 
@@ -109,6 +110,61 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
   );
 };
 
+const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
+  const currentFilters =
+    (query && parseFilterParam((query || {}).filters, {}).content) || [];
+  const currentFieldNames = currentFilters.map(f => f.content.field);
+  return (
+    <RowCenter>
+      <ColumnCenter className="test-primary-site">
+        <PieTitle>Primary Site</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'primary_site.buckets')}
+          fieldName="cases.primary_site"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+      <ColumnCenter className="test-project">
+        <PieTitle>Project</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'project__project_id.buckets')}
+          fieldName="cases.project.project_id"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+      <ColumnCenter className="test-time">
+        <PieTitle>Time</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'sample__time.buckets')}
+          fieldName="cases.sample.time"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+    </RowCenter>
+  );
+};
+
 export const RepoCasesPiesQuery = {
   fragments: {
     aggregations: () => Relay.QL`
@@ -149,6 +205,12 @@ export const RepoCasesPiesQuery = {
             key
           }
         }
+        sample__time {
+          buckets {
+            doc_count
+            key
+          }
+        }
       }
     `,
   },
@@ -159,4 +221,9 @@ const RepoCasesPies = Relay.createContainer(
   RepoCasesPiesQuery,
 );
 
-export default RepoCasesPies;
+const RepoSamplesPies = Relay.createContainer(
+  enhance(RepoSamplesPiesComponent),
+  RepoCasesPiesQuery,
+);
+
+export { RepoCasesPies, RepoSamplesPies };

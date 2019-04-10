@@ -645,6 +645,7 @@ type SampleAggregations {
 }
 
 type CaseAggregations {
+  sample__time : Aggregations
   updated_datetime: Aggregations
   submitter_analyte_ids: Aggregations
   analyte_ids: Aggregations
@@ -6330,6 +6331,13 @@ type Sample implements Node {
   summary: Summary
   annotations: CaseAnnotations
   files: CaseFiles
+
+  week: String
+  time: String
+  fiber: String
+  fat: String
+  iron: String
+  alcohol: String
 
   # The accompanying sample type id for the sample type.
   #

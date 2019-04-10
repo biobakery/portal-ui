@@ -18,7 +18,7 @@ import FilesTable from '@ncigdc/modern_components/FilesTable';
 import { SaveIcon } from '@ncigdc/theme/icons';
 import withFilters from '@ncigdc/utils/withFilters';
 import formatFileSize from '@ncigdc/utils/formatFileSize';
-import RepoCasesPies from '@ncigdc/components/TabPieCharts/RepoCasesPies';
+import { RepoCasesPies, RepoSamplesPies } from '@ncigdc/components/TabPieCharts/RepoCasesPies';
 import RepoFilesPies from '@ncigdc/components/TabPieCharts/RepoFilesPies';
 import withRouter from '@ncigdc/utils/withRouter';
 import ActionsRow from '@ncigdc/components/ActionsRow';
@@ -228,7 +228,7 @@ export const RepositoryPageComponent = (props: TProps) => {
                   text: `Samples (${sampleCount.toLocaleString()})`,
                   component: !!props.viewer.repository.samples.hits.total ? (
                     <div>
-                      <RepoCasesPies
+                      <RepoSamplesPies
                         aggregations={props.viewer.repository.cases.pies}
                       />
                       <RepoSamplesTable />
