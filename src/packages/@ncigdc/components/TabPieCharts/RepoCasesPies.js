@@ -126,7 +126,7 @@ const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
         <SelfFilteringPie
           buckets={_.get(aggregations, 'sample__week.buckets')}
           fieldName="cases.samples.week"
-          docTypeSingular="case"
+          docTypeSingular="sample"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
           query={query}
@@ -141,7 +141,7 @@ const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
         <SelfFilteringPie
           buckets={_.get(aggregations, 'sample__time.buckets')}
           fieldName="cases.samples.time"
-          docTypeSingular="case"
+          docTypeSingular="sample"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
           query={query}
@@ -156,7 +156,7 @@ const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
         <SelfFilteringPie
           buckets={_.get(aggregations, 'sample__fiber.buckets')}
           fieldName="cases.samples.fiber"
-          docTypeSingular="case"
+          docTypeSingular="sample"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
           query={query}
@@ -171,7 +171,7 @@ const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
         <SelfFilteringPie
           buckets={_.get(aggregations, 'sample__fat.buckets')}
           fieldName="cases.samples.fat"
-          docTypeSingular="case"
+          docTypeSingular="sample"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
           query={query}
@@ -186,7 +186,7 @@ const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
         <SelfFilteringPie
           buckets={_.get(aggregations, 'sample__iron.buckets')}
           fieldName="cases.samples.iron"
-          docTypeSingular="case"
+          docTypeSingular="sample"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
           query={query}
@@ -201,7 +201,7 @@ const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
         <SelfFilteringPie
           buckets={_.get(aggregations, 'sample__alcohol.buckets')}
           fieldName="cases.samples.alcohol"
-          docTypeSingular="case"
+          docTypeSingular="sample"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
           query={query}
