@@ -20,6 +20,11 @@ export type TProps = {
     project__program__name: { buckets: [TBucket] },
     project__project_id: { buckets: [TBucket] },
     sample__time: { buckets: [TBucket] },
+    sample__week: { buckets: [TBucket] },
+    sample__fiber: { buckets: [TBucket] },
+    sample__fat: { buckets: [TBucket] },
+    sample__iron: { buckets: [TBucket] },
+    sample__alcohol: { buckets: [TBucket] },
   },
 };
 
@@ -116,26 +121,11 @@ const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
   const currentFieldNames = currentFilters.map(f => f.content.field);
   return (
     <RowCenter>
-      <ColumnCenter className="test-primary-site">
-        <PieTitle>Primary Site</PieTitle>
+      <ColumnCenter className="test-week">
+        <PieTitle>Week</PieTitle>
         <SelfFilteringPie
-          buckets={_.get(aggregations, 'primary_site.buckets')}
-          fieldName="cases.primary_site"
-          docTypeSingular="case"
-          currentFieldNames={currentFieldNames}
-          currentFilters={currentFilters}
-          query={query}
-          push={push}
-          path="doc_count"
-          height={125}
-          width={125}
-        />
-      </ColumnCenter>
-      <ColumnCenter className="test-project">
-        <PieTitle>Project</PieTitle>
-        <SelfFilteringPie
-          buckets={_.get(aggregations, 'project__project_id.buckets')}
-          fieldName="cases.project.project_id"
+          buckets={_.get(aggregations, 'sample__week.buckets')}
+          fieldName="cases.samples.week"
           docTypeSingular="case"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
@@ -150,7 +140,67 @@ const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
         <PieTitle>Time</PieTitle>
         <SelfFilteringPie
           buckets={_.get(aggregations, 'sample__time.buckets')}
-          fieldName="cases.sample.time"
+          fieldName="cases.samples.time"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+      <ColumnCenter className="test-fiber">
+        <PieTitle>Fiber</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'sample__fiber.buckets')}
+          fieldName="cases.samples.fiber"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+      <ColumnCenter className="test-fat">
+        <PieTitle>Fat</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'sample__fat.buckets')}
+          fieldName="cases.samples.fat"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+      <ColumnCenter className="test-iron">
+        <PieTitle>Iron</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'sample__iron.buckets')}
+          fieldName="cases.samples.iron"
+          docTypeSingular="case"
+          currentFieldNames={currentFieldNames}
+          currentFilters={currentFilters}
+          query={query}
+          push={push}
+          path="doc_count"
+          height={125}
+          width={125}
+        />
+      </ColumnCenter>
+      <ColumnCenter className="test-alcohol">
+        <PieTitle>Alcohol</PieTitle>
+        <SelfFilteringPie
+          buckets={_.get(aggregations, 'sample__alcohol.buckets')}
+          fieldName="cases.samples.alcohol"
           docTypeSingular="case"
           currentFieldNames={currentFieldNames}
           currentFilters={currentFilters}
@@ -206,6 +256,36 @@ export const RepoCasesPiesQuery = {
           }
         }
         sample__time {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__week {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__fiber {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__fat {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__iron {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__alcohol {
           buckets {
             doc_count
             key

@@ -646,6 +646,11 @@ type SampleAggregations {
 
 type CaseAggregations {
   sample__time : Aggregations
+  sample__week : Aggregations
+  sample__fiber : Aggregations
+  sample__fat : Aggregations
+  sample__iron : Aggregations
+  sample__alcohol : Aggregations
   updated_datetime: Aggregations
   submitter_analyte_ids: Aggregations
   analyte_ids: Aggregations
