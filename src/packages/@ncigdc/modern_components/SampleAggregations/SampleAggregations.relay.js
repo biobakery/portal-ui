@@ -59,25 +59,37 @@ export default (Component: ReactClass<*>) =>
                     filters: $filters
                     aggregations_filter_themselves: false
                   ) {
-                    primary_site {
+                    week {
                       buckets {
                         doc_count
                         key
                       }
                     }
-                    project__program__name {
+                    time {
                       buckets {
                         doc_count
                         key
                       }
                     }
-                    project__project_id {
+                    fat {
                       buckets {
                         doc_count
                         key
                       }
                     }
-                    demographic__age {
+                    fiber {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
+                    iron {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
+                    alcohol {
                       buckets {
                         doc_count
                         key
