@@ -2,12 +2,14 @@
 import React from 'react';
 import Relay from 'react-relay/classic';
 import _ from 'lodash';
-import { compose } from 'recompose';
+import { compose, withState } from 'recompose';
 
 import { TBucket } from '@ncigdc/components/Aggregations/types';
 import withRouter from '@ncigdc/utils/withRouter';
 import { parseFilterParam } from '@ncigdc/utils/uri';
-import { ColumnCenter, RowCenter, PieTitle, SelfFilteringPie } from './';
+import { ColumnCenter, RowCenter, PieTitle, SelfFilteringPie, BottomBorderedBox,  WrappedRow, ShowToggleBox } from './';
+
+import withSize from '@ncigdc/utils/withSize';
 
 export type TProps = {
   push: Function,
@@ -26,9 +28,16 @@ export type TProps = {
     sample__iron: { buckets: [TBucket] },
     sample__alcohol: { buckets: [TBucket] },
   },
+  setShowingMore: Function,
+  showingMore: boolean,
+  size: { width: number },
 };
 
-const enhance = compose(withRouter);
+const enhance = compose(
+  withRouter,
+  withState('showingMore', 'setShowingMore', false),
+  withSize(),
+);
 
 const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
   const currentFilters =
@@ -115,103 +124,140 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
   );
 };
 
-const RepoSamplesPiesComponent = ({ aggregations, query, push }: TProps) => {
+const RepoSamplesPiesComponent = ({
+  aggregations, 
+  query, 
+  push, 
+  showingMore, 
+  setShowingMore, 
+  size: { width }, 
+ }: TProps) => {
   const currentFilters =
     (query && parseFilterParam((query || {}).filters, {}).content) || [];
   const currentFieldNames = currentFilters.map(f => f.content.field);
+  const pieColMinWidth = width / 5;
   return (
-    <RowCenter>
-      <ColumnCenter className="test-week">
-        <PieTitle>Week</PieTitle>
-        <SelfFilteringPie
-          buckets={_.get(aggregations, 'sample__week.buckets')}
-          fieldName="cases.samples.week"
-          docTypeSingular="sample"
-          currentFieldNames={currentFieldNames}
-          currentFilters={currentFilters}
-          query={query}
-          push={push}
-          path="doc_count"
-          height={125}
-          width={125}
+    <div className="test-repo-samples-pies">
+      <BottomBorderedBox>
+        <WrappedRow style={{ maxWidth: `${width}px`, width: '100%' }}>
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-week"
+          >
+          <PieTitle>Week</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__week.buckets')}
+            fieldName="cases.samples.week"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-time"
+          >
+          <PieTitle>Time</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__time.buckets')}
+            fieldName="cases.samples.time"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-fiber"
+          >
+          <PieTitle>Fiber</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__fiber.buckets')}
+            fieldName="cases.samples.fiber"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-fat"
+          >
+          <PieTitle>Fat</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__fat.buckets')}
+            fieldName="cases.samples.fat"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-iron"
+          >
+          <PieTitle>Iron</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__iron.buckets')}
+            fieldName="cases.samples.iron"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
         />
-      </ColumnCenter>
-      <ColumnCenter className="test-time">
-        <PieTitle>Time</PieTitle>
-        <SelfFilteringPie
-          buckets={_.get(aggregations, 'sample__time.buckets')}
-          fieldName="cases.samples.time"
-          docTypeSingular="sample"
-          currentFieldNames={currentFieldNames}
-          currentFilters={currentFilters}
-          query={query}
-          push={push}
-          path="doc_count"
-          height={125}
-          width={125}
-        />
-      </ColumnCenter>
-      <ColumnCenter className="test-fiber">
-        <PieTitle>Fiber</PieTitle>
-        <SelfFilteringPie
-          buckets={_.get(aggregations, 'sample__fiber.buckets')}
-          fieldName="cases.samples.fiber"
-          docTypeSingular="sample"
-          currentFieldNames={currentFieldNames}
-          currentFilters={currentFilters}
-          query={query}
-          push={push}
-          path="doc_count"
-          height={125}
-          width={125}
-        />
-      </ColumnCenter>
-      <ColumnCenter className="test-fat">
-        <PieTitle>Fat</PieTitle>
-        <SelfFilteringPie
-          buckets={_.get(aggregations, 'sample__fat.buckets')}
-          fieldName="cases.samples.fat"
-          docTypeSingular="sample"
-          currentFieldNames={currentFieldNames}
-          currentFilters={currentFilters}
-          query={query}
-          push={push}
-          path="doc_count"
-          height={125}
-          width={125}
-        />
-      </ColumnCenter>
-      <ColumnCenter className="test-iron">
-        <PieTitle>Iron</PieTitle>
-        <SelfFilteringPie
-          buckets={_.get(aggregations, 'sample__iron.buckets')}
-          fieldName="cases.samples.iron"
-          docTypeSingular="sample"
-          currentFieldNames={currentFieldNames}
-          currentFilters={currentFilters}
-          query={query}
-          push={push}
-          path="doc_count"
-          height={125}
-          width={125}
-        />
-      </ColumnCenter>
-      <ColumnCenter className="test-alcohol">
-        <PieTitle>Alcohol</PieTitle>
-        <SelfFilteringPie
-          buckets={_.get(aggregations, 'sample__alcohol.buckets')}
-          fieldName="cases.samples.alcohol"
-          docTypeSingular="sample"
-          currentFieldNames={currentFieldNames}
-          currentFilters={currentFilters}
-          query={query}
-          push={push}
-          path="doc_count"
-          height={125}
-          width={125}
-        />
-      </ColumnCenter>
-    </RowCenter>
+        </ColumnCenter>
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-alcohol"
+          >
+          <PieTitle>Alcohol</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__alcohol.buckets')}
+            fieldName="cases.samples.alcohol"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        </WrappedRow>
+      </BottomBorderedBox>
+      <RowCenter style={{ marginTop: '-1.5rem' }}>
+        <ShowToggleBox onClick={() => setShowingMore(!showingMore)}>
+          Show {showingMore ? 'Less' : 'More'}
+        </ShowToggleBox>
+      </RowCenter>
+    </div>
   );
 };
 
