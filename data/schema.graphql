@@ -5,6 +5,7 @@ schema {
 
 type Aggregations {
   buckets: [Bucket]
+  stats: Stats
 }
 
 type Aliquot implements Node {
