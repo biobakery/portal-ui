@@ -32,11 +32,11 @@ export type TProps = {
   parsedFacets: Object,
   aggregations: {
     week: { buckets: [TBucket] },
-    time: { buckets: [TBucket] },
-    fiber: { buckets: [TBucket] },
-    fat: { buckets: [TBucket] },
-    iron: { buckets: [TBucket] },
-    alcohol: { buckets: [TBucket] },
+    time: { stats: { max: number, min: number } },
+    fiber: { stats: { max: number, min: number } },
+    fat: { stats: { max: number, min: number } },
+    iron: { stats: { max: number, min: number } },
+    alcohol: { stats: { max: number, min: number } }
   },
   setAutocomplete: Function,
   theme: Object,

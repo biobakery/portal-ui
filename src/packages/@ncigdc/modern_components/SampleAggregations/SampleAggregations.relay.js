@@ -66,33 +66,33 @@ export default (Component: ReactClass<*>) =>
                       }
                     }
                     time {
-                      buckets {
-                        doc_count
-                        key
+                      stats {
+                        max
+                        min
                       }
                     }
                     fat {
-                      buckets {
-                        doc_count
-                        key
+                      stats {
+                        max
+                        min
                       }
                     }
                     fiber {
-                      buckets {
-                        doc_count
-                        key
+                      stats {
+                        max
+                        min
                       }
                     }
                     iron {
-                      buckets {
-                        doc_count
-                        key
+                      stats {
+                        max
+                        min
                       }
                     }
                     alcohol {
-                      buckets {
-                        doc_count
-                        key
+                      stats {
+                        max
+                        min
                       }
                     }
                   }
