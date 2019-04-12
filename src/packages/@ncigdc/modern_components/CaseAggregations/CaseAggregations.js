@@ -31,9 +31,9 @@ export type TProps = {
   facets: { facets: string },
   parsedFacets: Object,
   aggregations: {
-    demographic__age: { buckets: [TBucket] },
-    demographic__weight: { buckets: [TBucket] },
-    demographic__met: { buckets: [TBucket] },
+    demographic__age: { stats: { max: number, min: number } },
+    demographic__weight: { stats: { max: number, min: number } },
+    demographic__met: { stats: { max: number, min: number } },
     primary_site: { buckets: [TBucket] },
     project__program__name: { buckets: [TBucket] },
     project__project_id: { buckets: [TBucket] },
