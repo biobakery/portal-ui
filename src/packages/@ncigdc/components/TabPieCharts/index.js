@@ -13,6 +13,7 @@ import removeEmptyKeys from '@ncigdc/utils/removeEmptyKeys';
 
 const toPieData = (clickHandler, docTypeSingular, fieldName) => bucket => ({
   id: bucket.key + fieldName,
+  bucket_key: bucket.key,
   doc_count: bucket.doc_count,
   clickHandler,
   tooltip: (
@@ -107,7 +108,7 @@ export const SelfFilteringPie = ({
       )
       .map(
         toPieData(
-          ({ data }) => addFilter(query, push)(fieldName, data.id),
+          ({ data }) => addFilter(query, push)(fieldName, data.bucket_key),
           docTypeSingular,
           fieldName,
         ),
