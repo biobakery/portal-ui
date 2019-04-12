@@ -11,8 +11,8 @@ import { Row, Column } from '@ncigdc/uikit/Flex';
 import { stringifyJSONParam } from '@ncigdc/utils/uri';
 import removeEmptyKeys from '@ncigdc/utils/removeEmptyKeys';
 
-const toPieData = (clickHandler, docTypeSingular) => bucket => ({
-  id: bucket.key,
+const toPieData = (clickHandler, docTypeSingular, fieldName) => bucket => ({
+  id: bucket.key + fieldName,
   doc_count: bucket.doc_count,
   clickHandler,
   tooltip: (
@@ -109,6 +109,7 @@ export const SelfFilteringPie = ({
         toPieData(
           ({ data }) => addFilter(query, push)(fieldName, data.id),
           docTypeSingular,
+          fieldName,
         ),
       )}
     {...props}
