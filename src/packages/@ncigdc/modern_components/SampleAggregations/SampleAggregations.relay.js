@@ -66,9 +66,9 @@ export default (Component: ReactClass<*>) =>
                       }
                     }
                     time {
-                      stats {
-                        max
-                        min
+                      buckets {
+                        doc_count
+                        key
                       }
                     }
                     fat {

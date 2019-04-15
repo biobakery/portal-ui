@@ -32,7 +32,7 @@ export type TProps = {
   parsedFacets: Object,
   aggregations: {
     week: { buckets: [TBucket] },
-    time: { stats: { max: number, min: number } },
+    time: { buckets: [TBucket] },
     fiber: { stats: { max: number, min: number } },
     fat: { stats: { max: number, min: number } },
     iron: { stats: { max: number, min: number } },
@@ -64,14 +64,14 @@ const presetFacets = [
     field: 'week',
     full: 'samples.week',
     doc_type: 'samples',
-    type: 'keyword',
+    type: 'terms',
   },
   {
     title: 'Time',
     field: 'time',
     full: 'samples.time',
     doc_type: 'samples',
-    type: 'long',
+    type: 'terms',
   },
   {
     title: 'Fiber',
