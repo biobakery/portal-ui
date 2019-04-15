@@ -78,21 +78,21 @@ export default (Component: ReactClass<*>) =>
                       }
                     }
                     demographic__age {
-                      stats {
-                        max  
-                        min
+                      buckets {
+                        doc_count
+                        key
                       }
                     }
                     demographic__weight {
-                      stats {
-                        max
-                        min
+                      buckets {
+                        doc_count
+                        key
                       }
                     }
                     demographic__met {
-                      stats {
-                        max
-                        min
+                      buckets {
+                        doc_count
+                        key
                       }
                     }
                   }

@@ -31,9 +31,9 @@ export type TProps = {
   facets: { facets: string },
   parsedFacets: Object,
   aggregations: {
-    demographic__age: { stats: { max: number, min: number } },
-    demographic__weight: { stats: { max: number, min: number } },
-    demographic__met: { stats: { max: number, min: number } },
+    demographic__age: { buckets: [TBucket] },
+    demographic__weight: { buckets: [TBucket] },
+    demographic__met: { buckets: [TBucket] },
     primary_site: { buckets: [TBucket] },
     project__program__name: { buckets: [TBucket] },
     project__project_id: { buckets: [TBucket] },
@@ -85,21 +85,21 @@ const presetFacets = [
     field: 'demographic.age',
     full: 'cases.demographic.age',
     doc_type: 'cases',
-    type: 'long',
+    type: 'terms',
   },
   {
-    title: 'Weight',
+    title: 'Weight (lbs)',
     field: 'demographic.weight',
     full: 'cases.demographic.weight',
     doc_type: 'cases',
-    type: 'long',
+    type: 'terms',
   },
   {
     title: 'Activity (MET)',
     field: 'demographic.met',
     full: 'cases.demographic.met',
     doc_type: 'cases',
-    type: 'long',
+    type: 'terms',
   },
 ];
 
