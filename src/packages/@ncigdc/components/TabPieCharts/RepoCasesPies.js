@@ -91,7 +91,7 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
         />
       </ColumnCenter>
       <ColumnCenter className="test-weight">
-        <PieTitle>Weight</PieTitle>
+        <PieTitle>Weight (lbs)</PieTitle>
         <SelfFilteringPie
           buckets={_.get(aggregations, 'demographic__weight.buckets')}
           fieldName="cases.demographic.weight"
