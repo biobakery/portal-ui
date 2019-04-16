@@ -29,6 +29,7 @@ import { Row } from '@ncigdc/uikit/Flex';
 
 const presetFacets = [
   { field: 'data_category', full: 'files.data_category', type: 'keyword' },
+  { title: "File Size (GB)", field: 'file_size', full: 'files.file_size', type: 'keyword' },
   {
     field: 'experimental_strategy',
     full: 'files.experimental_strategy',
@@ -74,6 +75,7 @@ export type TProps = {
   aggregations: {
     access: { buckets: [TBucket] },
     data_category: { buckets: [TBucket] },
+    file_size: { buckets: [TBucket] },
     data_format: { buckets: [TBucket] },
     experimental_strategy: { buckets: [TBucket] },
     platform: { buckets: [TBucket] },

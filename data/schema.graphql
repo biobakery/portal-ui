@@ -3978,6 +3978,7 @@ type File implements Node {
 
 type FileAggregations {
   origin: Aggregations
+  file_size: Aggregations
   index_files__updated_datetime: Aggregations
   index_files__file_name: Aggregations
   index_files__submitter_id: Aggregations
@@ -4034,7 +4035,6 @@ type FileAggregations {
   downstream_analyses__output_files__experimental_strategy: Aggregations
   submitter_id: Aggregations
   read_pair_number: Aggregations
-  file_size: NumericAggergations
   archive__archive_id: Aggregations
   archive__md5sum: Aggregations
   archive__data_category: Aggregations

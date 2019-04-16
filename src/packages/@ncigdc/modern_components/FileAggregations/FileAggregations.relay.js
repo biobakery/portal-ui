@@ -66,6 +66,12 @@ export default (Component: ReactClass<*>) =>
                         key
                       }
                     }
+                    file_size {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
                     experimental_strategy {
                       buckets {
                         doc_count
