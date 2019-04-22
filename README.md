@@ -40,7 +40,7 @@ Next start the portal ui with the command `$ npm start`.
 
 1. Start the BIOM-Mass GraphQL server running. 
 2. Build the source for the UI with `$ npm run-script build`. 
-3. Build the docker image with `$ sudo docker build -f portal-ui .`.
+3. Build the docker image with `$ sudo docker build -t portal-ui .`.
 4. Start the docker container (allowing access to host ports) `$ sudo docker run -d --network=host --name portal_ui portal_ui`.
 
 ## Schema
