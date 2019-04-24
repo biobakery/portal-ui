@@ -22,6 +22,7 @@ import { RepoCasesPies, RepoSamplesPies } from '@ncigdc/components/TabPieCharts/
 import RepoFilesPies from '@ncigdc/components/TabPieCharts/RepoFilesPies';
 import withRouter from '@ncigdc/utils/withRouter';
 import ActionsRow from '@ncigdc/components/ActionsRow';
+import LoginButton from '@ncigdc/components/LoginButton';
 
 export type TProps = {
   push: Function,
@@ -91,12 +92,12 @@ export type TProps = {
 
 const enhance = compose(
   setDisplayName('RepositoryPage'),
-  connect(),
+  connect(({ auth: { user } }) => ({ user })),
   withFilters(),
   withRouter,
 );
 
-export const RepositoryPageComponent = (props: TProps) => {
+export const RepositoryPageComponent = (props: TProps, user) => {
   const setAutocompleteCases = (value, onReadyStateChange) =>
     props.relay.setVariables(
       {
@@ -215,7 +216,24 @@ export const RepositoryPageComponent = (props: TProps) => {
                       <RepoCasesPies
                         aggregations={props.viewer.repository.cases.pies}
                       />
-                      <RepoCasesTable />
+                       {user.username && (
+                        <RepoCasesTable />
+                       )}
+                       {!user.username && (
+                        <div>
+                         <Row
+                          style={{
+                           backgroundColor: 'white',
+                           padding: '1rem',
+                           justifyContent: 'space-between',
+                         }}
+                         >
+                         <span>
+                          <LoginButton/> to view the participants table.
+                         </span>
+                         </Row>
+                        </div>
+                       )}
                     </div>
                   ) : (
                     <NoResultsMessage>
@@ -231,7 +249,24 @@ export const RepositoryPageComponent = (props: TProps) => {
                       <RepoSamplesPies
                         aggregations={props.viewer.repository.cases.pies}
                       />
-                      <RepoSamplesTable />
+                       {user.username && (
+                        <RepoSamplesTable />
+                       )}
+                       {!user.username && (
+                        <div>
+                         <Row
+                          style={{
+                           backgroundColor: 'white',
+                           padding: '1rem',
+                           justifyContent: 'space-between',
+                         }}
+                         >
+                         <span>
+                          <LoginButton/> to view the samples table.
+                         </span>
+                         </Row>
+                        </div>
+                       )}
                     </div>
                   ) : (
                     <NoResultsMessage>
