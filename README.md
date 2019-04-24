@@ -43,6 +43,8 @@ Next start the portal ui with the command `$ npm start`.
 3. Build the docker image with `$ sudo docker build -t portal-ui .`.
 4. Start the docker container (allowing access to host ports) `$ sudo docker run -d --network=host --name portal-ui portal-ui`.
 
+These steps are included in the `build.bash` script.
+
 ## Schema
 
 To generate a schema of the local GraphQL server run the command `$ node ./data/getSchema`.
