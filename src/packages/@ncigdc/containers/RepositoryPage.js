@@ -216,10 +216,10 @@ export const RepositoryPageComponent = (props: TProps, user) => {
                       <RepoCasesPies
                         aggregations={props.viewer.repository.cases.pies}
                       />
-                       {user.username && (
+                       {false && (
                         <RepoCasesTable />
                        )}
-                       {!user.username && (
+                       {true && (
                         <div>
                          <Row
                           style={{
@@ -249,10 +249,10 @@ export const RepositoryPageComponent = (props: TProps, user) => {
                       <RepoSamplesPies
                         aggregations={props.viewer.repository.cases.pies}
                       />
-                       {user.username && (
+                       {false && (
                         <RepoSamplesTable />
                        )}
-                       {!user.username && (
+                       {true && (
                         <div>
                          <Row
                           style={{
