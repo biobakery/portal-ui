@@ -34,6 +34,13 @@ const ImageContainer = styled(Row, {
   padding: '0 14rem',
 });
 
+const ImageContainerSmall = styled(Row, {
+  margin: '2rem 0',
+  justifyContent: 'space-around',
+  width: '95vw',
+  padding: '0 14rem',
+});
+
 const GradientContainer = styled(Row, {
   backgroundColor: '#000',
   backgroundImage:
@@ -75,7 +82,7 @@ const Auth = () => (
           <span>Meta`omic Datasets</span>
         </SubTitle>
         <Title>BIOM-Mass Data Portal</Title>
-        <ImageContainer>
+        <ImageContainerSmall>
           <LogoContainer>
           <GoogleLogin
             clientId="198.54.231.35.apps.googleusercontent.com"
@@ -84,14 +91,14 @@ const Auth = () => (
             cookiePolicy={'single_host_origin'}
          />
           </LogoContainer>
-        </ImageContainer>
+        </ImageContainerSmall>
         <SubTitle style={{ fontSize: '2rem' }}>Sign in with Google to access controlled data</SubTitle>
         <AboutText>
-          The BIOM-Mass portal allows for access with your Google account. Access is restricted. Please <ContactLink>contact us</ContactLink> if you would like to have an account. Accounts allow for access to controlled meta`omic sequencing data and participant and sample metadata. All sequencing data sets are hosted and access controlled by <a href="https://terra.bio/">Terra (Broad Institute).</a>
+          <span>The BIOM-Mass portal allows for access with your Google account. Access is restricted. Please <ContactLink>contact us</ContactLink> if you would like to have an account. Accounts allow for access to controlled meta`omic sequencing data and participant and sample metadata. All sequencing data sets are hosted and access controlled by <a href="https://terra.bio/">Terra (Broad Institute).</a></span>
         </AboutText>
-      <ImageContainer>
+      <ImageContainerSmall>
         <LogoContainer><a href="https://terra.bio/"><img src={TerraLogo} alt="FireCloud"/></a></LogoContainer>
-      </ImageContainer>
+      </ImageContainerSmall>
       </InsideContainer>
     </GradientContainer>
     <Column style={{ paddingTop: '7rem', alignItems: 'center' }}>
