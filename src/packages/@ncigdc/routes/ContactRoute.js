@@ -8,7 +8,7 @@ import { zDepth1 } from '@ncigdc/theme/mixins';
 import MLSCLogo from '@ncigdc/theme/images/mlsc_logo.png'
 import HutlabLogo from '@ncigdc/theme/images/hutlab_logo.png'
 import TerraLogo from '@ncigdc/theme/images/terra_logo.png'
-import HMACLogo from '@ncigdc/theme/images/microbiome_core-reduced-size.png'
+import HMACLogo from '@ncigdc/theme/images/microbiome_core-reduced-size-square.png'
 
 const Title = styled.div({
   color: 'white',
