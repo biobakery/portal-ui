@@ -17,6 +17,10 @@ const HomeRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/HomeRoute'),
 });
 
+const AuthRoute = LoadableWithLoading({
+  loader: () => import('@ncigdc/routes/AuthRoute'),
+});
+
 const CartRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/CartRoute'),
 });
@@ -38,19 +42,11 @@ export default () => (
     <Route children={p => <Head title={p.location.pathname.split('/')[1]} />} />
     <Switch>
       <Route exact path="/" component={HomeRoute} />
-      <Route exact path="/cart" component={CartRoute} />
+      <Route exact path="/auth" component={AuthRoute} />
       <Route exact path="/repository" component={RepositoryRoute} />
       <Route exact path="/projects" component={ProjectsRoute} />
-      <Route exact path="/annotations" component={AnnotationsRoute} />
-      <Route exact path="/query" component={SmartSearchRoute} />
       {ProjectRoute}
-      <Route path="/files/:id" component={FileRoute} />
       {CaseRoute}
-      {AnnotationRoute}
-      {GeneRoute}
-      {SSMRoute}
-      {ImageViewerRoute}
-      <Route path="/components/:component" component={ComponentsRoute} />
       <Route component={NotFound} />
     </Switch>
   </span>
