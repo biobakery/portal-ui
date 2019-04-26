@@ -9,6 +9,8 @@ import LocationSubscriber from '@ncigdc/components/LocationSubscriber';
 import styled from '@ncigdc/theme/styled';
 import { AUTH } from '@ncigdc/utils/constants';
 
+import AuthLink from '@ncigdc/components/Links/AuthLink';
+
 /*----------------------------------------------------------------------------*/
 
 const openAuthWindow = ({ pathname, dispatch }) => {
@@ -61,7 +63,7 @@ type TLoginButtonProps = {
   children: mixed,
   dispatch: Function,
 };
-const LoginButton = ({ children, dispatch }: TLoginButtonProps) => (
+const LoginButtonLegacy = ({ children, dispatch }: TLoginButtonProps) => (
   <LocationSubscriber>
     {({ pathname }) => (
       <Link
@@ -77,6 +79,15 @@ const LoginButton = ({ children, dispatch }: TLoginButtonProps) => (
       </Link>
     )}
   </LocationSubscriber>
+);
+
+const LoginButton = ({ children, dispatch }: TLoginButtonProps) => (
+    <AuthLink className="test-login-button">
+      <span>
+        <LoginIcon />
+        <span style={styles.marginLeft}>Login</span>
+      </span>
+    </AuthLink>
 );
 
 /*----------------------------------------------------------------------------*/
