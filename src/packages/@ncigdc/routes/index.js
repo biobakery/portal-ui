@@ -21,6 +21,10 @@ const AuthRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/AuthRoute'),
 });
 
+const ContactRoute = LoadableWithLoading({
+  loader: () => import('@ncigdc/routes/ContactRoute'),
+});
+
 const CartRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/CartRoute'),
 });
@@ -43,6 +47,7 @@ export default () => (
     <Switch>
       <Route exact path="/" component={HomeRoute} />
       <Route exact path="/auth" component={AuthRoute} />
+      <Route exact path="/contact" component={ContactRoute} />
       <Route exact path="/repository" component={RepositoryRoute} />
       <Route exact path="/projects" component={ProjectsRoute} />
       {ProjectRoute}

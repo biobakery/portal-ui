@@ -10,6 +10,7 @@ import HomeLink from '@ncigdc/components/Links/HomeLink';
 import RepositoryLink from '@ncigdc/components/Links/RepositoryLink';
 import CartLink from '@ncigdc/components/Links/CartLink';
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
+import ContactLink from '@ncigdc/components/Links/ContactLink';
 import GDCAppsDropdown from '@ncigdc/components/GDCApps/GDCAppsDropdown';
 import UserDropdown from '@ncigdc/components/UserDropdown';
 import Hidden from '@ncigdc/components/Hidden';
@@ -143,6 +144,13 @@ const Header = compose(
                 <span className="header-hidden-sm">Repository</span>
                 <Hidden>Repository</Hidden>
               </RepositoryLink>
+            </li>
+            <li>
+              <ContactLink exact activeStyle={styles.activeNavLink(theme)}>
+                <i className="fa fa-envelope-o" style={styles.iconPadding} />
+                <span className="header-hidden-sm">Contact</span>
+                <Hidden>Contact</Hidden>
+              </ContactLink>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
