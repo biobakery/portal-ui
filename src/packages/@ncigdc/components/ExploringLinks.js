@@ -8,6 +8,7 @@ import { AnalysisIcon } from '@ncigdc/theme/icons';
 import { Tooltip } from '@ncigdc/uikit/Tooltip';
 
 import ProjectsLink from './Links/ProjectsLink';
+import ProtocolLink from './Links/ProtocolLink';
 import RepositoryLink from './Links/RepositoryLink';
 
 const linkStyle = {
@@ -34,6 +35,7 @@ const linkStyle = {
 
 const Projects = styled(ProjectsLink, linkStyle);
 const Repository = styled(RepositoryLink, linkStyle);
+const Protocol = styled(ProtocolLink, linkStyle);
 
 const Background = styled.span({
   backgroundColor: 'rgba(255, 255, 255, 0.35)',
@@ -64,6 +66,14 @@ const ExploringLinks = () => (
         </Background>
         &nbsp; <span style={{ verticalAlign: 'middle' }}>Repository</span>
       </Repository>
+    </Tooltip>
+    <Tooltip Component="Review protocols">
+      <Protocol backgroundColor="#6668c3">
+        <Background>
+          <i className="fa fa-file" />
+        </Background>
+        &nbsp; <span style={{ verticalAlign: 'middle' }}>Protocols</span>
+      </Protocol>
     </Tooltip>
   </Row>
 );
