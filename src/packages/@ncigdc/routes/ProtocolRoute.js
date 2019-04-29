@@ -9,6 +9,17 @@ import MLSCLogo from '@ncigdc/theme/images/mlsc_logo.png'
 import HutlabLogo from '@ncigdc/theme/images/hutlab_logo.png'
 import TerraLogo from '@ncigdc/theme/images/terra_logo.png'
 
+const styles = {
+  iconPadding: {
+    paddingRight: '4px',
+  },
+  protocolTitle: {
+    paddingTop: '1rem' , 
+    paddingBottom: '1rem',
+    fontSize: '2rem'
+ },
+};
+
 const Title = styled.div({
   color: 'white',
   fontSize: '3rem',
@@ -76,6 +87,25 @@ const Protocol = () => (
         <Title>BIOM-Mass Data Portal</Title>
         <AboutText>
           <span>The BIOM-Mass project follows the same protocols as the <a href="https://ibdmdb.org/">Inflammatory Bowel Disease Multi`omics Database (IBDMDB)</a>.</span>
+        <SubTitle style={styles.protocolTitle}><span>Metabolomics</span></SubTitle>
+         <i class="fa fa-file" style={styles.iconPadding} aria-hidden="true"/>
+         <a href="https://www.ibdmdb.org/cb/document/Data%20Generation%20Protocols/MetabolomicsHMP2Protocol.pdf">Metabolomics Protocol</a> :  Methods for sample preparation and processing metabolomics data
+        <SubTitle style={styles.protocolTitle}><span>Metatranscriptomics</span></SubTitle>
+         <i class="fa fa-file" style={styles.iconPadding} aria-hidden="true"/>
+         <a href="https://www.ibdmdb.org/cb/document/Data%20Generation%20Protocols/Host_Transcriptomics_HMP2_protocol.pdf">Metatranscriptomics Protocol</a> :  Methods for library construction and sequencing for metatranscriptomics data
+        <SubTitle style={styles.protocolTitle}><span>Sample Extraction</span></SubTitle>
+         <div style={{ paddingBottom: '8px' }}>
+         <i class="fa fa-file" style={styles.iconPadding} aria-hidden="true"/>
+         <a href="https://www.ibdmdb.org/cb/document/Sample%20Handling%20Protocols/Whole_Blood_DNA_Isolation_HMP2_protocol.pdf">Blood Isolation Protocol</a> :  Methods for extracting DNA from whole blood
+         </div>
+         <div style={{ paddingBottom: '8px' }}>
+         <i class="fa fa-file" style={styles.iconPadding} aria-hidden="true"/>
+         <a href="https://www.ibdmdb.org/cb/document/Sample%20Handling%20Protocols/Co-Isolation_DNA_RNA_HMP2_protocol.pdf">Frozen Tissue Isolation Protocol</a> :  Methods for extracting DNA and RNA from frozen tissue
+         </div>
+         <div style={{ paddingBottom: '8px' }}>
+         <i class="fa fa-file" style={styles.iconPadding} aria-hidden="true"/>
+         <a href="https://www.ibdmdb.org/cb/document/Sample%20Handling%20Protocols/DNA_and_RNA_Stool_Isolation_HMP2_protocol.pdf">Stool Isolation Protocol</a> :  Methods for extracting DNA and RNA from stool
+         </div>
         </AboutText>
       </InsideContainer>
     </GradientContainer>
