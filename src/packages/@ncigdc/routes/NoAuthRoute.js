@@ -82,7 +82,7 @@ const NoAuth = () => (
         <Title>BIOM-Mass Data Portal</Title>
         <ImageContainerSmall>
           <LogoContainer style={{ border: '4px solid rgb(0, 0, 0)' }}>
-            <i class="fa fa-ban fa-5x" aria-hidden="true"></i>
+            <i className="fa fa-ban fa-5x" aria-hidden="true"></i>
           </LogoContainer>
         </ImageContainerSmall>
         <SubTitle style={{ fontSize: '2rem', color:"black" }}>You do not have access to login to the portal</SubTitle>
