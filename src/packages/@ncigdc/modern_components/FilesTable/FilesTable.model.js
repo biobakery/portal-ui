@@ -6,6 +6,7 @@ import { Th, Td, TdNum, ThNum } from '@ncigdc/uikit/Table';
 import { makeFilter } from '@ncigdc/utils/filters';
 import FileSize from '@ncigdc/components/FileSize';
 
+import AuthLink from '@ncigdc/components/Links/AuthLink';
 import { PROJECTLINK } from '@ncigdc/utils/constants'
 
 const filesTableModel = [
@@ -50,9 +51,9 @@ const filesTableModel = [
     th: () => <Th>File Name</Th>,
     td: ({ node }) => (
       <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
-        <a href={PROJECTLINK}>
+        <AuthLink>
           {node.file_name}
-        </a>
+        </AuthLink>
       </Td>
     ),
   },
