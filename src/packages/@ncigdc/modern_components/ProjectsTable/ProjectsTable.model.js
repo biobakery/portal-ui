@@ -77,7 +77,7 @@ const projectsTableModel = [
     ),
   },
   {
-    name: 'Cases',
+    name: 'Participants',
     id: 'summary.case_count',
     sortable: true,
     downloadable: true,
