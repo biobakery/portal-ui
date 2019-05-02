@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { compose, withState } from 'recompose';
 import { Row, Column } from '@ncigdc/uikit/Flex';
 import styled from '@ncigdc/theme/styled';
 import { zDepth1 } from '@ncigdc/theme/mixins';
@@ -12,6 +13,9 @@ import HutlabLogo from '@ncigdc/theme/images/hutlab_logo.png'
 import TerraLogo from '@ncigdc/theme/images/terra_logo.png'
 
 import GoogleLogin from 'react-google-login';
+
+//const clientid = "250496797473-3tkrt8bluu5l508kik1j2ufurpiamgsn.apps.googleusercontent.com";
+const clientid = "250496797473-15s2p3k9s7latehllsj4o2cv5qp1jl1c.apps.googleusercontent.com";
 
 const Title = styled.div({
   color: 'white',
@@ -69,10 +73,51 @@ const LogoContainer = styled(Column, {
 });
 
 const responseGoogle = (response) => {
-  console.log(response);
+  console.error("Access denied");
 }
  
 const InsideContainer = styled.div(containerStyle);
+
+const LoginContainer = compose(
+  withState('showLoginButton', 'resetButton', true)
+  )(
+  ({
+    showLoginButton,
+    resetButton,
+  }) => {
+
+  if (showLoginButton) {
+    return (
+        <div>
+        <ImageContainerSmall>
+          <LogoContainer>
+          <GoogleLogin
+            clientId={clientid}
+            onSuccess={response => {
+              resetButton(false)
+              responseGoogle(response)
+            }}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+         /> 
+          </LogoContainer>
+        </ImageContainerSmall>
+        <SubTitle style={{ fontSize: '2rem' }}>Sign in with Google to access controlled data</SubTitle>
+        </div>
+     )
+  }
+
+  return (
+        <div>
+        <ImageContainerSmall>
+          <LogoContainer style={{ border: '4px solid rgb(0, 0, 0)' }}>
+            <i className="fa fa-ban fa-5x" aria-hidden="true"></i>
+          </LogoContainer>
+        </ImageContainerSmall>
+        <SubTitle style={{ fontSize: '2rem', color:"black" }}>You do not have access to login to the portal</SubTitle>
+       </div>
+     )
+});
 
 const Auth = () => (
   <Column className="test-auth">
@@ -82,17 +127,7 @@ const Auth = () => (
           <span>Meta`omic Datasets</span>
         </SubTitle>
         <Title>BIOM-Mass Data Portal</Title>
-        <ImageContainerSmall>
-          <LogoContainer>
-          <GoogleLogin
-            clientId="198.54.231.35.apps.googleusercontent.com"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-         />
-          </LogoContainer>
-        </ImageContainerSmall>
-        <SubTitle style={{ fontSize: '2rem' }}>Sign in with Google to access controlled data</SubTitle>
+          <LoginContainer />
         <AboutText>
           <span>The BIOM-Mass portal allows for access with your Google account. Access is restricted. Please <ContactLink>contact us</ContactLink> if you would like to have an account. Accounts allow for access to controlled meta`omic sequencing data and participant and sample metadata. All sequencing data sets are hosted and access controlled by <a href="https://terra.bio/">Terra (Broad Institute).</a></span>
         </AboutText>

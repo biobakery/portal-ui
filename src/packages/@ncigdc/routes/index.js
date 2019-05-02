@@ -25,10 +25,6 @@ const AuthRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/AuthRoute'),
 });
 
-const NoAuthRoute = LoadableWithLoading({
-  loader: () => import('@ncigdc/routes/NoAuthRoute'),
-});
-
 const ContactRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/ContactRoute'),
 });
@@ -55,7 +51,6 @@ export default () => (
     <Switch>
       <Route exact path="/" component={HomeRoute} />
       <Route exact path="/auth" component={AuthRoute} />
-      <Route exact path="/noauth" component={NoAuthRoute} />
       <Route exact path="/contact" component={ContactRoute} />
       <Route exact path="/protocol" component={ProtocolRoute} />
       <Route exact path="/repository" component={RepositoryRoute} />
