@@ -74,8 +74,6 @@ export function fetchApiVersionInfo(): Function {
       ...apiVersionInfo,
     };
 
-    logVersionInfo(versionInfo);
-
     dispatch({
       type: VERSION_INFO_SUCCESS,
       payload: apiVersionInfo,
