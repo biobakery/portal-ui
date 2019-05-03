@@ -12,6 +12,8 @@ import MLSCLogo from '@ncigdc/theme/images/mlsc_logo.png'
 import HutlabLogo from '@ncigdc/theme/images/hutlab_logo.png'
 import TerraLogo from '@ncigdc/theme/images/terra_logo.png'
 
+import { fetchApi } from '@ncigdc/utils/ajax';
+
 import GoogleLogin from 'react-google-login';
 
 //const clientid = "250496797473-3tkrt8bluu5l508kik1j2ufurpiamgsn.apps.googleusercontent.com";
@@ -73,7 +75,20 @@ const LogoContainer = styled(Column, {
 });
 
 const responseGoogle = (response) => {
-  console.error("Access denied");
+  async function requestaccess() {
+    const {
+      access,
+    } = await fetchApi('access', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: {
+        email: response.profileObj.email,
+        familyName: response.profileObj.familyName,
+        givenName: response.profileObj.givenName,
+      },
+    });
+  }
+  requestaccess();
 }
  
 const InsideContainer = styled.div(containerStyle);
