@@ -45,14 +45,14 @@ const filesTableModel = [
   },
   {
     name: 'File Name',
-    id: 'file_name',
+    id: 'generic_file_name',
     sortable: true,
     downloadable: true,
     th: () => <Th>File Name</Th>,
     td: ({ node }) => (
       <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
         <AuthLink>
-          {node.file_name}
+          {node.generic_file_name}
         </AuthLink>
       </Td>
     ),
