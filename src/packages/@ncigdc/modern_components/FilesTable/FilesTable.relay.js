@@ -59,7 +59,6 @@ export default (Component: ReactClass<*>) =>
                       node {
                         id
                         file_id
-                        file_name
                         generic_file_name
                         file_size
                         access
