@@ -147,7 +147,7 @@ const RepoFilesPiesComponent = ({
               height={125}
               width={125}
             />
-          </ColumnCenter>,
+          </ColumnCenter>
           {showingMore && [
             <ColumnCenter
               key="files.access"
@@ -167,7 +167,7 @@ const RepoFilesPiesComponent = ({
                 height={125}
                 width={125}
               />
-            </ColumnCenter>,
+            </ColumnCenter>
           ]}
         </WrappedRow>
       </BottomBorderedBox>
