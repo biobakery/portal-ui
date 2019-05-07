@@ -13,5 +13,16 @@ export default ({ title }) => (
     />
     <title>{capitalize(title) || 'BIOM-Mass'}</title>
     <link rel="icon" href={biomMassFavicon} />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139875427-1"></script>
+    <script>
+      {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-139875427-1');
+      `}
+    </script>
   </Helmet>
 );
