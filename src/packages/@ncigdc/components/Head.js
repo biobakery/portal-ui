@@ -3,15 +3,15 @@
 import React from 'react';
 import { capitalize } from 'lodash';
 import { Helmet } from 'react-helmet';
-import Favicon from '@ncigdc/theme/images/favicon.ico';
+import biomMassFavicon from '@ncigdc/theme/images/biom-mass-server-favicon.png';
 
 export default ({ title }) => (
   <Helmet>
     <meta
       name="description"
-      content="A unique tool to foster important discoveries in Cancer Research"
+      content="BIOM-Mass Portal"
     />
-    <title>{capitalize(title) || 'GDC'}</title>
-    <link rel="icon" href={Favicon} />
+    <title>{capitalize(title) || 'BIOM-Mass'}</title>
+    <link rel="icon" href={biomMassFavicon} />
   </Helmet>
 );
