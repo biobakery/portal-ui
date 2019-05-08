@@ -112,7 +112,7 @@ const Header = compose(
           >
             <img src={biomMassLogo} alt="biommass-logo" />
             <Hidden>
-              <h1>GDC Home</h1>
+              <h1>BIOM-Mass Home</h1>
             </Hidden>
           </HomeLink>
         </div>
