@@ -1,12 +1,12 @@
 {
   "version": "1.17.0",
-  "repository": "NCI-GDC/portal-ui",
+  "repository": "biobakery/portal-ui",
   "name": "portal-ui",
   "author": {
-    "name": "OICR",
-    "url": "https://github.com/NCI-GDC/"
+    "name": "biobakery",
+    "url": "https://github.com/biobakery/"
   },
-  "homepage": "https://portal.gdc.cancer.gov/",
+  "homepage": "http://biom-mass.org/",
   "scripts": {
     "start": "concurrently --kill-others 'npm run start-ui' 'npm run relay -- --watch'",
     "start-ui": "BROWSER=none react-app-rewired start --scripts-version react-scripts-ts",
