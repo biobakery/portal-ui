@@ -11,7 +11,7 @@ export default ({ title }) => (
       name="description"
       content="BIOM-Mass Portal"
     />
-    <title>{capitalize(title) || 'BIOM-Mass'}</title>
+    <title>{'BIOM-Mass'}</title>
     <link rel="icon" href={biomMassFavicon} />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139875427-1"></script>
