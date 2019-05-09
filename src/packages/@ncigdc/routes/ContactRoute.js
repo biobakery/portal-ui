@@ -72,7 +72,7 @@ const Auth = () => (
     <GradientContainer>
       <InsideContainer flex="1">
         <SubTitle style={{ fontSize: '2rem' }}>
-          <span>Meta`omic Datasets</span>
+          <span>Multi'omic Microbiome Profiles</span>
         </SubTitle>
         <Title>BIOM-Mass Data Portal</Title>
         <ImageContainerSmall>

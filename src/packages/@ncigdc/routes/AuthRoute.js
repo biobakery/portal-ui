@@ -139,12 +139,12 @@ const Auth = () => (
     <GradientContainer>
       <InsideContainer flex="1">
         <SubTitle style={{ fontSize: '2rem' }}>
-          <span>Meta`omic Datasets</span>
+          <span>Multi'omic Microbiome Profiles</span>
         </SubTitle>
         <Title>BIOM-Mass Data Portal</Title>
           <LoginContainer />
         <AboutText>
-          <span>The BIOM-Mass portal allows for access with your Google account. Access is restricted. Please <ContactLink>contact us</ContactLink> if you would like to have an account. Accounts allow for access to controlled meta`omic sequencing data and participant and sample metadata. All sequencing data sets are hosted and access controlled by <a href="https://terra.bio/">Terra (Broad Institute).</a></span>
+          <span>The BIOM-Mass portal allows for access with your Google account. Access is restricted. Please <ContactLink>contact us</ContactLink> if you would like to have an account. Accounts allow for access to controlled multi'omic sequencing data and participant and sample metadata. All sequencing data sets are hosted and access controlled by <a href="https://terra.bio/">Terra (Broad Institute).</a></span>
         </AboutText>
       <ImageContainerSmall>
         <LogoContainer><a href="https://terra.bio/"><img src={TerraLogo} alt="FireCloud"/></a></LogoContainer>
