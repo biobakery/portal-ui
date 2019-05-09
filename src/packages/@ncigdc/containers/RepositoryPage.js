@@ -133,19 +133,6 @@ export const RepositoryPageComponent = (props: TProps, user) => {
       <SearchPage
         facetTabs={[
           {
-            id: 'files',
-            text: 'Files',
-            component: (
-              <FileAggregations
-                suggestions={
-                  (props.viewer.autocomplete_file || { hits: [] }).hits
-                }
-                setAutocomplete={setAutocompleteFiles}
-                relay={props.relay}
-              />
-            ),
-          },
-          {
             id: 'cases',
             text: 'Participants',
             component: (
@@ -167,6 +154,19 @@ export const RepositoryPageComponent = (props: TProps, user) => {
                   (props.viewer.autocomplete_sample || { hits: [] }).hits
                 }
                 setAutocomplete={setAutocompleteSamples}
+                relay={props.relay}
+              />
+            ),
+          },
+          {
+            id: 'files',
+            text: 'Files',
+            component: (
+              <FileAggregations
+                suggestions={
+                  (props.viewer.autocomplete_file || { hits: [] }).hits
+                }
+                setAutocomplete={setAutocompleteFiles}
                 relay={props.relay}
               />
             ),
