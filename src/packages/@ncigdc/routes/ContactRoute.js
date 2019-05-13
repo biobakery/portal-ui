@@ -79,7 +79,7 @@ const Auth = () => (
           <LogoContainer><a href="http://www.hsph.harvard.edu/hmac/"><img src={HMACLogo} alt="HMAC"/></a></LogoContainer>
         </ImageContainerSmall>
         <AboutText>
-          <span>The BIOM-Mass portal is managed by members of the <a href="http://huttenhower.sph.harvard.edu/">Huttenhower Lab</a> and the <a href="https://www.hsph.harvard.edu/hmac/">Harvard T.H. Chan School of Public Health (HSPS) Microbiome Analysis Core (HMAC)</a>. The mission of the HMAC is to provide formalized support, at the highest quality standards, for human microbiome-related studies and to foster collaborative initiatives in microbiome research. Please <a href="https://www.hsph.harvard.edu/hmac/contact/">contact us</a> to request an account for the portal, about depositing data, and with any questions or issues related to the portal. </span>
+          <span>The BIOM-Mass portal is managed by members of the <a href="http://huttenhower.sph.harvard.edu/">Huttenhower Lab</a> and the <a href="https://www.hsph.harvard.edu/hmac/">Harvard T.H. Chan School of Public Health (HSPH) Microbiome Analysis Core (HMAC)</a>. The mission of the HMAC is to provide formalized support, at the highest quality standards, for human microbiome-related studies and to foster collaborative initiatives in microbiome research. Please <a href="https://www.hsph.harvard.edu/hmac/contact/">contact us</a> to request an account for the portal, about depositing data, and with any questions or issues related to the portal. </span>
         </AboutText>
       </InsideContainer>
     </GradientContainer>
