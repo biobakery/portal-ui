@@ -81,7 +81,7 @@ const projectsTableModel = [
     id: 'summary.case_count',
     sortable: true,
     downloadable: true,
-    th: () => <ThNum rowSpan="2">Participants</ThNum>,
+    th: () => <ThNum rowSpan="2">Total Participants</ThNum>,
     td: ({ node }) => (
       <TdNum>
         {node.summary.case_count.toLocaleString()}
@@ -100,7 +100,7 @@ const projectsTableModel = [
     id: 'summary.file_count',
     sortable: true,
     downloadable: true,
-    th: () => <ThNum rowSpan="2">Files</ThNum>,
+    th: () => <ThNum rowSpan="2">Total Files</ThNum>,
     td: ({ node }) => (
       <TdNum>
         {node.summary.file_count.toLocaleString()}
