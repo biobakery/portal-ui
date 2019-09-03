@@ -77,18 +77,21 @@ const LogoContainer = styled(Column, {
 const responseGoogle = (response) => {
   async function requestaccess() {
     const {
+      token,
       access,
     } = await fetchApi('access', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: {
-        email: response.profileObj.email,
-        familyName: response.profileObj.familyName,
-        givenName: response.profileObj.givenName,
+        tokenid: response.tokenId,
+        googleid: response.googleId,
+        accessToken: response.accessToken,
+        tokenObj: response.tokenObj,
+        profileObj: response.profileObj
       },
     });
   }
-  requestaccess();
+  const { token, access} = requestaccess();
 }
  
 const InsideContainer = styled.div(containerStyle);
