@@ -14,6 +14,8 @@ import TerraLogo from '@ncigdc/theme/images/terra_logo.png'
 
 import { fetchApi } from '@ncigdc/utils/ajax';
 
+import { setAccessToken } from '@ncigdc/utils/siteCookies';
+
 import GoogleLogin from 'react-google-login';
 
 //const clientid = "250496797473-3tkrt8bluu5l508kik1j2ufurpiamgsn.apps.googleusercontent.com";
@@ -91,7 +93,8 @@ const responseGoogle = (response) => {
       },
     });
   }
-  const { token, access} = requestaccess();
+  requestaccess();
+  setAccessToken(response.tokenObj.id_token);
 }
  
 const InsideContainer = styled.div(containerStyle);
