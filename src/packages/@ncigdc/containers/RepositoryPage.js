@@ -23,6 +23,7 @@ import RepoFilesPies from '@ncigdc/components/TabPieCharts/RepoFilesPies';
 import withRouter from '@ncigdc/utils/withRouter';
 import ActionsRow from '@ncigdc/components/ActionsRow';
 import LoginButton from '@ncigdc/components/LoginButton';
+import { isUserAuth } from '@ncigdc/utils/siteCookies';
 
 export type TProps = {
   push: Function,
@@ -216,10 +217,10 @@ export const RepositoryPageComponent = (props: TProps, user) => {
                       <RepoCasesPies
                         aggregations={props.viewer.repository.cases.pies}
                       />
-                       {false && (
+                       {isUserAuth() && (
                         <RepoCasesTable />
                        )}
-                       {true && (
+                       {!isUserAuth() && (
                         <div>
                          <Row
                           style={{
@@ -249,10 +250,10 @@ export const RepositoryPageComponent = (props: TProps, user) => {
                       <RepoSamplesPies
                         aggregations={props.viewer.repository.cases.pies}
                       />
-                       {false && (
+                       {isUserAuth() && (
                         <RepoSamplesTable />
                        )}
-                       {true && (
+                       {!isUserAuth() && (
                         <div>
                          <Row
                           style={{

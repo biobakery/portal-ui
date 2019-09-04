@@ -24,6 +24,9 @@ import { withTheme } from '@ncigdc/theme';
 import DatabaseIcon from '@ncigdc/theme/icons/Database';
 import { Row } from '@ncigdc/uikit/Flex';
 import LoginButton from '@ncigdc/components/LoginButton';
+import LogoutButton from '@ncigdc/components/LogoutButton';
+
+import { isUserAuth } from '@ncigdc/utils/siteCookies';
 
 import './Header.css';
 
@@ -162,9 +165,14 @@ const Header = compose(
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-            {!user && (
+            {!isUserAuth() && (
                 <li>
                   <LoginButton />
+                </li>
+              )}
+            {isUserAuth() && (
+                <li>
+                  <LogoutButton />
                 </li>
               )}
           </ul>

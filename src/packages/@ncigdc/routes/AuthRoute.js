@@ -76,11 +76,10 @@ const LogoContainer = styled(Column, {
   margin: 'auto',
 });
 
-const responseGoogle = (response) => {
+const responseGoogle = (response, resetButton) => {
   async function requestaccess() {
     const {
-      token,
-      access,
+      access
     } = await fetchApi('access', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -92,9 +91,14 @@ const responseGoogle = (response) => {
         profileObj: response.profileObj
       },
     });
+   if (access === "yes") {
+       setAccessToken(response.tokenObj.id_token);
+       window.location.assign("/");
+   } else {
+       resetButton(false)
+   }
   }
   requestaccess();
-  setAccessToken(response.tokenObj.id_token);
 }
  
 const InsideContainer = styled.div(containerStyle);
@@ -115,10 +119,11 @@ const LoginContainer = compose(
           <GoogleLogin
             clientId={clientid}
             onSuccess={response => {
-              resetButton(false)
-              responseGoogle(response)
+              responseGoogle(response, resetButton)
             }}
-            onFailure={responseGoogle}
+            onFailure={response => {
+              resetButton(false)
+            }}
             cookiePolicy={'single_host_origin'}
          /> 
           </LogoContainer>
