@@ -84,11 +84,8 @@ const responseGoogle = (response, resetButton) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: {
-        tokenid: response.tokenId,
-        googleid: response.googleId,
-        accessToken: response.accessToken,
-        tokenObj: response.tokenObj,
-        profileObj: response.profileObj
+        token: response.tokenObj.id_token,
+        email: response.profileObj.email
       },
     });
    if (access === "yes") {
