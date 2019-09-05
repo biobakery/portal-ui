@@ -79,7 +79,7 @@ const LogoContainer = styled(Column, {
 const responseGoogle = (response, resetButton) => {
   async function requestaccess() {
     const {
-      access
+      hash_token,
     } = await fetchApi('access', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -88,11 +88,11 @@ const responseGoogle = (response, resetButton) => {
         email: response.profileObj.email
       },
     });
-   if (access === "yes") {
-       setAccessToken(response.tokenObj.id_token);
-       window.location.assign("/");
-   } else {
+   if (hash_token === "error") {
        resetButton(false)
+   } else {
+       setAccessToken(hash_token);
+       window.location.assign("/");
    }
   }
   requestaccess();
