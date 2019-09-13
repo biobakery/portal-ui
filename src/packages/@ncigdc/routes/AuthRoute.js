@@ -7,6 +7,7 @@ import styled from '@ncigdc/theme/styled';
 import { zDepth1 } from '@ncigdc/theme/mixins';
 
 import ContactLink from '@ncigdc/components/Links/ContactLink';
+import RepositoryLink from '@ncigdc/components/Links/RepositoryLink';
 
 import MLSCLogo from '@ncigdc/theme/images/mlsc_logo.png'
 import HutlabLogo from '@ncigdc/theme/images/hutlab_logo.png'
@@ -89,10 +90,11 @@ const responseGoogle = (response, resetButton) => {
       },
     });
    if (hash_token === "error") {
-       resetButton(false)
+       resetButton("error")
    } else {
        setAccessToken(hash_token);
-       window.location.assign("/");
+       resetButton(response.profileObj.name);
+       window.setTimeout(function(){ location.href="/repository" }, 10000);
    }
   }
   requestaccess();
@@ -101,14 +103,14 @@ const responseGoogle = (response, resetButton) => {
 const InsideContainer = styled.div(containerStyle);
 
 const LoginContainer = compose(
-  withState('showLoginButton', 'resetButton', true)
+  withState('showLoginButton', 'resetButton', "login")
   )(
   ({
     showLoginButton,
     resetButton,
   }) => {
 
-  if (showLoginButton) {
+  if (showLoginButton === "login") {
     return (
         <div>
         <ImageContainerSmall>
@@ -119,25 +121,47 @@ const LoginContainer = compose(
               responseGoogle(response, resetButton)
             }}
             onFailure={response => {
-              resetButton(false)
+              resetButton("error")
             }}
             cookiePolicy={'single_host_origin'}
          /> 
           </LogoContainer>
         </ImageContainerSmall>
         <SubTitle style={{ fontSize: '2rem' }}>Sign in with Google to access controlled data</SubTitle>
+        <AboutText>
+          <span>The BIOM-Mass portal allows for access with your Google account. Access is restricted. Please <ContactLink>contact us</ContactLink> if you would like to have an account. Accounts allow for access to controlled multi'omic sequencing data and participant and sample metadata. All sequencing data sets are hosted and access controlled by <a href="https://terra.bio/">Terra (Broad Institute).</a></span>
+        </AboutText>
         </div>
      )
+  }
+
+  if (showLoginButton !== "error") {
+    return (
+          <div>
+            <ImageContainerSmall>
+              <LogoContainer style={{ border: '4px solid rgb(0, 0, 0)' }}>
+                <i className="fa fa-check-circle fa-5x" />
+              </LogoContainer>
+            </ImageContainerSmall>
+            <SubTitle style={{ fontSize: '2rem' }}>Hello {showLoginButton}, Welcome to the Biom-Mass portal!</SubTitle>
+        <AboutText>
+          <span>You now have access to view the restricted metadata. <b>You will automatically be redirected to the <RepositoryLink>repository page</RepositoryLink> in 10 seconds.</b> Please <ContactLink>contact us</ContactLink> if you have any questions.</span>
+        </AboutText>
+          </div>
+    )
   }
 
   return (
         <div>
         <ImageContainerSmall>
           <LogoContainer style={{ border: '4px solid rgb(0, 0, 0)' }}>
-            <i className="fa fa-ban fa-5x" aria-hidden="true"></i>
+            <i className="fa fa-ban fa-5x" />
           </LogoContainer>
         </ImageContainerSmall>
         <SubTitle style={{ fontSize: '2rem', color:"black" }}>You do not have access to login to the portal</SubTitle>
+        <AboutText>
+          <span>The BIOM-Mass portal allows for access with your Google account. Access is restricted. Please <ContactLink>contact us</ContactLink> if you would like to have an account. Accounts allow for access to controlled multi'omic sequencing data and participant and sample metadata. All sequencing data sets are hosted and access controlled by <a href="https://terra.bio/">Terra (Broad Institute).</a></span>
+        </AboutText>
        </div>
      )
 });
@@ -151,9 +175,6 @@ const Auth = () => (
         </SubTitle>
         <Title>BIOM-Mass Data Portal</Title>
           <LoginContainer />
-        <AboutText>
-          <span>The BIOM-Mass portal allows for access with your Google account. Access is restricted. Please <ContactLink>contact us</ContactLink> if you would like to have an account. Accounts allow for access to controlled multi'omic sequencing data and participant and sample metadata. All sequencing data sets are hosted and access controlled by <a href="https://terra.bio/">Terra (Broad Institute).</a></span>
-        </AboutText>
       <ImageContainerSmall>
         <LogoContainer><a href="https://terra.bio/"><img src={TerraLogo} alt="FireCloud"/></a></LogoContainer>
       </ImageContainerSmall>
