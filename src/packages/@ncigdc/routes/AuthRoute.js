@@ -77,6 +77,13 @@ const LogoContainer = styled(Column, {
   margin: 'auto',
 });
 
+const SpinContainer = styled(Column, {
+  ...zDepth1,
+  border: '2px solid rgb(37, 208, 182)',
+  backgroundColor: 'white',
+  margin: 'auto',
+});
+
 const responseGoogle = (response, resetButton) => {
   async function requestaccess() {
     const {
@@ -94,7 +101,7 @@ const responseGoogle = (response, resetButton) => {
    } else {
        setAccessToken(hash_token);
        resetButton(response.profileObj.name);
-       window.setTimeout(function(){ location.href="/repository" }, 10000);
+       window.setTimeout(function(){ location.href="/repository?searchTableTab=cases" }, 10000);
    }
   }
   requestaccess();
@@ -139,9 +146,9 @@ const LoginContainer = compose(
     return (
           <div>
             <ImageContainerSmall>
-              <LogoContainer style={{ border: '4px solid rgb(0, 0, 0)' }}>
-                <i className="fa fa-check-circle fa-5x" />
-              </LogoContainer>
+              <SpinContainer>
+                <i className="fa fa-refresh fa-spin fa-5x fa-fw" style={{ color: 'rgb(37, 208, 182)' }}/>
+              </SpinContainer>
             </ImageContainerSmall>
             <SubTitle style={{ fontSize: '2rem' }}>Hello {showLoginButton}, Welcome to the Biom-Mass portal!</SubTitle>
         <AboutText>
