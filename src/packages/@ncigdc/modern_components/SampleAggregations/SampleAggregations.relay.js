@@ -95,6 +95,54 @@ export default (Component: ReactClass<*>) =>
                         min
                       }
                     }
+                    b12 {
+                      stats {
+                        max
+                        min
+                      }
+                    }
+                    calories {
+                      stats {
+                        max
+                        min
+                      }
+                    }
+                    carbs {
+                      stats {
+                        max
+                        min
+                      }
+                    }
+                    choline {
+                      stats {
+                        max
+                        min
+                      }
+                    }
+                    folate {
+                      stats {
+                        max
+                        min
+                      }
+                    }
+                    protein {
+                      stats {
+                        max
+                        min
+                      }
+                    }
+                    weight {
+                      stats {
+                        max
+                        min
+                      }
+                    }
+                    met {
+                      stats {
+                        max
+                        min
+                      }
+                    }
                   }
                 }
               }
