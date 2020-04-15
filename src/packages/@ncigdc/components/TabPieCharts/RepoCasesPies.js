@@ -27,6 +27,16 @@ export type TProps = {
     sample__fat: { buckets: [TBucket] },
     sample__iron: { buckets: [TBucket] },
     sample__alcohol: { buckets: [TBucket] },
+    sample__b12: { buckets: [TBucket] },
+    sample__calories: { buckets: [TBucket] },
+    sample__carbs: { buckets: [TBucket] },
+    sample__choline: { buckets: [TBucket] },
+    sample__folate: { buckets: [TBucket] },
+    sample__protein: { buckets: [TBucket] },
+    sample__weight: { buckets: [TBucket] },
+    sample__met: { buckets: [TBucket] },
+    sample__non_ribosomal_proteins: { buckets: [TBucket] },
+    sample__ribosomal_proteins: { buckets: [TBucket] },
   },
   setShowingMore: Function,
   showingMore: boolean,
@@ -250,7 +260,207 @@ const RepoSamplesPiesComponent = ({
           />
         </ColumnCenter>
         ]}
-        </WrappedRow>
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-b12"
+          >
+          <PieTitle>B12</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__b12.buckets')}
+            fieldName="cases.samples.b12"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-calories"
+          >
+          <PieTitle>Calories</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__calories.buckets')}
+            fieldName="cases.samples.calories"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-carbs"
+          >
+          <PieTitle>Carbs</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__carbs.buckets')}
+            fieldName="cases.samples.carbs"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-choline"
+          >
+          <PieTitle>Choline</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__choline.buckets')}
+            fieldName="cases.samples.choline"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-folate"
+          >
+          <PieTitle>Folate</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__folate.buckets')}
+            fieldName="cases.samples.folate"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-protein"
+          >
+          <PieTitle>Protein</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__protein.buckets')}
+            fieldName="cases.samples.protein"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-weight"
+          >
+          <PieTitle>Weight (lbs)</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__weight.buckets')}
+            fieldName="cases.samples.weight"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-met"
+          >
+          <PieTitle>Activity (MET)</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__met.buckets')}
+            fieldName="cases.samples.met"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-non_ribosomal_proteins"
+          >
+          <PieTitle>Proteins (non-ribosomal)</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__non_ribosomal_proteins.buckets')}
+            fieldName="cases.samples.non_ribosomal_proteins"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [ 
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-ribosomal_proteins"
+          >
+          <PieTitle>Proteins (ribosomal)</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'sample__ribosomal_proteins.buckets')}
+            fieldName="cases.samples.ribosomal_proteins"
+            docTypeSingular="sample"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+      </WrappedRow>
       </BottomBorderedBox>
       <RowCenter style={{ marginTop: '-1.5rem' }}>
         <ShowToggleBox onClick={() => setShowingMore(!showingMore)}>
@@ -332,6 +542,66 @@ export const RepoCasesPiesQuery = {
           }
         }
         sample__alcohol {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__b12 {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__calories {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__carbs {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__choline {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__folate {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__protein {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__weight {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__met {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__non_ribosomal_proteins {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        sample__ribosomal_proteins {
           buckets {
             doc_count
             key
