@@ -173,6 +173,116 @@ const samplesTableModel = [
     ),
   },
   {
+    name: 'B12',
+    id: 'b12',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">B12</Th>,
+    td: ({ node }) => (
+      <Td>{(node.b12) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Calories',
+    id: 'calories',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Calories</Th>,
+    td: ({ node }) => (
+      <Td>{(node.calories) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Carbs',
+    id: 'carbs',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Carbs</Th>,
+    td: ({ node }) => (
+      <Td>{(node.carbs) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Choline',
+    id: 'choline',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Choline</Th>,
+    td: ({ node }) => (
+      <Td>{(node.choline) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Folate',
+    id: 'folate',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Folate</Th>,
+    td: ({ node }) => (
+      <Td>{(node.folate) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Protein',
+    id: 'protein',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Protein</Th>,
+    td: ({ node }) => (
+      <Td>{(node.protein) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Weight',
+    id: 'weight',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Weight</Th>,
+    td: ({ node }) => (
+      <Td>{(node.weight) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Met',
+    id: 'met',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Met</Th>,
+    td: ({ node }) => (
+      <Td>{(node.met) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Non_ribosomal_proteins',
+    id: 'non_ribosomal_proteins',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Proteins (non-ribosomal)</Th>,
+    td: ({ node }) => (
+      <Td>{(node.non_ribosomal_proteins) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'ribosomal_proteins',
+    id: 'ribosomal_proteins',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Proteins (ribosomal)</Th>,
+    td: ({ node }) => (
+      <Td>{(node.ribosomal_proteins) || '--'}</Td>
+    ),
+  },
+  {
     name: 'Files',
     id: 'summary.file_count',
     sortable: true,

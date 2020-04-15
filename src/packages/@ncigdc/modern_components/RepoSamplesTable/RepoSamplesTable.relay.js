@@ -91,6 +91,16 @@ export default (Component: React.Class<*>) =>
                         fat
                         iron
                         alcohol
+                        b12
+                        calories
+                        carbs
+                        choline
+                        folate
+                        protein
+                        weight
+                        met
+                        non_ribosomal_proteins
+                        ribosomal_proteins
                         summary {
                           data_categories {
                             file_count
