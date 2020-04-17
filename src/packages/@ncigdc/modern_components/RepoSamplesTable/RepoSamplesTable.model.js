@@ -210,7 +210,7 @@ const samplesTableModel = [
     id: 'choline',
     sortable: false,
     downloadable: true,
-    hidden: false,
+    hidden: true,
     th: () => <Th rowSpan="2">Choline</Th>,
     td: ({ node }) => (
       <Td>{(node.choline) || '--'}</Td>
@@ -221,7 +221,7 @@ const samplesTableModel = [
     id: 'folate',
     sortable: false,
     downloadable: true,
-    hidden: false,
+    hidden: true,
     th: () => <Th rowSpan="2">Folate</Th>,
     td: ({ node }) => (
       <Td>{(node.folate) || '--'}</Td>
@@ -232,7 +232,7 @@ const samplesTableModel = [
     id: 'protein',
     sortable: false,
     downloadable: true,
-    hidden: false,
+    hidden: true,
     th: () => <Th rowSpan="2">Protein</Th>,
     td: ({ node }) => (
       <Td>{(node.protein) || '--'}</Td>
@@ -265,7 +265,7 @@ const samplesTableModel = [
     id: 'non_ribosomal_proteins',
     sortable: false,
     downloadable: true,
-    hidden: false,
+    hidden: true,
     th: () => <Th rowSpan="2">Proteins (non-ribosomal)</Th>,
     td: ({ node }) => (
       <Td>{(node.non_ribosomal_proteins) || '--'}</Td>
@@ -276,7 +276,7 @@ const samplesTableModel = [
     id: 'ribosomal_proteins',
     sortable: false,
     downloadable: true,
-    hidden: false,
+    hidden: true,
     th: () => <Th rowSpan="2">Proteins (ribosomal)</Th>,
     td: ({ node }) => (
       <Td>{(node.ribosomal_proteins) || '--'}</Td>
