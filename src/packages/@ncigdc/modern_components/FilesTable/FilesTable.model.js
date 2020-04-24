@@ -51,9 +51,13 @@ const filesTableModel = [
     th: () => <Th>File Name</Th>,
     td: ({ node }) => (
       <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
-        <AuthLink>
-          {node.generic_file_name}
-        </AuthLink>
+        {uniq(
+          node.cases.hits.edges.map(e => e.node.project.project_id),
+        ).map(pId => (
+          <a href={PROJECTLINK + pId}>
+            {node.generic_file_name}
+          </a>
+        ))}
       </Td>
     ),
   },
