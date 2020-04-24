@@ -75,7 +75,7 @@ export default compose(
         </Row>
         <div style={{ overflowX: 'auto' }}>
           <Table
-            id="repository-cases-table"
+            id="repository-samples-table"
             headings={tableInfo
               .filter(x => !x.subHeading)
               .map(x => (
