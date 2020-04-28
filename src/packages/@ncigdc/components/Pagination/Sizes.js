@@ -14,7 +14,7 @@ export type TProps = {
 };
 
 const Sizes = ({
-  sizes = [10, 20, 40, 60, 80, 100],
+  sizes = [10, 20, 40, 60, 80, 100, 500, 1000, 1500],
   size,
   prfSize,
   prfOff,
