@@ -173,7 +173,7 @@ export default compose(
               fontWeight: 'bold',
             }}
           >
-            Case Distribution per Project
+            Sample distribution per project
           </div>
           {[
             <div
@@ -213,7 +213,7 @@ export default compose(
               fontWeight: 'bold',
             }}
           >
-            File Distribution per Project
+            File distribution per project
           </div>
           {[
             <div
