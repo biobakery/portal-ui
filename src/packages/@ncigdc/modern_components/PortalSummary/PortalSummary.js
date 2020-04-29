@@ -7,7 +7,18 @@ import styled from '@ncigdc/theme/styled';
 import DoubleHelix from '@ncigdc/theme/icons/DoubleHelix';
 import MutationIcon from '@ncigdc/theme/icons/Mutation';
 
+import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
+import RepositoryLink from '@ncigdc/components/Links/RepositoryLink';
+
 import { Row, Column } from '@ncigdc/uikit/Flex';
+
+const linkStyle = {
+  textDecoration: 'none !important',
+  color: 'white !important',
+};
+
+const Projects = styled(ProjectsLink, linkStyle);
+const Repository = styled(RepositoryLink, linkStyle);
 
 const CountBox = styled(Column, {
   padding: '1.5rem',
@@ -52,10 +63,12 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-projects-label">Projects</Title>
           <Row>
-            <i
-              style={{ color: '#01b987', fontSize: '3rem' }}
-              className="icon-gdc-projects project-icon"
-            />
+           <Projects>
+              <i
+                style={{ color: '#01b987', fontSize: '3rem' }}
+                className="icon-gdc-projects project-icon"
+              />
+            </Projects>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span> {props.viewer.count.projects} </span>
             </span>
@@ -64,10 +77,12 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-primary-sites-label">Participants</Title>
           <Row>
-            <i
-              style={{ color: '#01b987', fontSize: '3rem' }}
-              className="fa fa-users data-icon"
-            />
+            <Repository>
+              <i
+                style={{ color: '#01b987', fontSize: '3rem' }}
+                className="fa fa-users data-icon"
+              />
+           </Repository>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span> {props.viewer.count.participants} </span>
             </span>
@@ -76,10 +91,12 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-cases-label">Samples</Title>
           <Row>
-            <i
-              style={{ color: '#01b987', fontSize: '3rem' }}
-              className="fa fa-user-circle-o data-icon"
-            />
+           <Repository>
+              <i
+                style={{ color: '#01b987', fontSize: '3rem' }}
+                className="fa fa-user-circle-o data-icon"
+              />
+            </Repository>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span> {props.viewer.count.samples} </span>
             </span>
@@ -90,10 +107,12 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-files-label">Data Formats</Title>
           <Row>
-            <i
-              style={{ color: '#01b987', fontSize: '3rem' }}
-              className="fa fa-file-code-o data-icon"
-            />
+            <Repository>
+              <i
+                style={{ color: '#01b987', fontSize: '3rem' }}
+                className="fa fa-file-code-o data-icon"
+              />
+             </Repository>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span> {props.viewer.count.dataFormats} </span>
             </span>
@@ -102,7 +121,9 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-genes-label">Raw Files</Title>
           <Row>
-            <DoubleHelix color="#01b987" width={20} height={35} />
+            <Repository>
+              <DoubleHelix color="#01b987" width={20} height={35} />
+            </Repository>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span>{props.viewer.count.rawFiles}</span>
             </span>
@@ -111,10 +132,12 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-mutations-label">Processed Files</Title>
           <Row>
-            <i
-              style={{ color: '#01b987', fontSize: '3rem' }}
-              className="fa fa-picture-o data-icon"
-            />
+            <Repository>
+              <i
+                style={{ color: '#01b987', fontSize: '3rem' }}
+                className="fa fa-picture-o data-icon"
+              />
+            </Repository>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span>{props.viewer.count.processedFiles}</span>
             </span>
