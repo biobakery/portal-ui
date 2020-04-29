@@ -9,6 +9,7 @@ import MLSCLogo from '@ncigdc/theme/images/mlsc_logo.png'
 import HutlabLogo from '@ncigdc/theme/images/hutlab_logo.png'
 import TerraLogo from '@ncigdc/theme/images/terra_logo.png'
 import HMACLogo from '@ncigdc/theme/images/microbiome_core-reduced-size-square.png'
+import HCMPHLogo from '@ncigdc/theme/images/HCMPH_logo_35.png'
 
 const Title = styled.div({
   color: 'white',
@@ -76,10 +77,10 @@ const Auth = () => (
         </SubTitle>
         <Title>BIOM-Mass Data Portal</Title>
         <ImageContainerSmall>
-          <LogoContainer><a href="http://www.hsph.harvard.edu/hmac/"><img src={HMACLogo} alt="HMAC"/></a></LogoContainer>
+          <LogoContainer><a href="https://hcmph.sph.harvard.edu/"><img src={HCMPHLogo} alt="HCMPH"/></a></LogoContainer>
         </ImageContainerSmall>
         <AboutText>
-          <span>The BIOM-Mass portal is managed by members of the <a href="http://huttenhower.sph.harvard.edu/">Huttenhower Lab</a> and the <a href="https://www.hsph.harvard.edu/hmac/">Harvard T.H. Chan School of Public Health (HSPH) Microbiome Analysis Core (HMAC)</a>. The mission of the HMAC is to provide formalized support, at the highest quality standards, for human microbiome-related studies and to foster collaborative initiatives in microbiome research. Please <a href="https://www.hsph.harvard.edu/hmac/contact/">contact us</a> to request an account for the portal, to inquire about depositing data, or with any questions or issues related to the portal. </span>
+          <span>The BIOM-Mass portal is managed by members of the <a href="https://hcmph.sph.harvard.edu/resources/">BIOM-Mass</a> project and the <a href="https://hcmph.sph.harvard.edu/">Harvard Chan Microbiome in Public Health Center (HCMPH)</a>. The mission of the Harvard Chan Microbiome in Public Health Center (HCMPH) is to expand our understanding of the microbiome to improve population health, through basic research, translation, policy, education, and outreach. Please <a href="https://hcmph.sph.harvard.edu/contact/">contact us</a> to request an account for the portal. </span>
         </AboutText>
       </InsideContainer>
     </GradientContainer>
