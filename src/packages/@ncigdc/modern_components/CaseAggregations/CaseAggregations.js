@@ -67,13 +67,6 @@ const presetFacets = [
     type: 'keyword',
   },
   {
-    title: 'Program',
-    field: 'project.program.name',
-    full: 'cases.project.program.name',
-    doc_type: 'cases',
-    type: 'keyword',
-  },
-  {
     title: 'Project',
     field: 'project.project_id',
     full: 'cases.project.project_id',

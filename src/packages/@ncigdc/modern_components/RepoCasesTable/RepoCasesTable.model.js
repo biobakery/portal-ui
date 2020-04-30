@@ -84,15 +84,6 @@ const casesTableModel = [
     td: ({ node }) => <Td>{node.case_id}</Td>,
   },
   {
-    name: 'Program',
-    id: 'project.program.name',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Program</Th>,
-    td: ({ node }) => <Td>{node.project.program.name}</Td>,
-  },
-  {
     name: 'Project',
     id: 'project.project_id',
     downloadable: true,
