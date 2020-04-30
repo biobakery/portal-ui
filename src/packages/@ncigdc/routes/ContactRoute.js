@@ -80,7 +80,7 @@ const Auth = () => (
           <LogoContainer><a href="https://hcmph.sph.harvard.edu/"><img src={HCMPHLogo} alt="HCMPH"/></a></LogoContainer>
         </ImageContainerSmall>
         <AboutText>
-          <span>The BIOM-Mass portal is managed by members of the <a href="https://hcmph.sph.harvard.edu/resources/">BIOM-Mass</a> project and the <a href="https://hcmph.sph.harvard.edu/">Harvard Chan Microbiome in Public Health Center (HCMPH)</a>. The mission of the Harvard Chan Microbiome in Public Health Center (HCMPH) is to expand our understanding of the microbiome to improve population health, through basic research, translation, policy, education, and outreach. Please <a href="https://hcmph.sph.harvard.edu/contact/">contact us</a> to request an account for the portal. </span>
+          <span>The BIOM-Mass Data Portal is provided by the <a href="https://hcmph.sph.harvard.edu/">Harvard Chan Microbiome in Public Health Center (HCMPH)</a> to manage and share microbiome profiles, sample, and population information from microbiome epidemiology studies carried out through the HCMPH <a href="https://hcmph.sph.harvard.edu/resources/">BIOM-Mass platform</a>. Please <a href="https://hcmph.sph.harvard.edu/contact/">contact us</a> to request portal access, for data depositions, and with any other inquires. </span>
         </AboutText>
       </InsideContainer>
     </GradientContainer>
