@@ -103,10 +103,10 @@ export default compose(
         tooltip: (
           <span>
             <b>
-              {project.project_id}: {project.name}
+              {project.project_id}
             </b>
             <br />
-            {count.toLocaleString()} case{count > 1 ? 's' : ''}
+            {count.toLocaleString()} sample{count > 1 ? 's' : ''}
           </span>
         ),
       };
@@ -140,7 +140,7 @@ export default compose(
         tooltip: (
           <span>
             <b>
-              {project.project_id}: {project.name}
+              {project.project_id}
             </b>
             <br />
             {count.toLocaleString()} file{count > 1 ? 's' : ''}
@@ -185,8 +185,8 @@ export default compose(
               key="pie-subtitle"
             >
               {totalCases.toLocaleString()}
-              {` Case${totalCases === 0 || totalCases > 1 ? 's' : ''}
-              across ${projects.length.toLocaleString()} Project${projects.length ===
+              {` sample${totalCases === 0 || totalCases > 1 ? 's' : ''}
+              across ${projects.length.toLocaleString()} project${projects.length ===
                 0 || projects.length > 1
                 ? 's'
                 : ''}`}
@@ -225,8 +225,8 @@ export default compose(
               key="file-pie-subtitle"
             >
               {totalFiles.toLocaleString()}
-              {` File${totalFiles === 0 || totalFiles > 1 ? 's' : ''}
-              across ${projects.length.toLocaleString()} Project${projects.length ===
+              {` file${totalFiles === 0 || totalFiles > 1 ? 's' : ''}
+              across ${projects.length.toLocaleString()} project${projects.length ===
                 0 || projects.length > 1
                 ? 's'
                 : ''}`}

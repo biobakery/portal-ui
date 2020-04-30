@@ -40,13 +40,6 @@ const projectFacets = [
     type: 'keyword',
   },
   {
-    title: 'Program',
-    field: 'program.name',
-    full: 'projects.program.name',
-    doc_type: 'project',
-    type: 'keyword',
-  },
-  {
     title: 'Data Category',
     field: 'summary.data_categories.data_category',
     full: 'projects.summary.data_categories.data_category',

@@ -26,14 +26,6 @@ const getProjectIdFilter = projects =>
 
 const projectsTableModel = [
   {
-    name: 'Program',
-    id: 'program.name',
-    sortable: true,
-    downloadable: true,
-    th: () => <Th rowSpan="2">Program</Th>,
-    td: ({ node }) => <Td key="program">{node.program.name}</Td>,
-  },
-  {
     name: 'Project',
     id: 'project_id',
     sortable: true,
