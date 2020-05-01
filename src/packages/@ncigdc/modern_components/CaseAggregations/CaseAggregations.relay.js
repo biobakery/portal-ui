@@ -89,6 +89,36 @@ export default (Component: ReactClass<*>) =>
                         key
                       }
                     }
+                    demographic__caffiene {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
+                    demographic__bmi {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
+                    demographic__alcohol {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
+                    demographic__diagnosis {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
+                    demographic__smoking {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
                     demographic__met {
                       buckets {
                         doc_count
