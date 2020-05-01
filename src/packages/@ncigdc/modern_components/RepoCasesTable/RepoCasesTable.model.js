@@ -74,7 +74,7 @@ const casesTableModel = [
   {
     name: 'Participant UUID',
     id: 'case_id',
-    hidden: true,
+    hidden: false,
     downloadable: true,
     th: () => (
       <Th key="case_id" rowSpan="2">
@@ -133,6 +133,61 @@ const casesTableModel = [
     th: () => <Th rowSpan="2">Weight</Th>,
     td: ({ node }) => (
       <Td>{(node.demographic && node.demographic.weight) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Caffiene',
+    id: 'demographic.caffiene',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Caffiene</Th>,
+    td: ({ node }) => (
+      <Td>{(node.demographic && node.demographic.caffiene) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'BMI',
+    id: 'demographic.bmi',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">BMI</Th>,
+    td: ({ node }) => (
+      <Td>{(node.demographic && node.demographic.bmi) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Alcohol',
+    id: 'demographic.alcohol',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Alcohol</Th>,
+    td: ({ node }) => (
+      <Td>{(node.demographic && node.demographic.alcohol) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Diagnosis',
+    id: 'demographic.diagnosis',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Diagnosis</Th>,
+    td: ({ node }) => (
+      <Td>{(node.demographic && node.demographic.diagnosis) || '--'}</Td>
+    ),
+  },
+  {
+    name: 'Smoking',
+    id: 'demographic.smoking',
+    sortable: false,
+    downloadable: true,
+    hidden: false,
+    th: () => <Th rowSpan="2">Smoking (pack years)</Th>,
+    td: ({ node }) => (
+      <Td>{(node.demographic && node.demographic.smoking) || '--'}</Td>
     ),
   },
   {

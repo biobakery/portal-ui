@@ -83,6 +83,11 @@ export default (Component: React.Class<*>) =>
                         demographic {
                           age
                           weight
+                          caffiene
+                          bmi
+                          alcohol
+                          diagnosis
+                          smoking
                           met
                         }
                         summary {
