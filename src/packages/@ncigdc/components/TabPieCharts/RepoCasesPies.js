@@ -49,13 +49,23 @@ const enhance = compose(
   withSize(),
 );
 
-const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
+const RepoCasesPiesComponent = ({ 
+  aggregations,
+  query,
+  push,
+  showingMore,
+  setShowingMore,
+  size: { width },
+ }: TProps) => {
   const currentFilters =
     (query && parseFilterParam((query || {}).filters, {}).content) || [];
   const currentFieldNames = currentFilters.map(f => f.content.field);
+  const pieColMinWidth = width / 5;
   return (
-    <RowCenter>
-      <ColumnCenter className="test-primary-site">
+  <div className="test-repo-cases-pies">
+   <BottomBorderedBox>
+    <WrappedRow style={{ maxWidth: `${width}px`, width: '100%' }}>
+      <ColumnCenter style={{ minWidth: `${pieColMinWidth}px` }} className="test-primary-site">
         <PieTitle>Primary Site</PieTitle>
         <SelfFilteringPie
           buckets={_.get(aggregations, 'primary_site.buckets')}
@@ -70,7 +80,7 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
           width={125}
         />
       </ColumnCenter>
-      <ColumnCenter className="test-project">
+      <ColumnCenter style={{ minWidth: `${pieColMinWidth}px` }} className="test-project">
         <PieTitle>Project</PieTitle>
         <SelfFilteringPie
           buckets={_.get(aggregations, 'project__project_id.buckets')}
@@ -85,7 +95,7 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
           width={125}
         />
       </ColumnCenter>
-      <ColumnCenter className="test-age">
+      <ColumnCenter style={{ minWidth: `${pieColMinWidth}px` }} className="test-age">
         <PieTitle>Age</PieTitle>
         <SelfFilteringPie
           buckets={_.get(aggregations, 'demographic__age.buckets')}
@@ -100,7 +110,7 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
           width={125}
         />
       </ColumnCenter>
-      <ColumnCenter className="test-weight">
+      <ColumnCenter style={{ minWidth: `${pieColMinWidth}px` }} className="test-weight">
         <PieTitle>Weight (lbs)</PieTitle>
         <SelfFilteringPie
           buckets={_.get(aggregations, 'demographic__weight.buckets')}
@@ -115,7 +125,7 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
           width={125}
         />
       </ColumnCenter>
-      <ColumnCenter className="test-met">
+      <ColumnCenter style={{ minWidth: `${pieColMinWidth}px` }} className="test-met">
         <PieTitle>Activity (MET)</PieTitle>
         <SelfFilteringPie
           buckets={_.get(aggregations, 'demographic__met.buckets')}
@@ -130,7 +140,114 @@ const RepoCasesPiesComponent = ({ aggregations, query, push }: TProps) => {
           width={125}
         />
       </ColumnCenter>
-    </RowCenter>
+        {showingMore && [
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-caffiene"
+          >
+          <PieTitle>Caffiene</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'demographic__caffiene.buckets')}
+            fieldName="cases.demographic.caffiene"
+            docTypeSingular="case"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-bmi"
+          >
+          <PieTitle>BMI</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'demographic__bmi.buckets')}
+            fieldName="cases.demographic.bmi"
+            docTypeSingular="case"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-alcohol"
+          >
+          <PieTitle>Alcohol</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'demographic__alcohol.buckets')}
+            fieldName="cases.demographic.alcohol"
+            docTypeSingular="case"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-diagnosis"
+          >
+          <PieTitle>Diagnosis</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'demographic__diagnosis.buckets')}
+            fieldName="cases.demographic.diagnosis"
+            docTypeSingular="case"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+        {showingMore && [
+          <ColumnCenter
+            style={{ minWidth: `${pieColMinWidth}px` }}
+            className="test-smoking"
+          >
+          <PieTitle>Smoking (pack years)</PieTitle>
+          <SelfFilteringPie
+            buckets={_.get(aggregations, 'demographic__smoking.buckets')}
+            fieldName="cases.demographic.smoking"
+            docTypeSingular="case"
+            currentFieldNames={currentFieldNames}
+            currentFilters={currentFilters}
+            query={query}
+            push={push}
+            path="doc_count"
+            height={125}
+            width={125}
+          />
+        </ColumnCenter>
+        ]}
+     </WrappedRow>
+     </BottomBorderedBox>
+     <RowCenter style={{ marginTop: '-1.5rem' }}>
+       <ShowToggleBox onClick={() => setShowingMore(!showingMore)}>
+         Show {showingMore ? 'Less' : 'More'}
+       </ShowToggleBox>
+     </RowCenter>
+   </div>
   );
 };
 
@@ -482,6 +599,36 @@ export const RepoCasesPiesQuery = {
           }
         }
         demographic__weight {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        demographic__caffiene {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        demographic__bmi {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        demographic__alcohol {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        demographic__diagnosis {
+          buckets {
+            doc_count
+            key
+          }
+        }
+        demographic__smoking {
           buckets {
             doc_count
             key
