@@ -58,7 +58,7 @@ const samplesTableModel = [
   {
     name: 'Sample UUID',
     id: 'sample_id',
-    hidden: true,
+    hidden: false,
     downloadable: true,
     th: () => (
       <Th key="sample_id" rowSpan="2">
