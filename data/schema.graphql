@@ -633,6 +633,11 @@ type Case implements Node {
 type SampleAggregations {
   demographic__age: Aggregations
   demographic__weight: Aggregations
+  demographic__caffiene: Aggregations
+  demographic__bmi: Aggregations
+  demographic__alcohol: Aggregations
+  demographic__diagnosis: Aggregations
+  demographic__smoking: Aggregations
   demographic__met: Aggregations
   project__project_id: Aggregations
   project__program__name: Aggregations
@@ -709,6 +714,11 @@ type CaseAggregations {
   demographic__gender: Aggregations
   demographic__age: Aggregations
   demographic__weight: Aggregations
+  demographic__caffiene: Aggregations
+  demographic__bmi: Aggregations
+  demographic__alcohol: Aggregations
+  demographic__diagnosis: Aggregations
+  demographic__smoking: Aggregations
   demographic__met: Aggregations
   demographic__state: Aggregations
   demographic__submitter_id: Aggregations
@@ -2072,6 +2082,12 @@ type Demographic {
 
   # weight in lbs
   weight: Int
+
+  caffiene: Int
+  bmi: Int
+  alcohol: Int
+  diagnosis: String
+  smoking: Int
 
   # totMets1, total activity (exercise)
   met: Int
