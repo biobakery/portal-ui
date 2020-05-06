@@ -45,6 +45,12 @@ const containerStyle = {
   position: 'relative',
 };
 
+const containerStyleSmall = {
+  flex: 1,
+  padding: '1rem',
+  width: '75rem',
+};
+
 const Container = styled(Column, {
   ...zDepth1,
   marginTop: '3rem',
@@ -60,6 +66,7 @@ const LogoContainer = styled(Column, {
 });
 
 const InsideContainer = styled.div(containerStyle);
+const InsideContainerSmall = styled.div(containerStyleSmall);
 
 const Home = () => (
   <Column className="test-home">
@@ -73,17 +80,21 @@ const Home = () => (
           <PortalSummary />
         </Container>
       </InsideContainer>
-      <InsideContainer flex="1">
+      <InsideContainer>
+      <InsideContainerSmall flex="1">
         <SubTitle style={{ fontSize: '2rem' }}>
           <span>About</span>
         </SubTitle>
         <AboutText><span>The BIOM-Mass Data Portal is provided by the <a href="https://hcmph.sph.harvard.edu/">Harvard Chan Microbiome in Public Health Center (HCMPH)</a> to manage and share microbiome profiles, sample, and population information from microbiome epidemiology studies carried out through the HCMPH <a href="https://hcmph.sph.harvard.edu/resources/">BIOM-Mass platform</a>. It supports both open- and controlled-access dissemination of microbiome multi-omics (16S rRNA gene amplicon profiles, metagenomes, metatranscriptomes, metabolomes, etc.), raw and processed data products (sequences, taxonomic profiles, functional profiles, etc.), and sample and subject covariates (phenotypes, demographics, biometrics, technical protocols, etc.). Data can be shared publicly, controlled-access, or securely protected on a project-specific basis. The BIOM-Mass Data Portal was initially supported by the <a href="http://www.masslifesciences.com/">Massachusetts Life Sciences Center (MLSC)</a> as a collaboration between the <a href="https://www.hsph.harvard.edu/">Harvard T.H. Chan School of Public Health</a>, <a href="https://www.brighamandwomens.org/">Brigham and Womens Hospital (BWH)</a> <a href="https://www.brighamandwomens.org/research/departments/channing-division-of-network-medicine/overview">Channing Division of Network Medicine</a>, and <a href="https://www.massgeneral.org/">Massachusetts General</a> to support a flagship collection of oral and gut microbiome samples from 25,000 participants in the <a href="https://www.nurseshealthstudy.org/">Nurses Health Study II</a>.</span>
         </AboutText>
+      </InsideContainerSmall>
+      <InsideContainerSmall flex="1">
         <SubTitle style={{ margin: '1rem 0' }}>
           <em>Get Started by Exploring:</em>
         </SubTitle>
         <ExploringLinks />
-      </InsideContainer>
+      </InsideContainerSmall>
+    </InsideContainer>
     </GradientContainer>
     <Column style={{ paddingTop: '7rem', alignItems: 'center' }}>
       <Row style={{ fontSize: '1.3em' }}></Row>
