@@ -22,7 +22,6 @@ const SubTitle = styled.div({
 
 const AboutText = styled.div({
   fontSize: '1.5rem',
-  height: '25rem',
 });
 
 const ImageContainer = styled(Row, {
@@ -48,7 +47,7 @@ const containerStyle = {
 const containerStyleSmall = {
   flex: 1,
   padding: '1rem',
-  width: '75rem',
+  minWidth: '60rem',
 };
 
 const Container = styled(Column, {
