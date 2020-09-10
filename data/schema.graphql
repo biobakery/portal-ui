@@ -3945,6 +3945,7 @@ type File implements Node {
   # keyword
   file_name: String
   generic_file_name: String
+  file_url: String
 
   # keyword
   submitter_id: String
