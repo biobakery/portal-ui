@@ -45,19 +45,15 @@ const filesTableModel = [
   },
   {
     name: 'File Name',
-    id: 'generic_file_name',
+    id: 'url_file_name',
     sortable: true,
     downloadable: true,
     th: () => <Th>File Name</Th>,
     td: ({ node }) => (
       <Td style={{ whiteSpace: 'pre-line', wordBreak: 'break-all' }}>
-        {uniq(
-          node.cases.hits.edges.map(e => e.node.project.project_id),
-        ).map(pId => (
-          <a href={PROJECTLINK + pId}>
-            {node.generic_file_name}
-          </a>
-        ))}
+        <a href={node.file_url}>
+          {node.generic_file_name}
+        </a>
       </Td>
     ),
   },
