@@ -60,6 +60,7 @@ export default (Component: ReactClass<*>) =>
                         id
                         file_id
                         generic_file_name
+                        file_url
                         file_size
                         access
                         data_category
