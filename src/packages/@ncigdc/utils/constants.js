@@ -7,7 +7,7 @@ const localStorage = window.localStorage || {};
 
 /* Links */
 
-export const PROJECTLINK = "https://app.terra.bio/#workspaces/firecloud-biom-mass/"
+export const PROJECTLINK = "https://app.terra.bio/#workspaces/terra-biom-mass/"
 
 /* API ENDPOINTS */
 
