@@ -80,6 +80,16 @@ export default (Component: React.Class<*>) =>
                             }
                           }
                         }
+                        metadataCase {
+                          hits(first: 100) {
+                            edges {
+                              node {
+                                metadataKey
+                                metadataValue
+                              }
+                            }
+                          }
+                        }
                         demographic {
                           age
                           weight
