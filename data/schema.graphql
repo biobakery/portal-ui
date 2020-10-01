@@ -619,6 +619,9 @@ type Case implements Node {
   submitter_slide_ids: String
   annotations: CaseAnnotations
   demographic: Demographic
+
+  metadataCase: MetadataCase
+
   diagnoses: Diagnoses
   files: CaseFiles
   exposures: Exposures
@@ -6385,6 +6388,40 @@ type Root {
   analysis: Analysis
 }
 
+type MetadataCaseAnnotation implements Node {
+  id: ID!
+
+  metadataKey: String
+  metadataValue: String
+
+}
+
+
+type MetadataCaseConnection {
+
+  # The Information to aid in pagination
+  pageInfo: PageInfo!
+
+  # The Information to aid in pagination
+  total: Int!
+
+  # Information to aid in pagination.
+  edges: [MetadataCaseEdge]
+}
+
+type MetadataCaseEdge {
+  # A cursor for use in pagination
+  cursor: String!
+
+  # The item at the end of the edge
+  node: MetadataCaseAnnotation
+}
+
+type MetadataCase {
+  hits(offset: Int, sort: [Sort], filters: FiltersArgument, before: String, after: String, first: Int, last: Int): MetadataCaseConnection
+}
+
+
 type Sample implements Node {
   id: ID!
   annotations: CaseAnnotations
@@ -6392,6 +6429,9 @@ type Sample implements Node {
   primary_site: String
   submitter_id: String
   demographic: Demographic
+
+  metadataCase: MetadataCase
+
   project: Project
   summary: Summary
   annotations: CaseAnnotations
