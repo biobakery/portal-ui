@@ -6419,6 +6419,7 @@ type MetadataCaseEdge {
 
 type MetadataCase {
   hits(offset: Int, sort: [Sort], filters: FiltersArgument, before: String, after: String, first: Int, last: Int): MetadataCaseConnection
+  metadata_count: String
 }
 
 

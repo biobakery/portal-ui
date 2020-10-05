@@ -8,7 +8,7 @@ import Showing from '@ncigdc/components/Pagination/Showing';
 import { Row } from '@ncigdc/uikit/Flex';
 import TableActions from '@ncigdc/components/TableActions';
 import tableModels from '@ncigdc/tableModels';
-import Table, { Tr } from '@ncigdc/uikit/Table';
+import Table, { Tr, Th, Td } from '@ncigdc/uikit/Table';
 import { theme } from '@ncigdc/theme';
 import withSelectIds from '@ncigdc/utils/withSelectIds';
 import timestamp from '@ncigdc/utils/timestamp';
@@ -34,10 +34,30 @@ export default compose(
     score,
     sort,
   }) => {
-    const tableInfo = tableModels[entityType]
+
+    const addedTableInfo = [];
+
+    const AllMetadataKeys = hits.edges[0].node.metadataCase.hits.edges.map( x => x.node.metadataKey);
+
+    for (let ikey = 0; ikey < AllMetadataKeys.length; ikey++) {
+        addedTableInfo.push(
+          {
+            name: AllMetadataKeys[ikey],
+            id: 'demographic.metadataCase.'+AllMetadataKeys[ikey].toLowerCase(),
+            id_source: 'Metadata',
+            sortable: false,
+            downloadable: true,
+            hidden: false,
+            th: () => <Th rowSpan="2">{AllMetadataKeys[ikey]}</Th>,
+            td: ({ node }) => (
+              <Td>{(node.metadataCase.hits.edges[ikey].node && node.metadataCase.hits.edges[ikey].node.metadataValue) || '--'}</Td>
+            ),
+         });
+    }
+
+    const tableInfo = tableModels[entityType].concat(addedTableInfo)
       .slice()
-      .sort((a, b) => tableColumns.indexOf(a.id) - tableColumns.indexOf(b.id))
-      .filter(x => tableColumns.includes(x.id));
+      .filter(x => tableColumns.includes(x.id_source));
 
     return (
       <div className="test-cases-table">

@@ -81,24 +81,16 @@ export default (Component: React.Class<*>) =>
                           }
                         }
                         metadataCase {
-                          hits(first: 100) {
+                          hits(first: 1000) {
                             edges {
                               node {
+                                id
                                 metadataKey
                                 metadataValue
                               }
                             }
                           }
-                        }
-                        demographic {
-                          age
-                          weight
-                          caffiene
-                          bmi
-                          alcohol
-                          diagnosis
-                          smoking
-                          met
+                          metadata_count
                         }
                         summary {
                           data_categories {
