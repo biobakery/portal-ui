@@ -9,6 +9,10 @@ const localStorage = window.localStorage || {};
 
 export const PROJECTLINK = "https://app.terra.bio/#workspaces/terra-biom-mass/"
 
+/* Table constants */
+
+export const MAX_METADATA_SHOW = 10; 
+
 /* API ENDPOINTS */
 
 export const AUTH =

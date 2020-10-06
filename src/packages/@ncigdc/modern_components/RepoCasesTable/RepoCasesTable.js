@@ -13,6 +13,8 @@ import { theme } from '@ncigdc/theme';
 import withSelectIds from '@ncigdc/utils/withSelectIds';
 import timestamp from '@ncigdc/utils/timestamp';
 
+import { MAX_METADATA_SHOW } from '@ncigdc/utils/constants'
+
 export default compose(
   setDisplayName('RepoCasesTablePresentation'),
   connect(state => ({ tableColumns: state.tableColumns.cases.ids })),
@@ -40,14 +42,16 @@ export default compose(
     const AllMetadataKeys = hits.edges[0].node.metadataCase.hits.edges.map( x => x.node.metadataKey);
 
     for (let ikey = 0; ikey < AllMetadataKeys.length; ikey++) {
+        const ishidden = (ikey > MAX_METADATA_SHOW) ? true: false;
+        const issource = (ishidden) ? 'Metadata.hidden': 'Metadata';
         addedTableInfo.push(
           {
             name: AllMetadataKeys[ikey],
             id: 'demographic.metadataCase.'+AllMetadataKeys[ikey].toLowerCase(),
-            id_source: 'Metadata',
+            id_source: issource,
             sortable: false,
             downloadable: true,
-            hidden: false,
+            hidden: ishidden,
             th: () => <Th rowSpan="2">{AllMetadataKeys[ikey]}</Th>,
             td: ({ node }) => (
               <Td>{(node.metadataCase.hits.edges[ikey].node && node.metadataCase.hits.edges[ikey].node.metadataValue) || '--'}</Td>
