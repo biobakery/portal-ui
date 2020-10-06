@@ -61,6 +61,7 @@ export default compose(
 
     const tableInfo = tableModels[entityType].concat(addedTableInfo)
       .slice()
+      .sort((a, b) => tableColumns.indexOf(a.id_source) - tableColumns.indexOf(b.id_source))
       .filter(x => tableColumns.includes(x.id_source));
 
     return (
