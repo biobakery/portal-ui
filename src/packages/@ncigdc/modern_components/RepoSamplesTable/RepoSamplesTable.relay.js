@@ -80,11 +80,6 @@ export default (Component: React.Class<*>) =>
                             }
                           }
                         }
-                        demographic {
-                          age
-                          weight
-                          met
-                        }
                         time
                         week
                         fiber
