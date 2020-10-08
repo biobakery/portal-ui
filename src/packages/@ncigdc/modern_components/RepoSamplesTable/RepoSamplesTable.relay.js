@@ -80,6 +80,20 @@ export default (Component: React.Class<*>) =>
                             }
                           }
                         }
+
+                        metadataSample {
+                          hits(first: 1000) {
+                            edges {
+                              node {
+                                id
+                                metadataKey
+                                metadataValue
+                              }
+                            }
+                          }
+                          metadata_count
+                        }
+
                         time
                         week
                         fiber

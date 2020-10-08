@@ -8,10 +8,12 @@ import Showing from '@ncigdc/components/Pagination/Showing';
 import { Row } from '@ncigdc/uikit/Flex';
 import TableActions from '@ncigdc/components/TableActions';
 import tableModels from '@ncigdc/tableModels';
-import Table, { Tr } from '@ncigdc/uikit/Table';
+import Table, { Tr, Th, Td } from '@ncigdc/uikit/Table';
 import { theme } from '@ncigdc/theme';
 import withSelectIds from '@ncigdc/utils/withSelectIds';
 import timestamp from '@ncigdc/utils/timestamp';
+
+import { MAX_METADATA_SHOW } from '@ncigdc/utils/constants'
 
 export default compose(
   setDisplayName('RepoSamplesTablePresentation'),
@@ -34,10 +36,33 @@ export default compose(
     score,
     sort,
   }) => {
-    const tableInfo = tableModels[entityType]
+
+    const addedTableInfo = [];
+
+    const AllMetadataKeys = hits.edges[0].node.metadataSample.hits.edges.map( x => x.node.metadataKey);
+
+    for (let ikey = 0; ikey < AllMetadataKeys.length; ikey++) {
+        const ishidden = (ikey > MAX_METADATA_SHOW) ? true: false;
+        const issource = (ishidden) ? 'Metadata.hidden': 'Metadata';
+        addedTableInfo.push(
+          { 
+            name: AllMetadataKeys[ikey],
+            id: 'demographic.metadataSample.'+AllMetadataKeys[ikey].toLowerCase(),
+            id_source: issource,
+            sortable: false,
+            downloadable: true,
+            hidden: ishidden,
+            th: () => <Th rowSpan="2">{AllMetadataKeys[ikey]}</Th>,
+            td: ({ node }) => (
+              <Td>{(node.metadataSample.hits.edges[ikey].node && node.metadataSample.hits.edges[ikey].node.metadataValue) || '--'}</Td>
+            ),
+         });
+    }
+
+    const tableInfo = tableModels[entityType].concat(addedTableInfo)
       .slice()
-      .sort((a, b) => tableColumns.indexOf(a.id) - tableColumns.indexOf(b.id))
-      .filter(x => tableColumns.includes(x.id));
+      .sort((a, b) => tableColumns.indexOf(a.id_source) - tableColumns.indexOf(b.id_source))
+      .filter(x => tableColumns.includes(x.id_source));
 
     return (
       <div className="test-samples-table">
