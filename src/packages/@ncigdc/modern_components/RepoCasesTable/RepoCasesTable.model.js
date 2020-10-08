@@ -117,6 +117,17 @@ const casesTableModel = [
     td: ({ node }) => <Td key="primary_site">{node.primary_site}</Td>,
   },
   {
+    name: 'Metadata',
+    id: 'Metadata',
+    id_source: 'Metadata',
+    sortable: false,
+    downloadable: true,
+    th: () => (
+      <Th key="metadatacase_count" rowSpan="2">Metadata</Th>
+    ),
+    td: ({ node }) => <Td key="metdatacase_count">{node.metadataCase.metadata_count}</Td>,
+  },
+  {
     name: 'Files',
     id: 'summary.file_count',
     id_source: 'summary.file_count',
@@ -145,17 +156,6 @@ const casesTableModel = [
         </RepositoryCasesLink>
       </Td>
     )),
-  },
-  {
-    name: 'Metadata',
-    id: 'Metadata',
-    id_source: 'Metadata',
-    sortable: false,
-    downloadable: true,
-    th: () => (
-      <Th key="metadatacase_count" rowSpan="2">Metadata</Th>
-    ),
-    td: ({ node }) => <Td key="metdatacase_count">{node.metadataCase.metadata_count}</Td>,
   },
 ];
 
