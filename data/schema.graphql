@@ -6423,6 +6423,40 @@ type MetadataCase {
 }
 
 
+type MetadataSampleAnnotation implements Node {
+  id: ID!
+
+  metadataKey: String
+  metadataValue: String
+
+}
+
+type MetadataSampleConnection {
+
+  # The Information to aid in pagination
+  pageInfo: PageInfo!
+
+  # The Information to aid in pagination
+  total: Int!
+
+  # Information to aid in pagination.
+  edges: [MetadataSampleEdge]
+}
+
+type MetadataSampleEdge {
+  # A cursor for use in pagination
+  cursor: String!
+
+  # The item at the end of the edge
+  node: MetadataSampleAnnotation
+}
+
+type MetadataSample {
+  hits(offset: Int, sort: [Sort], filters: FiltersArgument, before: String, after: String, first: Int, last: Int): MetadataCaseConnection
+  metadata_count: String
+}
+
+
 type Sample implements Node {
   id: ID!
   annotations: CaseAnnotations
@@ -6432,6 +6466,8 @@ type Sample implements Node {
   demographic: Demographic
 
   metadataCase: MetadataCase
+
+  metadataSample: MetadataSample
 
   project: Project
   summary: Summary
