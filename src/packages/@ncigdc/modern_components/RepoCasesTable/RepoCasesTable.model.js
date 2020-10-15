@@ -74,6 +74,7 @@ const casesTableModel = [
   {
     name: 'Participant UUID',
     id: 'case_id',
+    id_source: 'case_id',
     hidden: false,
     downloadable: true,
     th: () => (
@@ -86,6 +87,7 @@ const casesTableModel = [
   {
     name: 'Project',
     id: 'project.project_id',
+    id_source: 'project.project_id',
     downloadable: true,
     sortable: true,
     th: () => (
@@ -104,6 +106,7 @@ const casesTableModel = [
   {
     name: 'Primary Site',
     id: 'primary_site',
+    id_source: 'primary_site',
     sortable: true,
     downloadable: true,
     th: () => (
@@ -114,110 +117,34 @@ const casesTableModel = [
     td: ({ node }) => <Td key="primary_site">{node.primary_site}</Td>,
   },
   {
-    name: 'Age',
-    id: 'demographic.age',
+    name: 'Metadata',
+    id: 'Metadata',
+    id_source: 'Metadata',
     sortable: false,
     downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Age</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.age) || '--'}</Td>
+    th: () => (
+      <Th key="metadatacase_count" rowSpan="2">Metadata</Th>
     ),
-  },
-  {
-    name: 'Weight',
-    id: 'demographic.weight',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Weight</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.weight) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Caffiene',
-    id: 'demographic.caffiene',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Caffiene</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.caffiene) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'BMI',
-    id: 'demographic.bmi',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">BMI</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.bmi) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Alcohol',
-    id: 'demographic.alcohol',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Alcohol</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.alcohol) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Diagnosis',
-    id: 'demographic.diagnosis',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Diagnosis</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.diagnosis) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Smoking',
-    id: 'demographic.smoking',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Smoking (pack years)</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.smoking) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Activity',
-    id: 'demographic.met',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Activity (MET)</Th>,
-    td: ({ node }) => (
-      <Td>{(node.demographic && node.demographic.met) || '--'}</Td>
-    ),
+    td: ({ node }) => <Td key="metdatacase_count">{node.metadataCase.metadata_count}</Td>,
   },
   {
     name: 'Files',
     id: 'summary.file_count',
+    id_source: 'summary.file_count',
     sortable: true,
     downloadable: true,
     th: () => (
-      <ThNum key="summary.file_count" rowSpan="2">
+      <Th key="summary.file_count" rowSpan="2">
         Files
-      </ThNum>
+      </Th>
     ),
     td: ({ node }) => (
-      <TdNum key="summary.file_count">
+      <Td key="summary.file_count">
         {node.summary.file_count.toLocaleString()}
-      </TdNum>
+      </Td>
     ),
     total: withRouter(({ hits, query }) => (
-      <TdNum>
+      <Td>
         <RepositoryCasesLink
           query={{
             filters: query.filters ? getProjectIdFilter(hits) : null,
@@ -227,7 +154,7 @@ const casesTableModel = [
             .reduce((acc, val) => acc + val.node.summary.case_count, 0)
             .toLocaleString()}
         </RepositoryCasesLink>
-      </TdNum>
+      </Td>
     )),
   },
 ];

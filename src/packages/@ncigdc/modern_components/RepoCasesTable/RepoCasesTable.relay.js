@@ -80,15 +80,17 @@ export default (Component: React.Class<*>) =>
                             }
                           }
                         }
-                        demographic {
-                          age
-                          weight
-                          caffiene
-                          bmi
-                          alcohol
-                          diagnosis
-                          smoking
-                          met
+                        metadataCase {
+                          hits(first: 1000) {
+                            edges {
+                              node {
+                                id
+                                metadataKey
+                                metadataValue
+                              }
+                            }
+                          }
+                          metadata_count
                         }
                         summary {
                           data_categories {

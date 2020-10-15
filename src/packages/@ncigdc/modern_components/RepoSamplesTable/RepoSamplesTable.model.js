@@ -58,6 +58,7 @@ const samplesTableModel = [
   {
     name: 'Sample UUID',
     id: 'sample_id',
+    id_source: 'sample_id',
     hidden: false,
     downloadable: true,
     th: () => (
@@ -70,6 +71,7 @@ const samplesTableModel = [
   {
     name: 'Project',
     id: 'project.project_id',
+    id_source: 'project.project_id',
     downloadable: true,
     sortable: true,
     th: () => (
@@ -88,6 +90,7 @@ const samplesTableModel = [
   {
     name: 'Primary Site',
     id: 'primary_site',
+    id_source: 'primary_site',
     sortable: true,
     downloadable: true,
     th: () => (
@@ -98,184 +101,20 @@ const samplesTableModel = [
     td: ({ node }) => <Td key="primary_site">{node.primary_site}</Td>,
   },
   {
-    name: 'Week',
-    id: 'week',
+    name: 'Metadata',
+    id: 'Metadata',
+    id_source: 'Metadata',
     sortable: false,
     downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Week</Th>,
-    td: ({ node }) => (
-      <Td>{(node.week) || '--'}</Td>
+    th: () => (
+      <Th key="metadatasample_count" rowSpan="2">Metadata</Th>
     ),
-  },
-  {
-    name: 'Time',
-    id: 'time',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Time</Th>,
-    td: ({ node }) => (
-      <Td>{(node.time) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Fiber',
-    id: 'fiber',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Fiber</Th>,
-    td: ({ node }) => (
-      <Td>{(node.fiber) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Fat',
-    id: 'fat',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Fat</Th>,
-    td: ({ node }) => (
-      <Td>{(node.fat) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Iron',
-    id: 'iron',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Iron</Th>,
-    td: ({ node }) => (
-      <Td>{(node.iron) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Alcohol',
-    id: 'alcohol',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Alcohol</Th>,
-    td: ({ node }) => (
-      <Td>{(node.alcohol) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'B12',
-    id: 'b12',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">B12</Th>,
-    td: ({ node }) => (
-      <Td>{(node.b12) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Calories',
-    id: 'calories',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Calories</Th>,
-    td: ({ node }) => (
-      <Td>{(node.calories) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Carbs',
-    id: 'carbs',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Carbs</Th>,
-    td: ({ node }) => (
-      <Td>{(node.carbs) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Choline',
-    id: 'choline',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Choline</Th>,
-    td: ({ node }) => (
-      <Td>{(node.choline) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Folate',
-    id: 'folate',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Folate</Th>,
-    td: ({ node }) => (
-      <Td>{(node.folate) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Protein',
-    id: 'protein',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Protein</Th>,
-    td: ({ node }) => (
-      <Td>{(node.protein) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Weight',
-    id: 'weight',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Weight</Th>,
-    td: ({ node }) => (
-      <Td>{(node.weight) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'Met',
-    id: 'met',
-    sortable: false,
-    downloadable: true,
-    hidden: false,
-    th: () => <Th rowSpan="2">Met</Th>,
-    td: ({ node }) => (
-      <Td>{(node.met) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'non_ribosomal_proteins',
-    id: 'non_ribosomal_proteins',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Proteins (non-ribosomal)</Th>,
-    td: ({ node }) => (
-      <Td>{(node.non_ribosomal_proteins) || '--'}</Td>
-    ),
-  },
-  {
-    name: 'ribosomal_proteins',
-    id: 'ribosomal_proteins',
-    sortable: false,
-    downloadable: true,
-    hidden: true,
-    th: () => <Th rowSpan="2">Proteins (ribosomal)</Th>,
-    td: ({ node }) => (
-      <Td>{(node.ribosomal_proteins) || '--'}</Td>
-    ),
+    td: ({ node }) => <Td key="metdatasample_count">{node.metadataSample.metadata_count}</Td>,
   },
   {
     name: 'Files',
     id: 'summary.file_count',
+    id_source: 'summary.file_count',
     sortable: true,
     downloadable: true,
     th: () => (
