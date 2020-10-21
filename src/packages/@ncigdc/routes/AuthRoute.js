@@ -19,8 +19,8 @@ import { setAccessToken } from '@ncigdc/utils/siteCookies';
 
 import GoogleLogin from 'react-google-login';
 
-//const clientid = "250496797473-3tkrt8bluu5l508kik1j2ufurpiamgsn.apps.googleusercontent.com";
-const clientid = "250496797473-15s2p3k9s7latehllsj4o2cv5qp1jl1c.apps.googleusercontent.com";
+const clientid = "250496797473-3tkrt8bluu5l508kik1j2ufurpiamgsn.apps.googleusercontent.com";
+//const clientid = "250496797473-15s2p3k9s7latehllsj4o2cv5qp1jl1c.apps.googleusercontent.com";
 
 const Title = styled.div({
   color: 'white',
@@ -152,7 +152,7 @@ const LoginContainer = compose(
             </ImageContainerSmall>
             <SubTitle style={{ fontSize: '2rem' }}>Hello {showLoginButton}, Welcome to the Biom-Mass portal!</SubTitle>
         <AboutText>
-          <span>You now have access to view the restricted metadata. <b>You will automatically be redirected to the <RepositoryLink>repository page</RepositoryLink> in 10 seconds.</b> Please <ContactLink>contact us</ContactLink> if you have any questions.</span>
+          <span>You now have access to view the restricted data. <b>You will automatically be redirected to the <RepositoryLink>repository page</RepositoryLink> in 10 seconds.</b> <ContactLink>Contact us</ContactLink> if you have any questions. <b>Please note your login will expire in 48 hours.</b> At that time you will be automatically logged out of the site.</span>
         </AboutText>
           </div>
     )
