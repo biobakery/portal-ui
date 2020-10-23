@@ -30,22 +30,6 @@ export type TProps = {
   relay: Object,
   facets: { facets: string },
   parsedFacets: Object,
-  aggregations: {
-    week: { buckets: [TBucket] },
-    time: { buckets: [TBucket] },
-    fiber: { stats: { max: number, min: number } },
-    fat: { stats: { max: number, min: number } },
-    iron: { stats: { max: number, min: number } },
-    alcohol: { stats: { max: number, min: number } },
-    b12: { stats: { max: number, min: number } },
-    calories: { stats: { max: number, min: number } },
-    carbs: { stats: { max: number, min: number } },
-    choline: { stats: { max: number, min: number } },
-    folate: { stats: { max: number, min: number } },
-    protein: { stats: { max: number, min: number } },
-    weight: { stats: { max: number, min: number } },
-    met: { stats: { max: number, min: number } }
-  },
   setAutocomplete: Function,
   theme: Object,
   suggestions: Array<Object>,
@@ -65,6 +49,27 @@ export type TProps = {
   facetExclusionTest: Function,
   setShouldShowFacetSelection: Function,
 };
+
+const styles = {
+  link: {
+    textDecoration: 'underline',
+    color: '#2a72a5',
+  },
+};
+
+const entityType = 'RepositoryCases';
+
+export default compose(
+  setDisplayName('RepoSampleAggregations'),
+  withTheme,
+  withState('caseIdCollapsed', 'setCaseIdCollapsed', false),
+  withPropsOnChange(['viewer'], ({ viewer }) => ({
+    parsedFacets: viewer.repository.samples.facets
+      ? tryParseJSON(viewer.repository.samples.facets, {})
+      : {},
+  })),
+)(
+  (props: TProps) => {
 
 const presetFacets = [
   {
@@ -102,99 +107,18 @@ const presetFacets = [
     doc_type: 'samples',
     type: 'long',
   },
-  {
-    title: 'Alcohol',
-    field: 'alcohol',
-    full: 'samples.alcohol',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'B12',
-    field: 'b12',
-    full: 'samples.b12',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'Calories',
-    field: 'calories',
-    full: 'samples.calories',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'Carbs',
-    field: 'carbs',
-    full: 'samples.carbs',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'Choline',
-    field: 'choline',
-    full: 'samples.choline',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'Folate',
-    field: 'folate',
-    full: 'samples.folate',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'Protein',
-    field: 'protein',
-    full: 'samples.protein',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'Weight (lbs)',
-    field: 'iron',
-    full: 'samples.weight',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'Activity (MET)',
-    field: 'met',
-    full: 'samples.met',
-    doc_type: 'samples',
-    type: 'long',
-  },
 ];
 
 const presetFacetFields = presetFacets.map(x => x.field);
-const entityType = 'RepositoryCases';
 
-const enhance = compose(
-  setDisplayName('RepoSampleAggregations'),
   withFacetSelection({
     entityType,
     presetFacetFields,
     validFacetDocTypes: ['samples'],
-  }),
-  withTheme,
-  withState('caseIdCollapsed', 'setCaseIdCollapsed', false),
-  withPropsOnChange(['viewer'], ({ viewer }) => ({
-    parsedFacets: viewer.repository.samples.facets
-      ? tryParseJSON(viewer.repository.samples.facets, {})
-      : {},
-  })),
-);
+  });
 
-const styles = {
-  link: {
-    textDecoration: 'underline',
-    color: '#2a72a5',
-  },
-};
-
-const SampleAggregationsComponent = (props: TProps) => (
-  <div className="test-case-aggregations">
+   return (
+   <div className="test-case-aggregations">
     {props.userSelectedFacets.map(facet => (
       <FacetWrapper
         isRemovable
@@ -221,7 +145,8 @@ const SampleAggregationsComponent = (props: TProps) => (
         style={{ borderBottom: `1px solid ${props.theme.greyScale5}` }}
       />
     ))}
-  </div>
+   </div>
+  );
+ },
 );
 
-export default enhance(SampleAggregationsComponent);
