@@ -633,7 +633,45 @@ type Case implements Node {
   score: Int
 }
 
+type MetadataAggregationAnnotation implements Node {
+  id: ID!
+
+  metadataKey: String
+  metadataType: String
+
+  metadataValue: Aggregations
+
+}
+
+
+type MetadataAggregationConnection {
+
+  # The Information to aid in pagination
+  pageInfo: PageInfo!
+
+  # The Information to aid in pagination
+  total: Int!
+
+  # Information to aid in pagination.
+  edges: [MetadataAggregationEdge]
+}
+
+type MetadataAggregationEdge {
+  # A cursor for use in pagination
+  cursor: String!
+
+  # The item at the end of the edge
+  node: MetadataAggregationAnnotation
+}
+
+type MetadataAggregations {
+  hits(offset: Int, sort: [Sort], filters: FiltersArgument, before: String, after: String, first: Int, last: Int): MetadataAggregationConnection
+}
+
 type SampleAggregations {
+
+  metadataAggregations: MetadataAggregations
+
   demographic__age: Aggregations
   demographic__weight: Aggregations
   demographic__caffiene: Aggregations
@@ -665,6 +703,9 @@ type SampleAggregations {
 }
 
 type CaseAggregations {
+
+  metadataAggregations: MetadataAggregations
+
   sample__time : Aggregations
   sample__week : Aggregations
   sample__fiber : Aggregations

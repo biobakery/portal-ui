@@ -59,6 +59,28 @@ export default (Component: ReactClass<*>) =>
                     filters: $filters
                     aggregations_filter_themselves: false
                   ) {
+
+                    metadataAggregations {
+                      hits(first: 1000) {
+                        edges {
+                          node {
+                            metadataKey
+                            metadataType
+                            metadataValue {
+                              stats {
+                                max
+                                min 
+                              }
+                              buckets {
+                                doc_count
+                                key
+                              }
+                            }
+                          }
+                       }
+                     }
+                   }
+
                     week {
                       buckets {
                         doc_count
