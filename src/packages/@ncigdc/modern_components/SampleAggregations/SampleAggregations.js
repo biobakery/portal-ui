@@ -24,6 +24,8 @@ import { UploadCaseSet } from '@ncigdc/components/Modals/UploadSet';
 
 import { TBucket } from '@ncigdc/components/Aggregations/types';
 
+import { MAX_METADATA_SHOW } from '@ncigdc/utils/constants'
+
 export type TProps = {
   caseIdCollapsed: boolean,
   setCaseIdCollapsed: Function,
@@ -70,44 +72,22 @@ export default compose(
   })),
 )(
   (props: TProps) => {
+   const AllMetadataKeys = props.viewer.repository.samples.aggregations.metadataAggregations.hits.edges.map( x => x.node.metadataKey);
 
-const presetFacets = [
-  {
-    title: 'Week',
-    field: 'week',
-    full: 'samples.week',
-    doc_type: 'samples',
-    type: 'terms',
-  },
-  {
-    title: 'Time',
-    field: 'time',
-    full: 'samples.time',
-    doc_type: 'samples',
-    type: 'terms',
-  },
-  {
-    title: 'Fiber',
-    field: 'fiber',
-    full: 'samples.fiber',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'Fat',
-    field: 'fat',
-    full: 'samples.fat',
-    doc_type: 'samples',
-    type: 'long',
-  },
-  {
-    title: 'Iron',
-    field: 'iron',
-    full: 'samples.iron',
-    doc_type: 'samples',
-    type: 'long',
-  },
-];
+   const presetFacets = [];
+   const max_list_items = (MAX_METADATA_SHOW > AllMetadataKeys.length) ? AllMetadataKeys.length : MAX_METADATA_SHOW;
+   for (let ikey = 0; ikey < max_list_items; ikey++) {
+       const facettype = (props.viewer.repository.samples.aggregations.metadataAggregations.hits.edges[ikey].node.metadataType === "bucket") ? 'terms': 'long';
+       presetFacets.push(
+        {
+          title: AllMetadataKeys[ikey].charAt(0).toUpperCase() + AllMetadataKeys[ikey].slice(1),
+          field_index: ikey,
+          field: AllMetadataKeys[ikey],
+          full: 'samples.'+AllMetadataKeys[ikey],
+          doc_type: 'samples',
+          type: facettype,
+        });
+    }
 
 const presetFacetFields = presetFacets.map(x => x.field);
 
@@ -136,9 +116,7 @@ const presetFacetFields = presetFacets.map(x => x.field);
         facet={facet}
         title={facet.title}
         aggregation={
-          props.viewer.repository.samples.aggregations[
-            escapeForRelay(facet.field)
-          ]
+          props.viewer.repository.samples.aggregations.metadataAggregations.hits.edges[facet.field_index].node.metadataValue
         }
         relay={props.relay}
         additionalProps={facet.additionalProps}
