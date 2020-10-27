@@ -30,19 +30,6 @@ export type TProps = {
   relay: Object,
   facets: { facets: string },
   parsedFacets: Object,
-  aggregations: {
-    demographic__age: { buckets: [TBucket] },
-    demographic__weight: { buckets: [TBucket] },
-    demographic__caffiene: { buckets: [TBucket] },
-    demographic__bmi: { buckets: [TBucket] },
-    demographic__alcohol: { buckets: [TBucket] },
-    demographic__diagnosis: { buckets: [TBucket] },
-    demographic__smoking: { buckets: [TBucket] },
-    demographic__met: { buckets: [TBucket] },
-    primary_site: { buckets: [TBucket] },
-    project__program__name: { buckets: [TBucket] },
-    project__project_id: { buckets: [TBucket] },
-  },
   setAutocomplete: Function,
   theme: Object,
   suggestions: Array<Object>,
@@ -62,6 +49,27 @@ export type TProps = {
   facetExclusionTest: Function,
   setShouldShowFacetSelection: Function,
 };
+
+const styles = {
+  link: {
+    textDecoration: 'underline',
+    color: '#2a72a5',
+  },
+};
+
+const entityType = 'RepositoryCases';
+
+export default compose(
+  setDisplayName('RepoCaseAggregations'),
+  withTheme,
+  withState('caseIdCollapsed', 'setCaseIdCollapsed', false),
+  withPropsOnChange(['viewer'], ({ viewer }) => ({
+    parsedFacets: viewer.repository.cases.facets
+      ? tryParseJSON(viewer.repository.cases.facets, {})
+      : {},
+  })),
+)(
+   (props: TProps) => {
 
 const presetFacets = [
   {
@@ -92,77 +100,17 @@ const presetFacets = [
     doc_type: 'cases',
     type: 'terms',
   },
-  {
-    title: 'Caffiene',
-    field: 'demographic.caffiene',
-    full: 'cases.demographic.caffiene',
-    doc_type: 'cases',
-    type: 'terms',
-  },
-  {
-    title: 'BMI',
-    field: 'demographic.bmi',
-    full: 'cases.demographic.bmi',
-    doc_type: 'cases',
-    type: 'terms',
-  },
-  {
-    title: 'Alcohol',
-    field: 'demographic.alcohol',
-    full: 'cases.demographic.alcohol',
-    doc_type: 'cases',
-    type: 'terms',
-  },
-  {
-    title: 'Diagnosis',
-    field: 'demographic.diagnosis',
-    full: 'cases.demographic.diagnosis',
-    doc_type: 'cases',
-    type: 'terms',
-  },
-  {
-    title: 'Smoking (pack years)',
-    field: 'demographic.smoking',
-    full: 'cases.demographic.smoking',
-    doc_type: 'cases',
-    type: 'terms',
-  },
-  {
-    title: 'Activity (MET)',
-    field: 'demographic.met',
-    full: 'cases.demographic.met',
-    doc_type: 'cases',
-    type: 'terms',
-  },
-];
+ ]; 
 
-const presetFacetFields = presetFacets.map(x => x.field);
-const entityType = 'RepositoryCases';
+  const presetFacetFields = presetFacets.map(x => x.field);
 
-const enhance = compose(
-  setDisplayName('RepoCaseAggregations'),
   withFacetSelection({
     entityType,
     presetFacetFields,
     validFacetDocTypes: ['cases'],
-  }),
-  withTheme,
-  withState('caseIdCollapsed', 'setCaseIdCollapsed', false),
-  withPropsOnChange(['viewer'], ({ viewer }) => ({
-    parsedFacets: viewer.repository.cases.facets
-      ? tryParseJSON(viewer.repository.cases.facets, {})
-      : {},
-  })),
-);
+  });
 
-const styles = {
-  link: {
-    textDecoration: 'underline',
-    color: '#2a72a5',
-  },
-};
-
-const CaseAggregationsComponent = (props: TProps) => (
+  return (
   <div className="test-case-aggregations">
     {props.userSelectedFacets.map(facet => (
       <FacetWrapper
@@ -191,6 +139,7 @@ const CaseAggregationsComponent = (props: TProps) => (
       />
     ))}
   </div>
+  );
+ },
 );
 
-export default enhance(CaseAggregationsComponent);
