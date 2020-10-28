@@ -637,6 +637,7 @@ type MetadataAggregationAnnotation implements Node {
   id: ID!
 
   metadataKey: String
+  metadataTitle: String
   metadataType: String
 
   metadataValue: Aggregations
