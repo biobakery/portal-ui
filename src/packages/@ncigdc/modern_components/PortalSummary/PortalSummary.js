@@ -8,7 +8,7 @@ import DoubleHelix from '@ncigdc/theme/icons/DoubleHelix';
 import MutationIcon from '@ncigdc/theme/icons/Mutation';
 
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
-import RepositoryLink from '@ncigdc/components/Links/RepositoryLink';
+import { RepositoryFilesLink, RepositoryCasesLink, RepositorySamplesLink } from '@ncigdc/components/Links/RepositoryLink';
 
 import { Row, Column } from '@ncigdc/uikit/Flex';
 
@@ -18,7 +18,9 @@ const linkStyle = {
 };
 
 const Projects = styled(ProjectsLink, linkStyle);
-const Repository = styled(RepositoryLink, linkStyle);
+const RepositoryFiles = styled(RepositoryFilesLink, linkStyle);
+const RepositoryCases = styled(RepositoryCasesLink, linkStyle);
+const RepositorySamples = styled(RepositorySamplesLink, linkStyle);
 
 const CountBox = styled(Column, {
   padding: '1.5rem',
@@ -77,12 +79,12 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-primary-sites-label">Participants</Title>
           <Row>
-            <Repository>
+            <RepositoryCases>
               <i
                 style={{ color: '#01b987', fontSize: '3rem' }}
                 className="fa fa-users data-icon"
               />
-           </Repository>
+           </RepositoryCases>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span> {props.viewer.count.participants} </span>
             </span>
@@ -91,12 +93,12 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-cases-label">Samples</Title>
           <Row>
-           <Repository>
+           <RepositorySamples>
               <i
                 style={{ color: '#01b987', fontSize: '3rem' }}
                 className="fa fa-user-circle-o data-icon"
               />
-            </Repository>
+            </RepositorySamples>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span> {props.viewer.count.samples} </span>
             </span>
@@ -107,12 +109,12 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-files-label">Data Formats</Title>
           <Row>
-            <Repository>
+            <RepositoryFiles>
               <i
                 style={{ color: '#01b987', fontSize: '3rem' }}
                 className="fa fa-file-code-o data-icon"
               />
-             </Repository>
+             </RepositoryFiles>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span> {props.viewer.count.dataFormats} </span>
             </span>
@@ -121,9 +123,9 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-genes-label">Raw Files</Title>
           <Row>
-            <Repository>
+            <RepositoryFiles>
               <DoubleHelix color="#01b987" width={20} height={35} />
-            </Repository>
+            </RepositoryFiles>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span>{props.viewer.count.rawFiles}</span>
             </span>
@@ -132,12 +134,12 @@ const PortalSummary = compose(
         <CountBox>
           <Title className="test-mutations-label">Processed Files</Title>
           <Row>
-            <Repository>
+            <RepositoryFiles>
               <i
                 style={{ color: '#01b987', fontSize: '3rem' }}
                 className="fa fa-picture-o data-icon"
               />
-            </Repository>
+            </RepositoryFiles>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span>{props.viewer.count.processedFiles}</span>
             </span>

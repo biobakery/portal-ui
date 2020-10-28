@@ -5,13 +5,19 @@ import { makeListLink } from './utils';
 export const RepositoryFilesLink = makeListLink({
   pathname: '/repository',
   children: 'repository',
-  query: { searchTableTab: 'files' },
+  query: { searchTableTab: 'files', facetTab: 'files' },
 });
 
 export const RepositoryCasesLink = makeListLink({
   pathname: '/repository',
   children: 'repository',
-  query: { searchTableTab: 'cases' },
+  query: { searchTableTab: 'cases', facetTab: 'cases' },
+});
+
+export const RepositorySamplesLink = makeListLink({
+  pathname: '/repository',
+  children: 'repository',
+  query: { searchTableTab: 'samples', facetTab: 'samples' },
 });
 
 export default makeListLink({
