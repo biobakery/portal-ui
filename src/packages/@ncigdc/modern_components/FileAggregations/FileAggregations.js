@@ -29,7 +29,6 @@ import { Row } from '@ncigdc/uikit/Flex';
 
 const presetFacets = [
   { field: 'data_category', full: 'files.data_category', type: 'keyword' },
-  { title: "File Size (GB)", field: 'file_size', full: 'files.file_size', type: 'keyword' },
   {
     field: 'experimental_strategy',
     full: 'files.experimental_strategy',
@@ -38,6 +37,7 @@ const presetFacets = [
   { field: 'data_format', full: 'files.data_format', type: 'keyword' },
   { field: 'platform', full: 'files.platform', type: 'keyword' },
   { field: 'access', full: 'files.access', type: 'keyword' },
+  { title: "File Size (GB)", field: 'file_size', full: 'files.file_size', type: 'long' },
 ];
 
 const presetFacetFields = presetFacets.map(x => x.field);
