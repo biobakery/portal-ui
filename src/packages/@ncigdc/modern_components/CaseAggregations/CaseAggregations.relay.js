@@ -65,6 +65,7 @@ export default (Component: ReactClass<*>) =>
                         edges {
                           node {
                             metadataKey
+                            metadataTitle
                             metadataType
                             metadataValue {
                               stats {

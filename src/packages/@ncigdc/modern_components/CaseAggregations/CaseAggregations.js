@@ -24,6 +24,8 @@ import { UploadCaseSet } from '@ncigdc/components/Modals/UploadSet';
 
 import { TBucket } from '@ncigdc/components/Aggregations/types';
 
+import { MAX_METADATA_SHOW } from '@ncigdc/utils/constants';
+
 export type TProps = {
   caseIdCollapsed: boolean,
   setCaseIdCollapsed: Function,
@@ -71,36 +73,24 @@ export default compose(
 )(
    (props: TProps) => {
 
-const presetFacets = [
-  {
-    title: 'Sample Site',
-    field: 'primary_site',
-    full: 'cases.primary_site',
-    doc_type: 'cases',
-    type: 'keyword',
-  },
-  {
-    title: 'Project',
-    field: 'project.project_id',
-    full: 'cases.project.project_id',
-    doc_type: 'cases',
-    type: 'terms',
-  },
-  {
-    title: 'Age',
-    field: 'demographic.age',
-    full: 'cases.demographic.age',
-    doc_type: 'cases',
-    type: 'terms',
-  },
-  {
-    title: 'Weight (lbs)',
-    field: 'demographic.weight',
-    full: 'cases.demographic.weight',
-    doc_type: 'cases',
-    type: 'terms',
-  },
- ]; 
+
+   const AllMetadataKeys = props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges.map( x => x.node.metadataKey);
+   const AllMetadataTitles = props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges.map( x => x.node.metadataTitle);
+
+   const presetFacets = [];
+   const max_list_items = (MAX_METADATA_SHOW > AllMetadataKeys.length) ? AllMetadataKeys.length : MAX_METADATA_SHOW;
+   for (let ikey = 0; ikey < max_list_items; ikey++) {
+       const facettype = (props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges[ikey].node.metadataType === "bucket") ? 'terms': 'long';
+       presetFacets.push(
+        { 
+          title: AllMetadataTitles[ikey].charAt(0).toUpperCase() + AllMetadataTitles[ikey].slice(1),
+          field_index: ikey,
+          field: AllMetadataKeys[ikey],
+          full: 'cases.'+AllMetadataKeys[ikey],
+          doc_type: 'cases',
+          type: facettype,
+        });
+    }
 
   const presetFacetFields = presetFacets.map(x => x.field);
 
@@ -128,10 +118,8 @@ const presetFacets = [
         key={facet.full}
         facet={facet}
         title={facet.title}
-        aggregation={
-          props.viewer.repository.cases.aggregations[
-            escapeForRelay(facet.field)
-          ]
+        aggregation={ 
+          props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges[facet.field_index].node.metadataValue
         }
         relay={props.relay}
         additionalProps={facet.additionalProps}
