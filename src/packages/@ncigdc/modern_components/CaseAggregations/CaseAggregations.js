@@ -77,12 +77,12 @@ export default compose(
    const AllMetadataKeys = props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges.map( x => x.node.metadataKey);
    const AllMetadataTitles = props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges.map( x => x.node.metadataTitle);
 
-   const presetFacets = [];
+   const allpresetFacets = [];
    const max_list_items = (MAX_METADATA_SHOW > AllMetadataKeys.length) ? AllMetadataKeys.length : MAX_METADATA_SHOW;
-   for (let ikey = 0; ikey < max_list_items; ikey++) {
+   for (let ikey = 0; ikey < AllMetadataKeys.length; ikey++) {
        const facettype = (props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges[ikey].node.metadataType === "bucket") ? 'terms': 'long';
        if (! AllMetadataKeys[ikey].includes("sample") ) {
-         presetFacets.push(
+         allpresetFacets.push(
           { 
             title: AllMetadataTitles[ikey].charAt(0).toUpperCase() + AllMetadataTitles[ikey].slice(1),
             field_index: ikey,
@@ -94,6 +94,7 @@ export default compose(
       }
     }
 
+  const presetFacets = allpresetFacets.slice(0, MAX_METADATA_SHOW - 1);
   const presetFacetFields = presetFacets.map(x => x.field);
 
   withFacetSelection({
