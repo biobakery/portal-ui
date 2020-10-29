@@ -81,15 +81,17 @@ export default compose(
    const max_list_items = (MAX_METADATA_SHOW > AllMetadataKeys.length) ? AllMetadataKeys.length : MAX_METADATA_SHOW;
    for (let ikey = 0; ikey < max_list_items; ikey++) {
        const facettype = (props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges[ikey].node.metadataType === "bucket") ? 'terms': 'long';
-       presetFacets.push(
-        { 
-          title: AllMetadataTitles[ikey].charAt(0).toUpperCase() + AllMetadataTitles[ikey].slice(1),
-          field_index: ikey,
-          field: AllMetadataKeys[ikey],
-          full: 'cases.'+AllMetadataKeys[ikey],
-          doc_type: 'cases',
-          type: facettype,
-        });
+       if (! AllMetadataKeys[ikey].includes("sample") ) {
+         presetFacets.push(
+          { 
+            title: AllMetadataTitles[ikey].charAt(0).toUpperCase() + AllMetadataTitles[ikey].slice(1),
+            field_index: ikey,
+            field: AllMetadataKeys[ikey],
+            full: 'cases.'+AllMetadataKeys[ikey],
+            doc_type: 'cases',
+            type: facettype,
+          });
+      }
     }
 
   const presetFacetFields = presetFacets.map(x => x.field);
