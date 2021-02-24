@@ -152,6 +152,7 @@ const Header = compose(
             </li>
             <li>
               <DownloadLink exact activeStyle={styles.activeNavLink(theme)}>
+                <DatabaseIcon style={styles.iconPadding} />
                 <span className="header-hidden-sm">Downloads</span>
                 <Hidden>Downloads</Hidden>
               </DownloadLink>
