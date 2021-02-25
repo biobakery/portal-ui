@@ -21,6 +21,7 @@ import escapeForRelay from '@ncigdc/utils/escapeForRelay';
 import tryParseJSON from '@ncigdc/utils/tryParseJSON';
 import FacetHeader from '@ncigdc/components/Aggregations/FacetHeader';
 import { UploadCaseSet } from '@ncigdc/components/Modals/UploadSet';
+import NoResultsMessage from '@ncigdc/components/NoResultsMessage';
 
 import { TBucket } from '@ncigdc/components/Aggregations/types';
 
@@ -72,7 +73,7 @@ export default compose(
   })),
 )(
   (props: TProps) => {
-   const AllMetadataKeys = props.viewer.repository.samples.aggregations.metadataAggregations.hits.edges.map( x => x.node.metadataKey);
+   const AllMetadataKeys = (props.viewer.repository.samples.aggregations) ? props.viewer.repository.samples.aggregations.metadataAggregations.hits.edges.map( x => x.node.metadataKey): [];
 
    const presetFacets = [];
    const max_list_items = (MAX_METADATA_SHOW > AllMetadataKeys.length) ? AllMetadataKeys.length : MAX_METADATA_SHOW;
@@ -99,6 +100,7 @@ const presetFacetFields = presetFacets.map(x => x.field);
 
    return (
    <div className="test-case-aggregations">
+    {presetFacets.length === 0 && ( <NoResultsMessage> No fields found using those filters. </NoResultsMessage> )}
     {props.userSelectedFacets.map(facet => (
       <FacetWrapper
         isRemovable
