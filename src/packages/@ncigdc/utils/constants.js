@@ -11,7 +11,7 @@ export const PROJECTLINK = "https://app.terra.bio/#workspaces/terra-biom-mass/"
 
 /* Table constants */
 
-export const MAX_METADATA_SHOW = 10; 
+export const MAX_METADATA_SHOW = 1000; 
 
 /* API ENDPOINTS */
 

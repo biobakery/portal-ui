@@ -98,7 +98,7 @@ export default compose(
             selectedIds={selectedIds}
           />
         </Row>
-        <div style={{ overflowX: 'auto' }}>
+        <div style={{ overflowX: 'scroll' }}>
           <Table
             id="repository-cases-table"
             headings={tableInfo
