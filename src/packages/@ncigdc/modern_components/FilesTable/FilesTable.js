@@ -34,7 +34,7 @@ export default compose(
     ({ viewer }) =>
       !viewer.repository.files.hits ||
       !viewer.repository.files.hits.edges.length,
-    renderComponent(() => <div>No results found</div>),
+    renderComponent(() => <div><div>No results found.</div><div>Please note, for security some filtering properties are only available through the access controlled portion of the site. Please login for additional features.</div></div>),
   ),
 )(
   ({
