@@ -167,7 +167,7 @@ const Header = compose(
             </li>
             <li>
               <PrivacyLink exact activeStyle={styles.activeNavLink(theme)}>
-                <i className="fa fa-envelope-o" style={styles.iconPadding} />
+                <i className="fa fa-lock" style={styles.iconPadding} />
                 <span className="header-hidden-sm">Privacy</span>
                 <Hidden>Privacy</Hidden>
               </PrivacyLink>
