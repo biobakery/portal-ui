@@ -33,6 +33,10 @@ const ContactRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/ContactRoute'),
 });
 
+const PrivacyRoute = LoadableWithLoading({
+  loader: () => import('@ncigdc/routes/PrivacyRoute'),
+});
+
 const CartRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/CartRoute'),
 });
@@ -56,6 +60,7 @@ export default () => (
       <Route exact path="/" component={HomeRoute} />
       <Route exact path="/auth" component={AuthRoute} />
       <Route exact path="/contact" component={ContactRoute} />
+      <Route exact path="/privacy" component={PrivacyRoute} />
       <Route exact path="/protocol" component={ProtocolRoute} />
       <Route exact path="/download" component={DownloadRoute} />
       <Route exact path="/repository" component={RepositoryRoute} />

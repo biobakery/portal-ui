@@ -13,6 +13,7 @@ import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
 import ProtocolLink from '@ncigdc/components/Links/ProtocolLink';
 import DownloadLink from '@ncigdc/components/Links/DownloadLink';
 import ContactLink from '@ncigdc/components/Links/ContactLink';
+import PrivacyLink from '@ncigdc/components/Links/PrivacyLink';
 import GDCAppsDropdown from '@ncigdc/components/GDCApps/GDCAppsDropdown';
 import UserDropdown from '@ncigdc/components/UserDropdown';
 import Hidden from '@ncigdc/components/Hidden';
@@ -163,6 +164,13 @@ const Header = compose(
                 <span className="header-hidden-sm">Protocols</span>
                 <Hidden>Protocols</Hidden>
               </ProtocolLink>
+            </li>
+            <li>
+              <PrivacyLink exact activeStyle={styles.activeNavLink(theme)}>
+                <i className="fa fa-envelope-o" style={styles.iconPadding} />
+                <span className="header-hidden-sm">Privacy</span>
+                <Hidden>Privacy</Hidden>
+              </PrivacyLink>
             </li>
             <li>
               <ContactLink exact activeStyle={styles.activeNavLink(theme)}>
