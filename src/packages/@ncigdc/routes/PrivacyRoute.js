@@ -27,7 +27,8 @@ const SubTitleH2 = styled.div({
 
 const AboutText = styled.div({
   fontSize: '1.25rem',
-  height: '25rem',
+  height: '35rem',
+  overflow: 'hidden',
 });
 
 const PrivacyText = styled.div({
