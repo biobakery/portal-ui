@@ -27,7 +27,7 @@ const SubTitleH2 = styled.div({
 
 const AboutText = styled.div({
   fontSize: '1.25rem',
-  height: '35rem',
+  height: '40rem',
   overflow: 'hidden',
 });
 
@@ -83,9 +83,6 @@ const Auth = () => (
   <Column className="test-auth">
     <GradientContainer>
       <InsideContainer flex="1">
-        <SubTitle style={{ fontSize: '2rem' }}>
-          <span>Multi'omic Microbiome Profiles</span>
-        </SubTitle>
         <Title>BIOM-Mass Data Portal</Title>
         <SubTitleH2 style={{ fontSize: '2rem', color: 'black', padding: '0.5rem 0' }}>
           <span>Privacy Policy</span>
@@ -98,9 +95,9 @@ const Auth = () => (
           <span>Collection of your Personal Information</span>
         </SubTitleH2>
         <PrivacyText>
-          We do not collect any personal information about you unless you voluntarily provide it to us. However, you may be required to provide certain personal information to us when you elect to access the authenticated portions of the BIOM-Mass application. These may include: (a) registering for an account; (b) viewing or downloading access controlled metadata; (c) downloading access controlled data files through Google Cloud buckets. 
+          We do not collect any personal information about you unless you voluntarily provide it to us. However, you may be required to provide certain personal information to us when you elect to access the authenticated portions of the BIOM-Mass application. These may include: (a) registering for an account; (b) viewing or downloading controlled access metadata; (c) downloading access controlled data files through Google Cloud buckets. Additional information about security for subsets of data stored on the Terra platform is available in the <a href="https://terra.bio/about/customer-security-requirements/">Terra Customer Security Requirements</a>. 
 
-When you access authenticated portions of this site we collect your email and name. We use your email address to determine what portions, if any, of this site you may access. With a successful login to the BIOM-Mass application, your name is temporarily stored in the browser while your email address is permanently stored in our database. With a failed login to the BIOM-Mass application, your name and email address are permanently logged.
+When you access authenticated portions of this site we collect your account email and name. We use your email address to determine what portions, if any, of this site you may access. With a successful login to the BIOM-Mass application, your name is temporarily stored in the browser while your email address is permanently stored in our database. With a failed login to the BIOM-Mass application, your name and email address are permanently logged.
 
 We use Google OAuth to login users to the web application. We use Google Analytics to track usage of this website application. Please see the documentation on <a href="https://www.google.com/policies/privacy/partners/">how Google uses collects and processes data</a>. We use cookies solely for the purposes of tracking authenticated user sessions with a token and your email address serving as the session identifiers. 
         </PrivacyText>
