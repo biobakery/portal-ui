@@ -25,7 +25,7 @@ import NoResultsMessage from '@ncigdc/components/NoResultsMessage';
 
 import { TBucket } from '@ncigdc/components/Aggregations/types';
 
-import { MAX_METADATA_SHOW } from '@ncigdc/utils/constants';
+import { MAX_METADATA_SHOW_AGGREGATIONS } from '@ncigdc/utils/constants';
 
 export type TProps = {
   caseIdCollapsed: boolean,
@@ -79,7 +79,7 @@ export default compose(
    const AllMetadataTitles = (props.viewer.repository.cases.aggregations) ? props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges.map( x => x.node.metadataTitle): [];
 
    const allpresetFacets = [];
-   const max_list_items = (MAX_METADATA_SHOW > AllMetadataKeys.length) ? AllMetadataKeys.length : MAX_METADATA_SHOW;
+   const max_list_items = (MAX_METADATA_SHOW_AGGREGATIONS > AllMetadataKeys.length) ? AllMetadataKeys.length : MAX_METADATA_SHOW_AGGREGATIONS;
    for (let ikey = 0; ikey < AllMetadataKeys.length; ikey++) {
        const facettype = (props.viewer.repository.cases.aggregations.metadataAggregations.hits.edges[ikey].node.metadataType === "bucket") ? 'terms': 'long';
        if (! AllMetadataKeys[ikey].includes("sample") ) {
@@ -95,7 +95,7 @@ export default compose(
       }
     }
 
-  const presetFacets = allpresetFacets.slice(0, MAX_METADATA_SHOW - 1);
+  const presetFacets = allpresetFacets.slice(0, MAX_METADATA_SHOW_AGGREGATIONS - 1);
   const presetFacetFields = presetFacets.map(x => x.field);
 
   withFacetSelection({
