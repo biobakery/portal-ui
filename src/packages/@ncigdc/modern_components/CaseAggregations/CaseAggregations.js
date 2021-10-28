@@ -95,7 +95,7 @@ export default compose(
       }
     }
 
-  const presetFacets = allpresetFacets.slice(0, MAX_METADATA_SHOW_AGGREGATIONS - 1);
+  const presetFacets = allpresetFacets.slice(0, MAX_METADATA_SHOW_AGGREGATIONS);
   const presetFacetFields = presetFacets.map(x => x.field);
 
   withFacetSelection({
