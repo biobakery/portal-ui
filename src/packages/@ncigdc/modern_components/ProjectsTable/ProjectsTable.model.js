@@ -33,7 +33,7 @@ const projectsTableModel = [
     th: () => <Th rowSpan="2">Project</Th>,
     td: ({ node }) => (
       <Td>
-        <a href={PROJECTLINK + node.project_id}>
+        <a href={node.program.name.toLowerCase()}>
           {node.project_id}
         </a>
       </Td>
