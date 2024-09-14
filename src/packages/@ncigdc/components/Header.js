@@ -15,6 +15,7 @@ import DownloadLink from '@ncigdc/components/Links/DownloadLink';
 import HPFSLink from '@ncigdc/components/Links/HPFSLink';
 import KidneyLink from '@ncigdc/components/Links/KidneyLink';
 import MBSLink from '@ncigdc/components/Links/MBSLink';
+import OHMRLink from '@ncigdc/components/Links/OHMRLink';
 import MLSCLink from '@ncigdc/components/Links/MLSCLink';
 import ContactLink from '@ncigdc/components/Links/ContactLink';
 import PrivacyLink from '@ncigdc/components/Links/PrivacyLink';
@@ -182,6 +183,13 @@ const Header = compose(
                 <span className="header-hidden-sm">MLSC</span>
                 <Hidden>MLSC</Hidden>
               </MLSCLink>
+            </li>
+            <li>
+              <OHMRLink exact activeStyle={styles.activeNavLink(theme)}>
+                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
+                <span className="header-hidden-sm">OHMR</span>
+                <Hidden>OHMR</Hidden>
+              </OHMRLink>
             </li>
             <li>
               <DownloadLink exact activeStyle={styles.activeNavLink(theme)}>

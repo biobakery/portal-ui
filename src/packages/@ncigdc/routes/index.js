@@ -49,6 +49,10 @@ const MLSCRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/MLSCRoute'),
 });
 
+const OHMRRoute = LoadableWithLoading({
+  loader: () => import('@ncigdc/routes/OHMRRoute'),
+});
+
 const PrivacyRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/PrivacyRoute'),
 });
@@ -79,6 +83,7 @@ export default () => (
       <Route exact path="/kidney" component={KidneyRoute} />
       <Route exact path="/mbs" component={MBSRoute} />
       <Route exact path="/mlsc" component={MLSCRoute} />
+      <Route exact path="/ohmr" component={OHMRRoute} />
       <Route exact path="/contact" component={ContactRoute} />
       <Route exact path="/privacy" component={PrivacyRoute} />
       <Route exact path="/protocol" component={ProtocolRoute} />
