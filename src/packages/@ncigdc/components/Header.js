@@ -15,6 +15,7 @@ import DownloadLink from '@ncigdc/components/Links/DownloadLink';
 import HPFSLink from '@ncigdc/components/Links/HPFSLink';
 import KidneyLink from '@ncigdc/components/Links/KidneyLink';
 import MBSLink from '@ncigdc/components/Links/MBSLink';
+import MLSCLink from '@ncigdc/components/Links/MLSCLink';
 import ContactLink from '@ncigdc/components/Links/ContactLink';
 import PrivacyLink from '@ncigdc/components/Links/PrivacyLink';
 import GDCAppsDropdown from '@ncigdc/components/GDCApps/GDCAppsDropdown';
@@ -174,6 +175,13 @@ const Header = compose(
                 <span className="header-hidden-sm">MBS</span>
                 <Hidden>MBS</Hidden>
               </MBSLink>
+            </li>
+            <li>
+              <MLSCLink exact activeStyle={styles.activeNavLink(theme)}>
+                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
+                <span className="header-hidden-sm">MLSC</span>
+                <Hidden>MLSC</Hidden>
+              </MLSCLink>
             </li>
             <li>
               <DownloadLink exact activeStyle={styles.activeNavLink(theme)}>
