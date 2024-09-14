@@ -13,6 +13,7 @@ import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
 import ProtocolLink from '@ncigdc/components/Links/ProtocolLink';
 import DownloadLink from '@ncigdc/components/Links/DownloadLink';
 import HPFSLink from '@ncigdc/components/Links/HPFSLink';
+import KidneyLink from '@ncigdc/components/Links/KidneyLink';
 import ContactLink from '@ncigdc/components/Links/ContactLink';
 import PrivacyLink from '@ncigdc/components/Links/PrivacyLink';
 import GDCAppsDropdown from '@ncigdc/components/GDCApps/GDCAppsDropdown';
@@ -158,6 +159,13 @@ const Header = compose(
                 <span className="header-hidden-sm">HPFS</span>
                 <Hidden>HPFS</Hidden>
               </HPFSLink>
+            </li>
+            <li>
+              <KidneyLink exact activeStyle={styles.activeNavLink(theme)}>
+                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
+                <span className="header-hidden-sm">Kidney</span>
+                <Hidden>Kidney</Hidden>
+              </KidneyLink>
             </li>
             <li>
               <DownloadLink exact activeStyle={styles.activeNavLink(theme)}>
