@@ -41,6 +41,10 @@ const KidneyRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/KidneyRoute'),
 });
 
+const PDGMRoute = LoadableWithLoading({
+  loader: () => import('@ncigdc/routes/PDGMRoute'),
+});
+
 const MBSRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/MBSRoute'),
 });
@@ -81,6 +85,7 @@ export default () => (
       <Route exact path="/auth" component={AuthRoute} />
       <Route exact path="/hpfs" component={HPFSRoute} />
       <Route exact path="/kidney" component={KidneyRoute} />
+      <Route exact path="/pdgm" component={PDGMRoute} />
       <Route exact path="/mbs" component={MBSRoute} />
       <Route exact path="/mlsc" component={MLSCRoute} />
       <Route exact path="/ohmr" component={OHMRRoute} />

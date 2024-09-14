@@ -17,6 +17,7 @@ import KidneyLink from '@ncigdc/components/Links/KidneyLink';
 import MBSLink from '@ncigdc/components/Links/MBSLink';
 import OHMRLink from '@ncigdc/components/Links/OHMRLink';
 import MLSCLink from '@ncigdc/components/Links/MLSCLink';
+import PDGMLink from '@ncigdc/components/Links/PDGMLink';
 import ContactLink from '@ncigdc/components/Links/ContactLink';
 import PrivacyLink from '@ncigdc/components/Links/PrivacyLink';
 import GDCAppsDropdown from '@ncigdc/components/GDCApps/GDCAppsDropdown';
@@ -190,6 +191,13 @@ const Header = compose(
                 <span className="header-hidden-sm">OHMR</span>
                 <Hidden>OHMR</Hidden>
               </OHMRLink>
+            </li>
+            <li>
+              <PDGMLink exact activeStyle={styles.activeNavLink(theme)}>
+                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
+                <span className="header-hidden-sm">PDGM</span>
+                <Hidden>PDGM</Hidden>
+              </PDGMLink>
             </li>
             <li>
               <DownloadLink exact activeStyle={styles.activeNavLink(theme)}>
