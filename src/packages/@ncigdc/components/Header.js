@@ -12,6 +12,7 @@ import CartLink from '@ncigdc/components/Links/CartLink';
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
 import ProtocolLink from '@ncigdc/components/Links/ProtocolLink';
 import DownloadLink from '@ncigdc/components/Links/DownloadLink';
+import HPFSLink from '@ncigdc/components/Links/HPFSLink';
 import ContactLink from '@ncigdc/components/Links/ContactLink';
 import PrivacyLink from '@ncigdc/components/Links/PrivacyLink';
 import GDCAppsDropdown from '@ncigdc/components/GDCApps/GDCAppsDropdown';
@@ -152,8 +153,15 @@ const Header = compose(
               </RepositoryLink>
             </li>
             <li>
+              <HPFSLink exact activeStyle={styles.activeNavLink(theme)}>
+                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
+                <span className="header-hidden-sm">HPFS</span>
+                <Hidden>HPFS</Hidden>
+              </HPFSLink>
+            </li>
+            <li>
               <DownloadLink exact activeStyle={styles.activeNavLink(theme)}>
-                <DatabaseIcon style={styles.iconPadding} />
+                <i className="fa fa-cloud-download" style={styles.iconPadding} />
                 <span className="header-hidden-sm">Downloads</span>
                 <Hidden>Downloads</Hidden>
               </DownloadLink>

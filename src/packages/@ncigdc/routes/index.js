@@ -33,6 +33,10 @@ const ContactRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/ContactRoute'),
 });
 
+const HPFSRoute = LoadableWithLoading({
+  loader: () => import('@ncigdc/routes/HPFSRoute'),
+});
+
 const PrivacyRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/PrivacyRoute'),
 });
@@ -59,6 +63,7 @@ export default () => (
     <Switch>
       <Route exact path="/" component={HomeRoute} />
       <Route exact path="/auth" component={AuthRoute} />
+      <Route exact path="/hpfs" component={HPFSRoute} />
       <Route exact path="/contact" component={ContactRoute} />
       <Route exact path="/privacy" component={PrivacyRoute} />
       <Route exact path="/protocol" component={ProtocolRoute} />
