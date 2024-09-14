@@ -75,6 +75,9 @@ export default (Component: ReactClass<*>) =>
                                 case_id
                                 project {
                                   project_id
+                                  program {
+                                     name
+                                  }
                                 }
                               }
                             }

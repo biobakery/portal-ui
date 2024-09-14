@@ -64,10 +64,10 @@ const filesTableModel = [
     td: ({ node }) => (
       <Td>
         {uniq(
-          node.cases.hits.edges.map(e => e.node.project.project_id),
-        ).map(pId => (
-          <a href={PROJECTLINK + pId}>
-            {pId}
+          node.cases.hits.edges.map(e => e.node.project),
+        ).map(proj => (
+          <a href={proj.program.name.toLowerCase()}>
+            {proj.project_id}
           </a>
         ))}
       </Td>
