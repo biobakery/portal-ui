@@ -89,7 +89,7 @@ MLSC Bits to Bytes includes data from women in the Nurses Health Study 2 with se
 <br/>
 <br/>
 
-MLSC Prescient includes data originally funded by Prescient Metabiomics from women in NHS2 with EHRverified prior colon polypectomies, diagnosed CRC, or age/BMI/geography (state) matched controls.
+MLSC Prescient includes data originally funded by Prescient Metabiomics from women in NHS2 with EHR-verified prior colon polypectomies, diagnosed CRC, or age/BMI/geography (state) matched controls.
 <br/>
 <br/>
 
