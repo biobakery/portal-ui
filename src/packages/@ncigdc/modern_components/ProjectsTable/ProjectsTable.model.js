@@ -3,6 +3,7 @@ import React from 'react';
 import {
   RepositoryCasesLink,
   RepositoryFilesLink,
+  RepositoryFilesCasesLink,
 } from '@ncigdc/components/Links/RepositoryLink';
 import { Th, Td, ThNum, TdNum } from '@ncigdc/uikit/Table';
 import { makeFilter } from '@ncigdc/utils/filters';
@@ -25,6 +26,20 @@ const getProjectIdFilter = projects =>
   ]);
 
 const projectsTableModel = [
+  {
+    name: 'Program',
+    id: 'program.name',
+    sortable: true,
+    downloadable: true,
+    th: () => <Th rowSpan="2">Program</Th>,
+    td: ({ node }) => (
+      <Td>
+        <a href={node.program.name.toLowerCase()}>
+          {node.program.name}
+        </a>
+      </Td>
+    ),
+  },
   {
     name: 'Project',
     id: 'project_id',
