@@ -20,6 +20,12 @@ export const RepositorySamplesLink = makeListLink({
   query: { searchTableTab: 'samples', facetTab: 'samples' },
 });
 
+export const RepositoryFilesCasesLink = makeListLink({
+  pathname: '/repository',
+  children: 'repository',
+  query: { searchTableTab: 'files', facetTab: 'cases' },
+});
+
 export default makeListLink({
   pathname: '/repository',
   children: 'repository',
