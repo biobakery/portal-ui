@@ -81,7 +81,7 @@ const Auth = () => (
         </ImageContainerSmall>
         <AboutText>
           <span>
-          The Health Professionals Follow-up Study (HPFS) is the parent prospective cohort of many individual studies, with both parent and subpopulations detailed below. It was launched in 1986 with 51,529 men then aged 40-75, with approximately 50% still participating with an average age of ~80.
+          The Health Professionals Follow-up Study (HPFS) is the parent prospective cohort of many individual studies. It was launched in 1986 with 51,529 men then aged 40-75, with approximately 50% still participating with an average age of ~80.
 <br/>
 <br/>
 <br/>

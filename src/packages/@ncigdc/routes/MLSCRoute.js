@@ -82,18 +82,9 @@ const Auth = () => (
         <AboutText>
           <span>
 The Massachusetts Life Sciences Center (MLSC) originally funded two projects.
-<br/>
-<br/>
-
 MLSC Bits to Bytes includes data from women in the Nurses Health Study 2 with self-reported MASLD, multiple sclerosis, or age/BMI/geography (state) matched controls. 
-<br/>
-<br/>
-
 MLSC Prescient includes data originally funded by Prescient Metabiomics from women in NHS2 with EHR-verified prior colon polypectomies, diagnosed CRC, or age/BMI/geography (state) matched controls.
-<br/>
-<br/>
-
-The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly generational parent prospective cohorts launched in 1976, 1989, and 2010, respectively, with ~100,000 initial participants each. We use “NHS” to refer predominantly to NHS2, from which most participants (all women) are still active with an average age of ~69.
+The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly generational parent prospective cohorts launched in 1976, 1989, and 2010, respectively, with ~100,000 initial participants each. 
 
 <br/>
 <br/>

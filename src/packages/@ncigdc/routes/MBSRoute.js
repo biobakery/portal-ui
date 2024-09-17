@@ -82,7 +82,7 @@ const Auth = () => (
         <AboutText>
           <span>
 The Mind Body Study (MBS) is a group of women from the Nurses Health Study 2 (NHS2) who had an email address available, previous blood
-and urine biospecimen collection, and either a secondary biospecimen collection between 2008-2011 or 2011-2012. The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly generational parent prospective cohorts launched in 1976, 1989, and 2010, respectively, with ~100,000 initial participants each. We use “NHS” to refer predominantly to NHS2, from which most participants (all women) are still active with an average age of ~69.
+and urine biospecimen collection, and either a secondary biospecimen collection between 2008-2011 or 2011-2012. The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly generational parent prospective cohorts launched in 1976, 1989, and 2010, respectively, with ~100,000 initial participants each. In NHS2, most participants (all women) are still active with an average age of ~69.
 <br/>
 <br/>
 <br/>
