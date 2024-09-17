@@ -81,15 +81,14 @@ const Auth = () => (
         </ImageContainerSmall>
         <AboutText>
           <span>
-The One Health Microbiome Resource (OHMR) has funded twenty projects. These are all are companion animal (cat and dog) microbiome studies.
+The One Health Microbiome Resource (OHMR) is a collaboration between academia and industry with a research focus on the microbiome in companion animals. This repository holds processed metagenomic data for 20 cat and dog microbiome studies, where each study's directory contains the output for assembly and reference-based taxonomic and functional profiling.
 <br/>
 <br/>
 <br/>
+To download files from the OHMR program, visit the <a href="https://biom-mass.org/repository?facetTab=files">repository page</a>. Search for "OHMR" to access <a href="https://biom-mass.org/repository?facetTab=files&files_sort=%5B%7B%22field%22%3A%22file_size%22%2C%22order%22%3A%22desc%22%7D%5D&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22OHMR%22%5D%7D%7D%5D%7D">all of the files for this program</a>. 
 <br/>
-To download files from the OHMR program, visit the <a href="https://biom-mass.org/repository?facetTab=files">repository page</a>. Search for "OHMR" to access <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22OHMR%22%5D%7D%7D%5D%7D">all of the files for this program</a>. 
 <br/>
-<br/>
-Reference: TBD
+Reference: Stay tuned for our manuscript "A comprehensive profile of the companion animal gut microbiome integrating reference-based and reference-free methods" which is under peer review.
 <br/>
 <br/>
 
