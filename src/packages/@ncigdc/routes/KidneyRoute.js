@@ -90,7 +90,7 @@ To download files from this project, visit the <a href="https://biom-mass.org/re
 <br/>
 <br/>
 <br/>
-Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao, Y. et al. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a>
+References: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao, Y. et al. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/33883746/">Everett C, Li C, Wilkinson JE, Nguyen LH, McIver LJ, Ivey K, Izard J, Palacios N, Eliassen AH, Willett WC, Ascherio A, Sun Q, Tworoger SS, Chan AT, Garrett WS, Huttenhower C, Rimm EB, Song M. Overview of the Microbiome Among Nurses study (Micro-N) as an example of prospective characterization of the microbiome within cohort studies. Nat Protoc. 2021 Jun;16(6):2724-2731. PMC9240631.</a>
 
         </span>
         </AboutText>
