@@ -88,7 +88,10 @@ Parkinson's disease: Stool sequencing data collected from men (HPFS) and women (
 To download files from this project, visit the <a href="https://biom-mass.org/repository?facetTab=files">repository page</a>. Search for "PDGM" to access <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22PDGM%22%5D%7D%7D%5D%7D">all of the files for this project</a>. 
 <br/>
 <br/>
-References: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao, Y. et al. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/24843156/">Franzosa, E.A. et al. Relating the metatranscriptome and metagenome of the human gut. Proc Natl Acad Sci USA 111, E2329-2338 (2014) 4050606.</a>
+dbGap Study:<a href="https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs002193.v2.p1">phs002193.v2.p1</a>
+<br/>
+<br/>
+References: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao Y, Bertoia ML, Lenart EB, Stampfer MJ, Willett WC, Speizer FE, Chavarro JE. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/37314861/">Palacios N, Wilkinson J, Bjornevik K, Schwarzschild MA, McIver L, Ascherio A, Huttenhower C. Metagenomics of the Gut Microbiome in Parkinsons Disease: Prodromal Changes. Ann Neurol. 2023 Sep;94(3):486-501.</a>
 <br/>
 <br/>
 
