@@ -81,7 +81,7 @@ const Auth = () => (
         </ImageContainerSmall>
         <AboutText>
           <span>
-          The Health Professionals Follow-up Study (HPFS) is the parent prospective cohort of many individual studies. It was launched in 1986 with 51,529 men then aged 40-75, with approximately 50% still participating with an average age of ~80.
+HPFS - Health Professions Followup Study: This dataset comprises longitudinally-collected sequenced stool  collected from men from the Men’s Lifestyle Validation Study (MLVS) sub-cohort of HPFS.  Study participants were adults 65-82 years old at the time of sample collection, and who were members of the Harvard Pilgrim Health Care insurance plan at time of enrollment. This dataset also has metatranscriptomic data. The associated publication examined the stability of the metagenome and metatranscriptome within individuals over time.
 <br/>
 <br/>
 <br/>

@@ -81,8 +81,8 @@ const Auth = () => (
         </ImageContainerSmall>
         <AboutText>
           <span>
+Parkinson's disease: Stool sequencing data collected from men (HPFS) and women (NHS1) with Parkinson’s disease and age/BMI-matched controls, targeting all patients diagnosed at time of enrollment. Some subjects are sampled at multiple timepoints. The mean age of this cohort is ~80 years. The associated publication examined microbiome features associated with development of PD and constipation.
 
-The Parkinson’s disease project includes men from the Health Professionals Follow-up Study (HPFS) and women from the Nurses Health Study 1 (NHS1) with Parkinson’s disease and age/BMI matched controls, targeting all patients diagnosed at time of enrollment. The Health Professionals Follow-up Study is the parent prospective cohort of many individual studies. It was launched in 1986 with 51,529 men then aged 40-75, with approximately 50% still participating with an average age of ~80. The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly generational parent prospective cohorts launched in 1976, 1989, and 2010, respectively, with ~100,000 initial participants each.
 <br/>
 <br/>
 To download files from this project, visit the <a href="https://biom-mass.org/repository?facetTab=files">repository page</a>. Search for "PDGM" to access <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22PDGM%22%5D%7D%7D%5D%7D">all of the files for this project</a>. 

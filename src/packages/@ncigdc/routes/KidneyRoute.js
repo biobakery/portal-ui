@@ -81,7 +81,8 @@ const Auth = () => (
         </ImageContainerSmall>
         <AboutText>
           <span>
- The Kidney project includes women from the Nurses Health Study 2 (NHS2) with kidney stones and age/BMI-matched controls, targeting all self-reported stone formers known at time of enrollment. The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly generational parent prospective cohorts launched in 1976, 1989, and 2010, respectively, with ~100,000 initial participants each. In NHS2, most participants (all women) are still active with an average age of ~69.
+Kidney stones: Stool sequencing data collected from women 55-75 years old and enrolled in the NHS2 study, consisting of self-reported kidney stone formers and age + BMI-matched controls. Study design is cross-sectional.  Manuscript preparation is in progress, so dataset is under embargo.
+
 <br/>
 <br/>
 <br/>
