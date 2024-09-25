@@ -81,15 +81,17 @@ const Auth = () => (
         </ImageContainerSmall>
         <AboutText>
           <span>
- The Kidney project includes women from the Nurses Health Study 2 (NHS2) with kidney stones and age/BMI-matched controls, targeting all self-reported stone formers known at time of enrollment. The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly generational parent prospective cohorts launched in 1976, 1989, and 2010, respectively, with ~100,000 initial participants each. In NHS2, most participants (all women) are still active with an average age of ~69.
-<br/>
+Kidney stones: Stool sequencing data collected from women 55-75 years old and enrolled in the NHS2 study, consisting of self-reported kidney stone formers and age + BMI-matched controls. Study design is cross-sectional.  Manuscript preparation is in progress, so dataset is under embargo.
+
 <br/>
 <br/>
 Visit the repository page and search for "Kidney" to list <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22Kidney%22%5D%7D%7D%5D%7D">all of the files for the Kidney project</a>. 
 <br/>
 <br/>
+SRA bioproject: PRJNA1027357 (embargoed until 10/2025 or publication)
 <br/>
-Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao, Y. et al. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a>
+<br/>
+References: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao Y, Bertoia ML, Lenart EB, Stampfer MJ, Willett WC, Speizer FE, Chavarro JE.  Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/33883746/">Everett C, Li C, Wilkinson JE, Nguyen LH, McIver LJ, Ivey K, Izard J, Palacios N, Eliassen AH, Willett WC, Ascherio A, Sun Q, Tworoger SS, Chan AT, Garrett WS, Huttenhower C, Rimm EB, Song M. Overview of the Microbiome Among Nurses study (Micro-N) as an example of prospective characterization of the microbiome within cohort studies. Nat Protoc. 2021 Jun;16(6):2724-2731. PMC9240631.</a>
 
         </span>
         </AboutText>

@@ -81,17 +81,19 @@ const Auth = () => (
         </ImageContainerSmall>
         <AboutText>
           <span>
-The Massachusetts Life Sciences Center (MLSC) originally funded two projects.
-MLSC Bits to Bytes includes data from women in the Nurses Health Study 2 with self-reported MASLD, multiple sclerosis, or age/BMI/geography (state) matched controls. 
-MLSC Prescient includes data originally funded by Prescient Metabiomics from women in NHS2 with EHR-verified prior colon polypectomies, diagnosed CRC, or age/BMI/geography (state) matched controls.
-The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly generational parent prospective cohorts launched in 1976, 1989, and 2010, respectively, with ~100,000 initial participants each. 
+
+Bits to Bytes: Stool sequencing data originally funded by the Massachusetts Life Sciences Center (MLSC) from women (NHS2) with self-reported MASLD, multiple sclerosis, or age/BMI/geography (state) matched controls. This dataset has matched fecal metabolomic data.
+<br/>
+<br/>
+
+Prescient: Stool sequencing data originally funded by Prescient Metabiomics from women (NHS2) with EHR-verified prior colon polypectomies, diagnosed colorectal cancer, or age/BMI/geography (state) matched controls.
 
 <br/>
 <br/>
 Visit the repository page and search for "MLSC" to list <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22MLSC%22%5D%7D%7D%5D%7D">all of the files for the MLSC program</a>. 
 <br/>
 <br/>
-Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao, Y. et al. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a>
+References: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao Y, Bertoia ML, Lenart EB, Stampfer MJ, Willett WC, Speizer FE, Chavarro JE. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/33883746/">Everett C, Li C, Wilkinson JE, Nguyen LH, McIver LJ, Ivey K, Izard J, Palacios N, Eliassen AH, Willett WC, Ascherio A, Sun Q, Tworoger SS, Chan AT, Garrett WS, Huttenhower C, Rimm EB, Song M. Overview of the Microbiome Among Nurses study (Micro-N) as an example of prospective characterization of the microbiome within cohort studies. Nat Protoc. 2021 Jun;16(6):2724-2731. PMC9240631.</a>
 
         </span>
         </AboutText>

@@ -81,14 +81,17 @@ const Auth = () => (
         </ImageContainerSmall>
         <AboutText>
           <span>
+Parkinson's disease: Stool sequencing data collected from men (HPFS) and women (NHS1) with Parkinson’s disease and age/BMI-matched controls, targeting all patients diagnosed at time of enrollment. Some subjects are sampled at multiple timepoints. The mean age of this cohort is ~80 years. The associated publication examined microbiome features associated with development of PD and constipation.
 
-The Parkinson’s disease project includes men from the Health Professionals Follow-up Study (HPFS) and women from the Nurses Health Study 1 (NHS1) with Parkinson’s disease and age/BMI matched controls, targeting all patients diagnosed at time of enrollment. The Health Professionals Follow-up Study is the parent prospective cohort of many individual studies. It was launched in 1986 with 51,529 men then aged 40-75, with approximately 50% still participating with an average age of ~80. The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly generational parent prospective cohorts launched in 1976, 1989, and 2010, respectively, with ~100,000 initial participants each.
 <br/>
 <br/>
 Visit the repository page and search for "PDGM" to list <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22PDGM%22%5D%7D%7D%5D%7D">all of the files for the PDGM project</a>. 
 <br/>
 <br/>
-References: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao, Y. et al. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/24843156/">Franzosa, E.A. et al. Relating the metatranscriptome and metagenome of the human gut. Proc Natl Acad Sci USA 111, E2329-2338 (2014) 4050606.</a>
+dbGap Study:<a href="https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs002193.v2.p1">phs002193.v2.p1</a>
+<br/>
+<br/>
+References: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao Y, Bertoia ML, Lenart EB, Stampfer MJ, Willett WC, Speizer FE, Chavarro JE. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/37314861/">Palacios N, Wilkinson J, Bjornevik K, Schwarzschild MA, McIver L, Ascherio A, Huttenhower C. Metagenomics of the Gut Microbiome in Parkinsons Disease: Prodromal Changes. Ann Neurol. 2023 Sep;94(3):486-501.</a>
 <br/>
 <br/>
 
