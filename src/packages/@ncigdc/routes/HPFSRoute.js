@@ -85,7 +85,7 @@ const Auth = () => (
 <br/>
 <br/>
 <br/>
-To download files from this project, visit the <a href="https://biom-mass.org/repository?facetTab=files">repository page</a>. Search for "HPFS" to access <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22HPFS%22%5D%7D%7D%5D%7D">all of the files for this project</a>. 
+Visit the repository page and search for "HPFS" to list <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22HPFS%22%5D%7D%7D%5D%7D">all of the files for the HPFS project</a>. 
 <br/>
 <br/>
 <br/>

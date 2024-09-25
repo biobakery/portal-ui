@@ -88,7 +88,7 @@ The Nurses’ Health Studies (NHS1, NHS2, and NHS3) are a series of roughly gene
 
 <br/>
 <br/>
-To download files from the MLSC program, visit the <a href="https://biom-mass.org/repository?facetTab=files">repository page</a>. Search for "MLSC" to access <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22MLSC%22%5D%7D%7D%5D%7D">all of the files for this program</a>. 
+Visit the repository page and search for "MLSC" to list <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22MLSC%22%5D%7D%7D%5D%7D">all of the files for the MLSC program</a>. 
 <br/>
 <br/>
 Reference: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao, Y. et al. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a>
