@@ -7669,6 +7669,7 @@ type User {
 }
 
 type Count {
+  programs: String
   projects: String
   participants: String
   samples: String

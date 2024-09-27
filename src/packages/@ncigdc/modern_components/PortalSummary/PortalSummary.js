@@ -17,6 +17,7 @@ const linkStyle = {
   color: 'white !important',
 };
 
+const Programs = styled(ProjectsLink, linkStyle);
 const Projects = styled(ProjectsLink, linkStyle);
 const RepositoryFiles = styled(RepositoryFilesLink, linkStyle);
 const RepositoryCases = styled(RepositoryCasesLink, linkStyle);
@@ -63,6 +64,20 @@ const PortalSummary = compose(
     <Column>
       <Row>
         <CountBox>
+          <Title className="test-projects-label">Programs</Title>
+          <Row>
+           <Programs>
+              <i
+                style={{ color: '#01b987', fontSize: '3rem' }}
+                className="fa fa-folder-open-o"
+              />
+            </Programs>
+            <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
+              <span> {props.viewer.count.programs} </span>
+            </span>
+          </Row>
+        </CountBox>
+        <CountBox>
           <Title className="test-projects-label">Projects</Title>
           <Row>
            <Projects>
@@ -87,20 +102,6 @@ const PortalSummary = compose(
            </RepositoryCases>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
               <span> {props.viewer.count.participants} </span>
-            </span>
-          </Row>
-        </CountBox>
-        <CountBox>
-          <Title className="test-cases-label">Samples</Title>
-          <Row>
-           <RepositorySamples>
-              <i
-                style={{ color: '#01b987', fontSize: '3rem' }}
-                className="fa fa-user-circle-o data-icon"
-              />
-            </RepositorySamples>
-            <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <span> {props.viewer.count.samples} </span>
             </span>
           </Row>
         </CountBox>

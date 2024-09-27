@@ -15,9 +15,9 @@ export default (Component: ReactClass<*>) => (props: Object) => {
         query PortalSummary_relayQuery {
           viewer {
             count {
+               programs
                projects
                participants
-               samples
                dataFormats
                rawFiles
                processedFiles
