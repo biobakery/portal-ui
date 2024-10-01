@@ -4054,6 +4054,8 @@ type File implements Node {
 
   # keyword
   data_category: String
+  data_version: String
+  data_merged: String
 
   # long
   revision: Float
