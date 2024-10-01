@@ -72,6 +72,12 @@ export default (Component: ReactClass<*>) =>
                         key
                       }
                     }
+                    data_merged {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
                     file_size {
                       stats {
                         max

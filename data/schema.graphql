@@ -4729,6 +4729,7 @@ type FileAggregations {
   acl: Aggregations
   data_category: Aggregations
   data_version: Aggregations
+  data_merged: Aggregations
   associated_entities__entity_id: Aggregations
   associated_entities__case_id: Aggregations
   associated_entities__entity_submitter_id: Aggregations
