@@ -66,6 +66,12 @@ export default (Component: ReactClass<*>) =>
                         key
                       }
                     }
+                    data_version {
+                      buckets {
+                        doc_count
+                        key
+                      }
+                    }
                     file_size {
                       stats {
                         max

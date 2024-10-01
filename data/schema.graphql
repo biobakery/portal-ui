@@ -4728,6 +4728,7 @@ type FileAggregations {
   analysis__metadata__read_groups__fragment_maximum_length: NumericAggergations
   acl: Aggregations
   data_category: Aggregations
+  data_version: Aggregations
   associated_entities__entity_id: Aggregations
   associated_entities__case_id: Aggregations
   associated_entities__entity_submitter_id: Aggregations
