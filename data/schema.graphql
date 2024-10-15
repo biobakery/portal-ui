@@ -7678,6 +7678,7 @@ type Count {
   participants: String
   samples: String
   dataFormats: String
+  totalData: String
   rawFiles: String
   processedFiles: String
 }

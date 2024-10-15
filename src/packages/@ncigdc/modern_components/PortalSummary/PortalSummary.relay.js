@@ -19,6 +19,7 @@ export default (Component: ReactClass<*>) => (props: Object) => {
                projects
                participants
                dataFormats
+               totalData
                rawFiles
                processedFiles
             }

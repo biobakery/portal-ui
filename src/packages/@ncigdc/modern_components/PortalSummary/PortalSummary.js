@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import styled from '@ncigdc/theme/styled';
 import DoubleHelix from '@ncigdc/theme/icons/DoubleHelix';
 import MutationIcon from '@ncigdc/theme/icons/Mutation';
+import DatabaseIcon from '@ncigdc/theme/icons/Database';
 
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
 import { RepositoryFilesLink, RepositoryCasesLink, RepositorySamplesLink } from '@ncigdc/components/Links/RepositoryLink';
@@ -133,16 +134,16 @@ const PortalSummary = compose(
           </Row>
         </CountBox>
         <CountBox>
-          <Title className="test-mutations-label">Processed Files</Title>
+          <Title className="test-mutations-label">Total Data</Title>
           <Row>
             <RepositoryFiles>
-              <i
-                style={{ color: '#01b987', fontSize: '3rem' }}
-                className="fa fa-picture-o data-icon"
+              <i 
+                style={{ color:"#01b987", fontSize: '3rem'}}
+                className="fa fa-database" 
               />
             </RepositoryFiles>
             <span style={{ fontSize: '2.5rem', marginLeft: '0.5rem' }}>
-              <span>{props.viewer.count.processedFiles}</span>
+              <span>{props.viewer.count.totalData}</span>
             </span>
           </Row>
         </CountBox>
