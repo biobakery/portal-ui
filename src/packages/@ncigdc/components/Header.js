@@ -158,48 +158,6 @@ const Header = compose(
               </RepositoryLink>
             </li>
             <li>
-              <HPFSLink exact activeStyle={styles.activeNavLink(theme)}>
-                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
-                <span className="header-hidden-sm">HPFS</span>
-                <Hidden>HPFS</Hidden>
-              </HPFSLink>
-            </li>
-            <li>
-              <KidneyLink exact activeStyle={styles.activeNavLink(theme)}>
-                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
-                <span className="header-hidden-sm">Kidney</span>
-                <Hidden>Kidney</Hidden>
-              </KidneyLink>
-            </li>
-            <li>
-              <MBSLink exact activeStyle={styles.activeNavLink(theme)}>
-                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
-                <span className="header-hidden-sm">MBS</span>
-                <Hidden>MBS</Hidden>
-              </MBSLink>
-            </li>
-            <li>
-              <MLSCLink exact activeStyle={styles.activeNavLink(theme)}>
-                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
-                <span className="header-hidden-sm">MLSC</span>
-                <Hidden>MLSC</Hidden>
-              </MLSCLink>
-            </li>
-            <li>
-              <OHMRLink exact activeStyle={styles.activeNavLink(theme)}>
-                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
-                <span className="header-hidden-sm">OHMR</span>
-                <Hidden>OHMR</Hidden>
-              </OHMRLink>
-            </li>
-            <li>
-              <PDGMLink exact activeStyle={styles.activeNavLink(theme)}>
-                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
-                <span className="header-hidden-sm">PDGM</span>
-                <Hidden>PDGM</Hidden>
-              </PDGMLink>
-            </li>
-            <li>
               <DownloadLink exact activeStyle={styles.activeNavLink(theme)}>
                 <i className="fa fa-cloud-download" style={styles.iconPadding} />
                 <span className="header-hidden-sm">Downloads</span>
