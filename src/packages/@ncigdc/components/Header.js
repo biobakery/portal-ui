@@ -11,7 +11,7 @@ import RepositoryLink from '@ncigdc/components/Links/RepositoryLink';
 import CartLink from '@ncigdc/components/Links/CartLink';
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
 import ProtocolLink from '@ncigdc/components/Links/ProtocolLink';
-import DownloadLink from '@ncigdc/components/Links/DownloadLink';
+import HelpLink from '@ncigdc/components/Links/HelpLink';
 import HPFSLink from '@ncigdc/components/Links/HPFSLink';
 import KidneyLink from '@ncigdc/components/Links/KidneyLink';
 import MBSLink from '@ncigdc/components/Links/MBSLink';
@@ -158,11 +158,11 @@ const Header = compose(
               </RepositoryLink>
             </li>
             <li>
-              <DownloadLink exact activeStyle={styles.activeNavLink(theme)}>
-                <i className="fa fa-cloud-download" style={styles.iconPadding} />
-                <span className="header-hidden-sm">Downloads</span>
-                <Hidden>Downloads</Hidden>
-              </DownloadLink>
+              <HelpLink exact activeStyle={styles.activeNavLink(theme)}>
+                <i className="fa fa-question-circle" style={styles.iconPadding} />
+                <span className="header-hidden-sm">Help</span>
+                <Hidden>Help</Hidden>
+              </HelpLink>
             </li>
             <li>
               <ProtocolLink exact activeStyle={styles.activeNavLink(theme)}>

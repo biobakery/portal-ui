@@ -21,8 +21,8 @@ const ProtocolRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/ProtocolRoute'),
 });
 
-const DownloadRoute = LoadableWithLoading({
-  loader: () => import('@ncigdc/routes/DownloadRoute'),
+const HelpRoute = LoadableWithLoading({
+  loader: () => import('@ncigdc/routes/HelpRoute'),
 });
 
 const AuthRoute = LoadableWithLoading({
@@ -92,7 +92,7 @@ export default () => (
       <Route exact path="/contact" component={ContactRoute} />
       <Route exact path="/privacy" component={PrivacyRoute} />
       <Route exact path="/protocol" component={ProtocolRoute} />
-      <Route exact path="/download" component={DownloadRoute} />
+      <Route exact path="/help" component={HelpRoute} />
       <Route exact path="/repository" component={RepositoryRoute} />
       <Route exact path="/projects" component={ProjectsRoute} />
       {ProjectRoute}

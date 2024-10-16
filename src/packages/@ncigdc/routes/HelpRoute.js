@@ -80,38 +80,36 @@ const LogoContainer = styled(Column, {
 
 const InsideContainer = styled.div(containerStyle);
 
-const DownloadInfo = () => (
+const HelpInfo = () => (
   <Column className="test-downloadinfo">
     <GradientContainer>
       <InsideContainer flex="1">
         <SubTitle style={{ fontSize: '2rem' }}>
           <span>Meta`omic Datasets</span>
         </SubTitle>
-        <Title>BIOM-Mass Data Portal Downloads</Title>
+        <Title>BIOM-Mass Data Portal Help</Title>
         <AboutText>
 
          <br/>
 
-         <span>The BIOM-Mass project hosts open access and restricted data sets that include sample and participant metadata, sequencing data, and processed data. All types of data sets require login with Google credentials to download. All downloads can be completed from the repository page.</span>
+         <span>The BIOM-Mass project hosts open access and restricted data sets that include sample and participant metadata, sequencing data, and processed data. Restricted and large data sets require login with Google or Globus to download. All downloads can be completed from the repository page.</span>
 
          <br/>
          <br/>
 
          <b>Metadata download</b>
          <ol>
-         <li><AuthLink>Login to the BIOM-Mass Portal</AuthLink> for access to the restricted metadata.</li>
-         <li>From the <RepositoryCasesLink>repository page</RepositoryCasesLink>, navigate to the <RepositoryCasesLink>participant table</RepositoryCasesLink> or <RepositorySamplesLink>sample table</RepositorySamplesLink> from the tab in the middle of the page.</li>
-         <li>Filter the table, if needed, from any one of the filter tabs on the left-hand side of the page.</li>
+         <li><AuthLink>Login to the BIOM-Mass Portal</AuthLink> to access the restricted metadata.</li>
+         <li>From the <RepositoryCasesLink>repository page</RepositoryCasesLink>, navigate to the <RepositoryCasesLink>participant table</RepositoryCasesLink> or <RepositorySamplesLink>sample table</RepositorySamplesLink> from the tab in the middle of the page. Filter the table, if needed, from any one of the filter tabs on the left-hand side of the page.</li>
          <li>Click on the TSV button on the upper right of the table to download a tsv formatted file of the metadata.</li>
          </ol>
 
 
          <b>Sequencing data download</b>
          <ol>
-         <li><AuthLink>Login to the BIOM-Mass Portal</AuthLink> for restricted data access or just <a href="https://accounts.google.com">log-in to your Google account</a> for open access data.</li>
-         <li>From the <RepositoryFilesLink>repository page</RepositoryFilesLink>, navigate to the <RepositoryFilesLink>file table</RepositoryFilesLink> from the table in the middle of the page.</li>
-         <li>Filter the table, if needed, from any one of the filter tabs on the left-hand side of the page.</li>
-         <li>Click on the file of interest. If the file is small and open access it will automatically be downloaded. If the file is large and open access, you will be redirected to the Google Cloud Bucket Console page listing all files in the folder. At the top of the page you will be prompted to "Select a billing project" where you can enter in the project to charge the costs for downloading the data. If the file is restricted access and you have been granted access you will see a listing of all files in the folder. If you have not been granted access you will see an error from Google Cloud stating "Sorry, the server was not able to fulfill your request" which indicates that you do not have permission to view a listing or access the files. </li>
+         <li><a href="https://accounts.google.com">Log-in to your Google account</a> for large open access data or to <a href="https://www.globus.org/">Globus</a> for restricted data. <b>Small open access files are available for direct download by clicking on the file name.</b></li>
+         <li>From the <RepositoryFilesLink>repository page</RepositoryFilesLink>, navigate to the <RepositoryFilesLink>file table</RepositoryFilesLink> using the tabs in the middle of the page. Filter the table, if needed, using any one of the filter tabs on the left-hand side of the page.</li>
+         <li>Click on the file of interest. If the file is small and open access it will automatically be downloaded. If the file is large and open access, you will be redirected to the Google Cloud Bucket Console page listing all files in the folder. At the top of the page you will be prompted to "Select a billing project" where you can enter in the project to charge the costs for downloading the data. If the file is restricted access and you have been granted access you will see a listing of all files in the folder. If you have not been granted access you will see an error from Google Cloud stating "Sorry, the server was not able to fulfill your request" which indicates that you do not have permission to view a listing or access the files. If the file is restricted and hosted through Globus, you will be redirected to the Globus login to access the file for download.</li>
          </ol>
 
         </AboutText>
@@ -130,4 +128,4 @@ const DownloadInfo = () => (
   </Column>
 );
 
-export default DownloadInfo;
+export default HelpInfo;
