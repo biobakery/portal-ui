@@ -9,6 +9,7 @@ import MutationIcon from '@ncigdc/theme/icons/Mutation';
 import DatabaseIcon from '@ncigdc/theme/icons/Database';
 
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
+import ProgramsLink from '@ncigdc/components/Links/ProgramsLink';
 import { RepositoryFilesLink, RepositoryCasesLink, RepositorySamplesLink } from '@ncigdc/components/Links/RepositoryLink';
 
 import { Row, Column } from '@ncigdc/uikit/Flex';
@@ -18,7 +19,7 @@ const linkStyle = {
   color: 'white !important',
 };
 
-const Programs = styled(ProjectsLink, linkStyle);
+const Programs = styled(ProgramsLink, linkStyle);
 const Projects = styled(ProjectsLink, linkStyle);
 const RepositoryFiles = styled(RepositoryFilesLink, linkStyle);
 const RepositoryCases = styled(RepositoryCasesLink, linkStyle);

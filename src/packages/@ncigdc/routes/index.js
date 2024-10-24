@@ -4,6 +4,7 @@ import Head from '@ncigdc/components/Head';
 import NotFound from '@ncigdc/components/NotFound';
 import LoadableWithLoading from '@ncigdc/components/LoadableWithLoading';
 import ProjectRoute from '@ncigdc/routes/ProjectRoute';
+import ProgramRoute from '@ncigdc/routes/ProgramRoute';
 import FileRoute from '@ncigdc/routes/FileRoute';
 import CaseRoute from '@ncigdc/routes/CaseRoute';
 import AnnotationRoute from '@ncigdc/routes/AnnotationRoute';
@@ -73,6 +74,10 @@ const ProjectsRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/ProjectsRoute'),
 });
 
+const ProgramsRoute = LoadableWithLoading({
+  loader: () => import('@ncigdc/routes/ProgramsRoute'),
+});
+
 const AnnotationsRoute = LoadableWithLoading({
   loader: () => import('@ncigdc/routes/AnnotationsRoute'),
 });
@@ -95,7 +100,9 @@ export default () => (
       <Route exact path="/help" component={HelpRoute} />
       <Route exact path="/repository" component={RepositoryRoute} />
       <Route exact path="/projects" component={ProjectsRoute} />
+      <Route exact path="/programs" component={ProgramsRoute} />
       {ProjectRoute}
+      {ProgramRoute}
       {CaseRoute}
       <Route component={NotFound} />
     </Switch>

@@ -10,6 +10,7 @@ import HomeLink from '@ncigdc/components/Links/HomeLink';
 import RepositoryLink from '@ncigdc/components/Links/RepositoryLink';
 import CartLink from '@ncigdc/components/Links/CartLink';
 import ProjectsLink from '@ncigdc/components/Links/ProjectsLink';
+import ProgramsLink from '@ncigdc/components/Links/ProgramsLink';
 import ProtocolLink from '@ncigdc/components/Links/ProtocolLink';
 import HelpLink from '@ncigdc/components/Links/HelpLink';
 import HPFSLink from '@ncigdc/components/Links/HPFSLink';
@@ -142,6 +143,13 @@ const Header = compose(
                 <span className="header-hidden-sm">Home</span>
                 <Hidden>Home</Hidden>
               </HomeLink>
+            </li>
+            <li>
+              <ProgramsLink exact activeStyle={styles.activeNavLink(theme)}>
+                <i className="fa fa-folder-open-o" style={styles.iconPadding} />
+                <span className="header-hidden-sm">Programs</span>
+                <Hidden>Programs</Hidden>
+              </ProgramsLink>
             </li>
             <li>
               <ProjectsLink exact activeStyle={styles.activeNavLink(theme)}>
