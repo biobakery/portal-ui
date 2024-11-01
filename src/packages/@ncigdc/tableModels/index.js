@@ -2,6 +2,7 @@
 
 import exploreCases from '@ncigdc/modern_components/ExploreCasesTable/ExploreCasesTable.model';
 import projects from '@ncigdc/modern_components/ProjectsTable/ProjectsTable.model';
+import programs from '@ncigdc/modern_components/ProgramsTable/ProgramsTable.model';
 import genes from '@ncigdc/modern_components/GenesTable/GenesTable.model';
 import ssms from '@ncigdc/modern_components/SsmsTable/SsmsTable.model';
 import files from '@ncigdc/modern_components/FilesTable/FilesTable.model';
@@ -12,6 +13,7 @@ import projectPrimarySites from '@ncigdc/modern_components/ProjectPrimarySitesTa
 
 export default {
   projects,
+  programs,
   cases,
   samples,
   files,

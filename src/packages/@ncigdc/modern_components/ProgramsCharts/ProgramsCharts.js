@@ -1,0 +1,247 @@
+import React from 'react';
+import QuestionIcon from 'react-icons/lib/fa/question-circle';
+import * as d3 from 'd3';
+import { compose, withState, withProps } from 'recompose';
+import JSURL from 'jsurl';
+import { sortBy } from 'lodash';
+import Column from '@ncigdc/uikit/Flex/Column';
+import Row from '@ncigdc/uikit/Flex/Row';
+import { Tooltip } from '@ncigdc/uikit/Tooltip';
+import withRouter from '@ncigdc/utils/withRouter';
+import { WithSize } from '@ncigdc/utils/withSize';
+import { setFilter, mergeQuery, removeFilter } from '@ncigdc/utils/filters';
+import removeEmptyKeys from '@ncigdc/utils/removeEmptyKeys';
+import StackedBarChart from '@ncigdc/components/Charts/StackedBarChart';
+import styled from '@ncigdc/theme/styled';
+import { withTheme } from '@ncigdc/theme';
+import { TGroupContent, IGroupFilter } from '@ncigdc/utils/filters/types';
+import PieChart from '@ncigdc/components/Charts/PieChart';
+
+const color = d3.scaleOrdinal([
+  ...d3.schemeCategory20,
+  '#CE6DBD',
+  '#AD494A',
+  '#8C6D31',
+  '#B5CF6B',
+]);
+
+type yAxisUnit = 'percent' | 'number';
+
+type TProps = {
+  programIds: Array<string>,
+  caseCountFilters: TGroupContent,
+  fmgChartFilters: IGroupFilter,
+  numUniqueCases: number,
+  programsIsFetching: boolean,
+  genesIsFetching: boolean,
+  topGenesSource: Array<{
+    gene_id: string,
+    symbol: string,
+  }>,
+  yAxisUnit?: yAxisUnit,
+  setYAxisUnit?: Function,
+  programsViewer: { programs: { hits: { edges: Array<Object> } } },
+  theme: Object,
+  query: Object,
+  pathname: string,
+  push: Function,
+};
+
+const Container = styled(Row, {
+  backgroundColor: 'white',
+  border: '1px solid #ddd',
+  borderRadius: '4px',
+  height: '300px',
+});
+
+export default compose(
+  withState('yAxisUnit', 'setYAxisUnit', 'percent'),
+  withRouter,
+  withTheme,
+)(
+  ({
+    programsIsFetching,
+    genesIsFetching,
+    topGenesSource,
+    yAxisUnit,
+    setYAxisUnit,
+    programsViewer,
+    theme,
+    query,
+    pathname,
+    push,
+    caseCountFilters,
+    fmgChartFilters,
+  }: TProps) => {
+    const programs = programsViewer.programs.hits.edges.map(x => x.node);
+
+    const pieChartData = programs.map(program => {
+      const count = program.summary.case_count;
+
+      return {
+        id: program.name,
+        count,
+        clickHandler: () => {
+          const newQuery = mergeQuery(
+            {
+              filters: setFilter({
+                field: 'programs.name',
+                value: [].concat(program.name || []),
+              }),
+            },
+            query,
+            'toggle',
+          );
+
+          const q = removeEmptyKeys({
+            ...newQuery,
+            filters: newQuery.filters && JSURL.stringify(newQuery.filters),
+          });
+
+          push({ pathname, query: q });
+        },
+        tooltip: (
+          <span>
+            <b>
+              {program.name}
+            </b>
+            <br />
+            {count.toLocaleString()} sample{count > 1 ? 's' : ''}
+          </span>
+        ),
+      };
+    });
+
+    const pieChartDataFiles = programs.map(program => {
+      const count = program.summary.file_count;
+
+      return {
+        id: program.name+"files",
+        count,
+        clickHandler: () => {
+          const newQuery = mergeQuery(
+            {
+              filters: setFilter({
+                field: 'programs.name',
+                value: [].concat(program.name || []),
+              }),
+            },
+            query,
+            'toggle',
+          );
+
+          const q = removeEmptyKeys({
+            ...newQuery,
+            filters: newQuery.filters && JSURL.stringify(newQuery.filters),
+          });
+
+          push({ pathname, query: q });
+        },
+        tooltip: (
+          <span>
+            <b>
+              {program.name}
+            </b>
+            <br />
+            {count.toLocaleString()} file{count > 1 ? 's' : ''}
+          </span>
+        ),
+      };
+    });
+
+    const totalCases = programs.reduce(
+      (sum, p) => sum + p.summary.case_count,
+      0,
+    );
+
+    const totalFiles = programs.reduce(
+      (sum, p) => sum + p.summary.file_count,
+      0,
+    );
+
+    return (
+      <Container className="test-programs-charts">
+        <Column
+          style={{ minWidth: '200px', flexGrow: '1', flexBasis: '33%' }}
+          className="test-case-distribution-per-program"
+        >
+          <div
+            style={{
+              alignSelf: 'center',
+              color: theme.greyScale7,
+              padding: '1.5rem 0 0.5rem',
+              fontWeight: 'bold',
+            }}
+          >
+            Sample distribution
+          </div>
+          {[
+            <div
+              style={{
+                alignSelf: 'center',
+                fontSize: '1.2rem',
+                marginBottom: '2rem',
+              }}
+              key="pie-subtitle"
+            >
+              {totalCases.toLocaleString()}
+              {` sample${totalCases === 0 || totalCases > 1 ? 's' : ''}
+              across ${programs.length.toLocaleString()} program${programs.length ===
+                0 || programs.length > 1
+                ? 's'
+                : ''}`}
+            </div>,
+            <PieChart
+              key="pie-chart"
+              path="count"
+              data={pieChartData}
+              height={150}
+              width={150}
+              marginTop={25}
+            />,
+          ]}
+        </Column>
+        <Column
+          style={{ minWidth: '200px', flexGrow: '1', flexBasis: '33%' }}
+          className="test-file-distribution-per-program"
+        >
+          <div
+            style={{
+              alignSelf: 'center',
+              color: theme.greyScale7,
+              padding: '1.5rem 0 0.5rem',
+              fontWeight: 'bold',
+            }}
+          >
+            File distribution
+          </div>
+          {[
+            <div
+              style={{
+                alignSelf: 'center',
+                fontSize: '1.2rem',
+                marginBottom: '2rem',
+              }}
+              key="file-pie-subtitle"
+            >
+              {totalFiles.toLocaleString()}
+              {` file${totalFiles === 0 || totalFiles > 1 ? 's' : ''}
+              across ${programs.length.toLocaleString()} program${programs.length ===
+                0 || programs.length > 1
+                ? 's'
+                : ''}`}
+            </div>,
+            <PieChart
+              key="file-pie-chart"
+              path="count"
+              data={pieChartDataFiles}
+              height={150}
+              width={150}
+              marginTop={25}
+            />,
+          ]}
+        </Column>
+      </Container>
+    );
+  },
+);

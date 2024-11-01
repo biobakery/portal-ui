@@ -4,11 +4,11 @@ import React from 'react';
 import Relay from 'react-relay/classic';
 
 import SearchPage from '@ncigdc/components/SearchPage';
-import ProjectsCharts from '@ncigdc/modern_components/ProjectsCharts';
+import ProgramsCharts from '@ncigdc/modern_components/ProgramsCharts';
 import TabbedLinks from '@ncigdc/components/TabbedLinks';
 import GitHut from '@ncigdc/components/GitHut';
 import { Column } from '@ncigdc/uikit/Flex';
-import ProjectsTable from '@ncigdc/modern_components/ProjectsTable';
+import ProgramsTable from '@ncigdc/modern_components/ProgramsTable';
 import ProjectAggregations from './ProjectAggregations';
 
 export type TProps = {
@@ -48,15 +48,15 @@ export const ProjectsPageComponent = (props: TProps) => (
     ]}
     results={
       <Column spacing="2rem">
-        <ProjectsCharts />
+        <ProgramsCharts />
         <TabbedLinks
           queryParam="projectsTableTab"
           defaultIndex={0}
           links={[
             {
               id: 'table',
-              text: 'Projects',
-              component: <ProjectsTable />,
+              text: 'Programs',
+              component: <ProgramsTable />,
             },
           ]}
         />

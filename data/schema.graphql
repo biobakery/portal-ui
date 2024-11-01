@@ -5954,6 +5954,16 @@ type Program {
   id: String
 }
 
+type ProgramNode implements Node {
+  id: ID!
+
+  # keyword
+  name: String
+  primary_site: [String]
+  summary: Summary
+  score: Int
+}
+
 type Project implements Node {
   id: ID!
 
@@ -5987,6 +5997,21 @@ type Project implements Node {
   score: Int
 }
 
+type ProgramAggregations {
+  project_id: Aggregations
+  summary__data_categories__case_count: NumericAggergations
+  summary__data_categories__file_count: NumericAggergations
+  summary__data_categories__data_category: Aggregations
+  summary__case_count: NumericAggergations
+  summary__file_count: NumericAggergations
+  summary__experimental_strategies__case_count: NumericAggergations
+  summary__experimental_strategies__file_count: NumericAggergations
+  summary__experimental_strategies__experimental_strategy: Aggregations
+  summary__file_size: NumericAggergations
+  name: Aggregations
+  primary_site: Aggregations
+}
+
 type ProjectAggregations {
   project_id: Aggregations
   disease_type: Aggregations
@@ -6012,6 +6037,17 @@ type ProjectAggregations {
   name: Aggregations
 }
 
+type ProgramConnection {
+  # The Information to aid in pagination
+  pageInfo: PageInfo!
+
+  # The Information to aid in pagination
+  total: Int!
+
+  # Information to aid in pagination.
+  edges: [ProgramEdge]
+}
+
 type ProjectConnection {
   # The Information to aid in pagination
   pageInfo: PageInfo!
@@ -6021,6 +6057,14 @@ type ProjectConnection {
 
   # Information to aid in pagination.
   edges: [ProjectEdge]
+}
+
+type ProgramEdge {
+  # A cursor for use in pagination
+  cursor: String!
+
+  # The item at the end of the edge
+  node: ProgramNode
 }
 
 type ProjectEdge {
@@ -6043,6 +6087,20 @@ type Projects {
     aggregations_filter_themselves: Boolean = true
   ): ProjectAggregations
   hits(score: String, query: String, offset: Int, sort: [Sort], filters: FiltersArgument, before: String, after: String, first: Int, last: Int): ProjectConnection
+}
+
+type Programs {
+  facets(filters: FiltersArgument, facets: [String]!): JSONString
+  aggregations(
+    filters: FiltersArgument
+
+    # Should term aggregations be affected by queries that contain filters on
+    # their field. For example if a query is filtering primary_site by Blood
+    # should the term aggregation on primary_site return all values or just Blood.
+    # Set to False for UIs that allow users to select multiple values of an aggregation.
+    aggregations_filter_themselves: Boolean = true
+  ): ProgramAggregations
+  hits(score: String, query: String, offset: Int, sort: [Sort], filters: FiltersArgument, before: String, after: String, first: Int, last: Int): ProgramConnection
 }
 
 type ProteinMutations {
@@ -6430,6 +6488,7 @@ type Root {
   explore: Explore
   annotations: Annotations
   projects: Projects
+  programs: Programs
   cart_summary: CartSummary
   analysis: Analysis
 }
