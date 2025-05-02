@@ -87,7 +87,9 @@ The One Health Microbiome Resource (OHMR) is a collaboration between academia an
 Visit the repository page and search for "OHMR" to list <a href="https://biom-mass.org/repository?facetTab=files&files_sort=%5B%7B%22field%22%3A%22file_size%22%2C%22order%22%3A%22desc%22%7D%5D&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22OHMR%22%5D%7D%7D%5D%7D">all of the files for the OHMR program</a>. 
 <br/>
 <br/>
-Reference: Stay tuned for our manuscript "A comprehensive profile of the companion animal gut microbiome integrating reference-based and reference-free methods" which is under peer review.
+Reference:Tobyn Branck, Zhiji Hu, William A Nickols, Aaron M Walsh, Amrisha Bhosle, Meghan I Short, Jacob T Nearing, Francesco Asnicar, Lauren J McIver, Sagun Maharjan, Ali Rahnavard, Artemis S Louyakis, Dayakar V Badri, Christoph Brockel, Kelsey N Thompson, Curtis Huttenhower, Comprehensive profile of the companion animal gut microbiome integrating reference-based and reference-free methods, The ISME Journal, Volume 18, Issue 1, January 2024, wrae201, 
+<br/>
+https://doi.org/10.1093/ismejo/wrae201
 <br/>
 <br/>
 
