@@ -88,6 +88,8 @@ Mind Body Study (MBS): Stool sequencing data from women (NHS2) who had an email 
 Visit the repository page and search for "MBS" to list <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22MBS%22%5D%7D%7D%5D%7D">all of the files for the MBS project</a>. 
 <br/>
 <br/>
+The sequencing data associated with this study have been deposited in the NCBI Sequence Read Archive (SRA) under BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1164832">PRJNA1164832</a>
+<br/>
 <br/>
 References: <a href="https://pubmed.ncbi.nlm.nih.gov/31049751/">Huang T, Trudel-Fitzgerald C, Poole EM, Sawyer S, Kubzansky LD, Hankinson SE, Okereke OI, Tworoger SS. The Mind-Body Study: study design and reproducibility and interrelationships of psychosocial factors in the Nurses Health Study II. Cancer Causes Control. 2019 Jul;30(7):779-790.</a> and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao Y, Bertoia ML, Lenart EB, Stampfer MJ, Willett WC, Speizer FE, Chavarro JE. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/33883746/">Everett C, Li C, Wilkinson JE, Nguyen LH, McIver LJ, Ivey K, Izard J, Palacios N, Eliassen AH, Willett WC, Ascherio A, Sun Q, Tworoger SS, Chan AT, Garrett WS, Huttenhower C, Rimm EB, Song M. Overview of the Microbiome Among Nurses study (Micro-N) as an example of prospective characterization of the microbiome within cohort studies. Nat Protoc. 2021 Jun;16(6):2724-2731. PMC9240631.</a>
 
