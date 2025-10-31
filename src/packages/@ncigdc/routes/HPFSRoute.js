@@ -48,7 +48,7 @@ const GradientContainer = styled(Row, {
 const containerStyle = {
   flex: 1,
   padding: '3rem',
-  height: '50rem',
+  height: '55rem',
   position: 'relative',
 };
 
@@ -84,7 +84,33 @@ const Auth = () => (
 HPFS - Health Professions Followup Study: This dataset comprises longitudinally-collected sequenced stool  collected from men from the Men’s Lifestyle Validation Study (MLVS) sub-cohort of HPFS.  Study participants were adults 65-82 years old at the time of sample collection, and who were members of the Harvard Pilgrim Health Care insurance plan at time of enrollment. This dataset also has metatranscriptomic data. The associated publication examined the stability of the metagenome and metatranscriptome within individuals over time.
 <br/>
 <br/>
-Visit the repository page and search for "HPFS" to list <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22HPFS%22%5D%7D%7D%5D%7D">all of the files for the HPFS project</a>. 
+<div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+  <p
+    style={{
+      fontWeight: 600,
+      fontSize: '1.1rem',
+      marginBottom: '0.75rem',
+    }}
+  >
+    <a
+      href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22HPFS%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_merged%22%2C%22value%22%3A%5B%22yes%22%5D%7D%7D%5D%7D"
+      target="_blank"
+      style={{
+        display: 'inline-block',
+        backgroundColor: '#d32f2f',
+        color: '#ffffff',
+        padding: '10px 20px',
+        borderRadius: '6px',
+        textDecoration: 'none',
+        transition: 'background-color 0.3s ease',
+      }}
+      onMouseEnter={(e) => (e.target.style.backgroundColor = '#b71c1c')}
+      onMouseLeave={(e) => (e.target.style.backgroundColor = '#d32f2f')}
+    >
+      Access or download all data for HPFS Project
+    </a>
+  </p>
+</div>
 <br/>
 <br/>
 SRA bioproject: <a href="https://www.ncbi.nlm.nih.gov/bioproject/354235">354235</a>
