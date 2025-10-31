@@ -48,7 +48,7 @@ const GradientContainer = styled(Row, {
 const containerStyle = {
   flex: 1,
   padding: '3rem',
-  height: '50rem',
+  height: '65rem',
   position: 'relative',
 };
 
@@ -90,7 +90,59 @@ Prescient: Stool sequencing data originally funded by Prescient Metabiomics from
 
 <br/>
 <br/>
-Visit the repository page and search for "MLSC" to list <a href="https://biom-mass.org/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22MLSC%22%5D%7D%7D%5D%7D">all of the files for the MLSC program</a>. 
+
+<div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+  <p
+    style={{
+      fontWeight: 600,
+      fontSize: '1.1rem',
+      marginBottom: '0.75rem',
+    }}
+  >
+    <a
+      href="https://biom-mass.org/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22MLSC%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%2$
+      target="_blank"
+      style={{
+        display: 'inline-block',
+        backgroundColor: '#d32f2f',
+        color: '#ffffff',
+        padding: '10px 20px',
+        borderRadius: '6px',
+        textDecoration: 'none',
+        transition: 'background-color 0.3s ease',
+      }}
+      onMouseEnter={(e) => (e.target.style.backgroundColor = '#b71c1c')}
+      onMouseLeave={(e) => (e.target.style.backgroundColor = '#d32f2f')}
+    >
+      Access or download all data for MLSC BTB Project
+    </a>
+  </p>
+
+  <p
+    style={{
+      fontWeight: 600,
+      fontSize: '1.1rem',
+    }}
+  >
+    <a
+      href="https://biom-mass.org/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22MLSC%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%2$
+      target="_blank"
+      style={{
+        display: 'inline-block',
+        backgroundColor: '#d32f2f',
+        color: '#ffffff',
+        padding: '10px 20px',
+        borderRadius: '6px',
+        textDecoration: 'none',
+        transition: 'background-color 0.3s ease',
+      }}
+      onMouseEnter={(e) => (e.target.style.backgroundColor = '#b71c1c')}
+      onMouseLeave={(e) => (e.target.style.backgroundColor = '#d32f2f')}
+    >
+      Access or download all data for MLSC Prescient Project
+    </a>
+  </p>
+</div>
 <br/>
 <br/>
 References: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4981810/">Bao Y, Bertoia ML, Lenart EB, Stampfer MJ, Willett WC, Speizer FE, Chavarro JE. Origin, Methods, and Evolution of the Three Nurses Health Studies. Am J Public Health 106, 1573-1581 (2016) PMC4981810.</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/33883746/">Everett C, Li C, Wilkinson JE, Nguyen LH, McIver LJ, Ivey K, Izard J, Palacios N, Eliassen AH, Willett WC, Ascherio A, Sun Q, Tworoger SS, Chan AT, Garrett WS, Huttenhower C, Rimm EB, Song M. Overview of the Microbiome Among Nurses study (Micro-N) as an example of prospective characterization of the microbiome within cohort studies. Nat Protoc. 2021 Jun;16(6):2724-2731. PMC9240631.</a>
